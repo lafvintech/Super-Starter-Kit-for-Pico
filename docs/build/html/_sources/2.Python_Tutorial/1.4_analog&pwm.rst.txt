@@ -1,4 +1,4 @@
-Chapter 4 Analog & PWM
+1.4 Analog & PWM
 =========================
 In previous study, we have known that one button has two states: pressed and 
 released, and LED has lighton/off state, then how to enter a middle state? How 

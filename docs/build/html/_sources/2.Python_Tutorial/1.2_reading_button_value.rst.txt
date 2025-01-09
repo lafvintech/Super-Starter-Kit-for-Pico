@@ -1,0 +1,61 @@
+1.2 Reading Button Value
+=========================
+Usually, there are three essential parts in a complete automatic control device: 
+INPUT, OUTPUT, and CONTROL. In last section, the LED module was the output part 
+and Pico was the control part. In practical applications, we not only make 
+LEDs flash, but also make a device sense the surrounding environment, receive 
+instructions and then take the appropriate action such as LEDs light up, make a 
+buzzer turn ON and so on.
+
+.. image:: img/other/2.png
+
+Next, we will build a simple control system to control a LED through a push button switch.
+
+These pins have both input and output functions, as indicated by their name GPIO 
+(General-purpose input/output). Previously, we used the output function; in this 
+chapter, we will use the input function to input the button value.
+
+Component List
+^^^^^^^^^^^^^^^
+- Raspberry Pi Pico W x1
+- MicroUSB cable x1
+- 830 Tie-Points Breadboard x1
+- Resistor 10KΩ x1
+- Jumper Wire x3
+- Button x1
+
+Component knowledge
+^^^^^^^^^^^^^^^^^^^^
+:ref:`Button <cpn_button>`
+"""""""""""""""""""""""""""
+
+Connect
+^^^^^^^^^^
+.. image:: img/connect/1.2.png
+
+Code
+^^^^^^^
+.. note::
+
+    * Open the ``1.2_reading_button_value.py`` file under the path of ``Super-Starter-Kit-for-Pico\Python\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
+
+    * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
+
+
+
+The following is the program code:
+
+.. code-block:: python
+
+    import machine  # Import the machine module for hardware access
+    import utime    # Import the utime module for time-related functions
+
+    # Create a button object connected to GPIO 14, set as input mode
+    button = machine.Pin(14, machine.Pin.IN)
+
+    # Infinite loop to continuously check the button state
+    while True:
+        # If button.value() returns 1, the button is pressed
+        if button.value() == 1:
+            print("The button is pressed!")  # Print message when the button is pressed
+            utime.sleep(1)  # Pause for 1 second to avoid rapid message printing

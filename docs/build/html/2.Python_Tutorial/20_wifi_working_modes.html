@@ -48,6 +48,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../preparation/preparation.html">Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1.C_Tutorial/c_tutorial.html">C Language Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_tutorial.html">Python Language Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../components_Kit/Components_Kit.html">Components Introduction</a></li>
 </ul>
 
         </div>
@@ -92,21 +93,21 @@ operating mode before using WiFi, otherwise WiFi cannot be used.</p>
 <section id="connect">
 <h3>Connect<a class="headerlink" href="#connect" title="Link to this heading"></a></h3>
 <p>Connect ESP32-S3 to the computer using the USB cable.</p>
-<img alt="../_images/connect11.png" src="../_images/connect11.png" />
+<img alt="2.Python_Tutorial/img/0/connect1.png" src="2.Python_Tutorial/img/0/connect1.png" />
 </section>
 <section id="code">
 <h3>Code<a class="headerlink" href="#code" title="Link to this heading"></a></h3>
 <p>Move the program folder “Super_Starter_Kit_for_ESP32_S3/Python/Python_C
 odes” to disk(D) in advance with the path of “D:/Micropython_Codes”.</p>
 <p><strong>20.1_Station_mode</strong></p>
-<img alt="../_images/20.12.png" src="../_images/20.12.png" />
+<img alt="2.Python_Tutorial/img/software/20.1.png" src="2.Python_Tutorial/img/software/20.1.png" />
 <p>Because the names and passwords of routers in various places are different, before
 the Code runs, users need to enter the correct router’s name and password in the
 box as shown in the illustration above. After making sure the router name and
 password are entered correctly, compile and upload codes to ESP32S3,
 wait for ESP32-S3 to connect to your router and print the IP address assigned by
 the router to ESP32-S3 in “Shell”.</p>
-<img alt="../_images/20.1-11.png" src="../_images/20.1-11.png" />
+<img alt="2.Python_Tutorial/img/software/20.1-1.png" src="2.Python_Tutorial/img/software/20.1-1.png" />
 <p>The following is the program code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">network</span>
@@ -142,7 +143,7 @@ the router to ESP32-S3 in “Shell”.</p>
 <section id="circuit">
 <h3>Circuit<a class="headerlink" href="#circuit" title="Link to this heading"></a></h3>
 <p>Connect ESP32-S3 to the computer using the USB cable.</p>
-<img alt="../_images/connect11.png" src="../_images/connect11.png" />
+<img alt="2.Python_Tutorial/img/0/connect1.png" src="2.Python_Tutorial/img/0/connect1.png" />
 </section>
 <section id="id1">
 <h3>Code<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
@@ -151,16 +152,16 @@ odes” to disk(D) in advance with the path of “D:/Micropython_Codes”.</p>
 <p>Open “Thonny”, click “This computer” &gt;&gt; “D:” &gt;&gt; “Micropython_Codes” &gt;&gt; “20.2_AP_mod
 e”. and double click “AP_mode.py”.
 <strong>20.2_AP_mode</strong></p>
-<img alt="../_images/20.22.png" src="../_images/20.22.png" />
+<img alt="2.Python_Tutorial/img/software/20.2.png" src="2.Python_Tutorial/img/software/20.2.png" />
 <p>Before the Code runs, you can make any changes to the AP name and password for
 ESP32-S3 in the box as shown in the illustration above. Of course, you can leave
 it alone by default. Click “Run current script”, open the AP function of ESP32-S3
 and print the access point information.</p>
-<img alt="../_images/20.2-1.png" src="../_images/20.2-1.png" />
+<img alt="2.Python_Tutorial/img/software/20.2-1.png" src="2.Python_Tutorial/img/software/20.2-1.png" />
 <p>Turn on the WiFi scanning function of your phone, and you can see the ssid_AP on
 ESP32S3, which is called “WiFi_Name” in this Code. You can enter the password
 “12345678” to connect it or change its AP name and password by modifying Code.</p>
-<img alt="../_images/20.2-2.jpg" src="../_images/20.2-2.jpg" />
+<img alt="2.Python_Tutorial/img/software/20.2-2.jpg" src="2.Python_Tutorial/img/software/20.2-2.jpg" />
 <p>The following is the program code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">network</span>
 <span class="kn">import</span> <span class="nn">time</span>
@@ -210,7 +211,7 @@ ESP32S3, which is called “WiFi_Name” in this Code. You can enter the passwor
 <section id="component-list-circuit">
 <h3>Component List &amp; Circuit<a class="headerlink" href="#component-list-circuit" title="Link to this heading"></a></h3>
 <p>Component List &amp; Circuit are the same as in Project 23.1.</p>
-<img alt="../_images/connect11.png" src="../_images/connect11.png" />
+<img alt="2.Python_Tutorial/img/0/connect1.png" src="2.Python_Tutorial/img/0/connect1.png" />
 </section>
 <section id="id2">
 <h3>Code<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
@@ -219,16 +220,16 @@ odes” to disk(D) in advance with the path of “D:/Micropython_Codes”.</p>
 <p>Open “Thonny”, click “This computer” &gt;&gt; “D:” &gt;&gt; “Micropython_Codes” &gt;&gt; “20.3_AP+ST
 A_mode”and double click “AP+STA_mode.py”.
 <strong>20.3_AP+STA_mode</strong></p>
-<img alt="../_images/20.3.png" src="../_images/20.3.png" />
+<img alt="2.Python_Tutorial/img/software/20.3.png" src="2.Python_Tutorial/img/software/20.3.png" />
 <p>It is analogous to Project 20.1 and Project 20.2. Before running the Code, you
 need to modify ssidRouter, passwordRouter, ssidAP and passwordAP shown in the
 box of the illustration above.</p>
 <p>After making sure that the code is modified correctly, click “Run current script”
 and the “Shell” will display as follows:</p>
-<img alt="../_images/20.3-1.png" src="../_images/20.3-1.png" />
+<img alt="2.Python_Tutorial/img/software/20.3-1.png" src="2.Python_Tutorial/img/software/20.3-1.png" />
 <p>Turn on the WiFi scanning function of your phone, and you can see the ssidAP on
 ESP32-S3.</p>
-<img alt="../_images/20.3-2.jpg" src="../_images/20.3-2.jpg" />
+<img alt="2.Python_Tutorial/img/software/20.3-2.jpg" src="2.Python_Tutorial/img/software/20.3-2.jpg" />
 <p>The following is the program code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">network</span>
 <span class="kn">import</span> <span class="nn">socket</span>

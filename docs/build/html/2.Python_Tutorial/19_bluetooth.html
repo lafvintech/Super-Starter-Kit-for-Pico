@@ -48,6 +48,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../preparation/preparation.html">Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1.C_Tutorial/c_tutorial.html">C Language Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_tutorial.html">Python Language Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../components_Kit/Components_Kit.html">Components Introduction</a></li>
 </ul>
 
         </div>
@@ -89,7 +90,7 @@ Bluetooth of ESP32-S3 WROOM and mobile phones.</p>
 </section>
 <section id="connect">
 <h3>Connect<a class="headerlink" href="#connect" title="Link to this heading"></a></h3>
-<img alt="../_images/connect11.png" src="../_images/connect11.png" />
+<img alt="2.Python_Tutorial/img/0/connect1.png" src="2.Python_Tutorial/img/0/connect1.png" />
 <p><strong>nRF Connect</strong></p>
 <p>In this class, we will use the nRF Connect software for Bluetooth debugging.</p>
 <p>Android users can download it from this link:
@@ -107,7 +108,7 @@ Select “ble_advertising.py”, right click your mouse to select “Upload to /
 wait for “ble_advertising.py” to be uploaded to ESP32-S3 and then double click
 “BLE.py”.</p>
 <p><strong>19.1_BLE</strong></p>
-<img alt="../_images/19.12.png" src="../_images/19.12.png" />
+<img alt="2.Python_Tutorial/img/software/19.1.png" src="2.Python_Tutorial/img/software/19.1.png" />
 <p>Click run for BLE.py.</p>
 <img alt="../_images/pc_ble_init.png" src="../_images/pc_ble_init.png" />
 <p>Turn ON Bluetooth on your phone, and open the nrf-connect APP.</p>
@@ -270,7 +271,7 @@ E_LED”. Select “ble_advertising.py”, right click your mouse to select  “
 o /”, wait for “ble_advertising.py”  to be uploaded to ESP32-S3 and then double
 click  “BLE_LED.py”</p>
 <p><strong>19.2_BLE_LED</strong></p>
-<img alt="../_images/19.22.png" src="../_images/19.22.png" />
+<img alt="2.Python_Tutorial/img/software/19.2.png" src="2.Python_Tutorial/img/software/19.2.png" />
 <p>Compile and upload code to ESP32S3. The operation of the APP is the same as 19.1, you only need to change
 the sending content to “led_on” and “led_off” to operate LEDs on the ESP32S3.</p>
 <p>Data sent from mobile APP:</p>
@@ -278,7 +279,7 @@ the sending content to “led_on” and “led_off” to operate LEDs on the ESP
 <p>You can check the message sent by Bluetooth in “Shell”.</p>
 <img alt="../_images/pc_ble_led_recive.png" src="../_images/pc_ble_led_recive.png" />
 <p>The phenomenon of LED</p>
-<img alt="../_images/19.23.png" src="../_images/19.23.png" />
+<img alt="../_images/19.22.png" src="../_images/19.22.png" />
 <p>Attention: If the sending content isn’t “led_on’ or “led_off”, then the state of
 LED will not change. If the LED is on, when receiving irrelevant content, it
 keeps on; Correspondingly, if the LED is off, when receiving irrelevant content,

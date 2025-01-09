@@ -51,24 +51,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../1.C_Tutorial/c_tutorial.html">C Language Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="python_tutorial.html">Python Language Tutorial</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Python Language Preparation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#download-the-thonny">Download the Thonny</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download-the-thonny">1.Download the Thonny</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#windows">Windows</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#basic-configuration-of-thonny">Basic Configuration of Thonny</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#install-micropython-firmware-to-your-pico-important">Install Micropython Firmware to your Pico(Important)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#testing-codes-important">Testing codes (Important)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#running-online">Running Online</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#running-offline">Running Offline</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#thonny-common-operation">Thonny Common Operation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#uploading-code-to-esp32s3">Uploading Code to ESP32S3</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#downloading-code-to-computer">Downloading Code to Computer</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#deleting-files-from-esp32s3s-root-directory">Deleting Files from ESP32S3’s Root Directory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#deleting-files-from-your-computer-directory">Deleting Files from your Computer Directory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#creating-and-saving-the-code">Creating and Saving the code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-micropython-firmware-to-your-pico-important">2.Install Micropython Firmware to your Pico(Important)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#testing-codes-important">3.Testing codes (Important)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pico">上传库文件到Pico</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#open-and-run-code">Open and Run Code</a></li>
 </ul>
 </li>
 </ul>
@@ -82,6 +74,7 @@
 <li class="toctree-l2"><a class="reference internal" href="7_iot_projects.html">7 IoT Projects</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../components_Kit/Components_Kit.html">Components Introduction</a></li>
 </ul>
 
         </div>
@@ -112,7 +105,7 @@
   <section id="python-language-preparation">
 <h1>Python Language Preparation<a class="headerlink" href="#python-language-preparation" title="Link to this heading"></a></h1>
 <section id="download-the-thonny">
-<h2>Download the Thonny<a class="headerlink" href="#download-the-thonny" title="Link to this heading"></a></h2>
+<h2>1.Download the Thonny<a class="headerlink" href="#download-the-thonny" title="Link to this heading"></a></h2>
 <p>Before you can start to program Pico with MicroPython, you need an integrated
 development environment (IDE), here we recommend Thonny. Thonny comes with Python
 3.7 built in, just one simple installer is needed and you’re ready to learn programming.</p>
@@ -126,8 +119,8 @@ development environment (IDE), here we recommend Thonny. Thonny comes with Pytho
 <p><a class="reference external" href="https://github.com/thonny/thonny/releases/download/v4.1.6/thonny-4.1.6.pkg">MacOS Thonny</a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You can also open “Super_Starter_Kit_for_ESP
-2_S3/Python/Python_Software”, we have prepared it in advance.</p>
+<p>You can also open “Super_Starter_Kit_for_Pico/Python/Software”,
+we have prepared it in advance.</p>
 </div>
 </section>
 <section id="installation">
@@ -168,105 +161,72 @@ see the below icon on your desktop.</p>
 <img alt="../_images/thonny_5.png" src="../_images/thonny_5.png" />
 </section>
 <section id="install-micropython-firmware-to-your-pico-important">
-<h2>Install Micropython Firmware to your Pico(Important)<a class="headerlink" href="#install-micropython-firmware-to-your-pico-important" title="Link to this heading"></a></h2>
-<p>我们现在将MicroPython安装到你的Raspberry Pi Pico中,Thonny IDE为我们提供了一键安装的方式</p>
-<ol class="arabic simple">
-<li><p>我们先打开Thonny IDE</p></li>
+<h2>2.Install Micropython Firmware to your Pico(Important)<a class="headerlink" href="#install-micropython-firmware-to-your-pico-important" title="Link to this heading"></a></h2>
+<p>我们现在将MicroPython安装到Raspberry Pi Pico中,Thonny IDE为我们提供了一键安装的方式</p>
+<ol class="arabic">
+<li><p>我们先打开Thonny IDE</p>
+<img alt="../_images/firmware1.png" src="../_images/firmware1.png" />
+</li>
 <li><p>我们按住Pico的BOOTSEL按钮,然后使用Micro USB连接Pico和电脑,当电脑弹出一个名为RPI-RP2的设备的时候, 释放BOOTSEL按钮</p></li>
-<li><p>在IDE右下角,选择Install MicroPython</p></li>
-<li><p>点击之后会出现一个窗口,在Target卷中，您刚刚插入的Pico卷将自动出现，在Micropython变体中，选择Raspberry Pi。Pico W/Pico WH,然后版本选择1.24.1</p></li>
+<li><p>在IDE右下角,选择Install MicroPython</p>
+<img alt="../_images/firmware2.png" src="../_images/firmware2.png" />
+</li>
+</ol>
+<p>4. 点击之后会出现一个窗口,在Target卷中，您刚刚插入的Pico卷将自动出现，在Micropython变体
+中，选择Raspberry Pi。Pico W/Pico WH,然后版本选择1.24.1,点击安装,等待安装结束</p>
+<blockquote>
+<div><img alt="../_images/firmware3.png" src="../_images/firmware3.png" />
+</div></blockquote>
+<ol class="arabic simple" start="5">
 <li><p>此时你的Pico已经准备就绪了!</p></li>
 </ol>
 <section id="testing-codes-important">
-<h3>Testing codes (Important)<a class="headerlink" href="#testing-codes-important" title="Link to this heading"></a></h3>
+<h3>3.Testing codes (Important)<a class="headerlink" href="#testing-codes-important" title="Link to this heading"></a></h3>
 <p>确保Pico已经安装MicroPython并通过数据线连接到计算机。打开Thonny,点击右下角,确保里面有
 MicroPython (Raspberry Pi Pico),其中的COM对于不同的系统可能不同</p>
-<img alt="../_images/thonny_%E5%8F%B3%E4%B8%8B%E8%A7%92.png" src="../_images/thonny_%E5%8F%B3%E4%B8%8B%E8%A7%92.png" />
+<img alt="../_images/select_pico.png" src="../_images/select_pico.png" />
 <p>After configuration, every time you open Thonny, it will communicate with Pico.
 The interface is shown below.
 配置完成之后,每次打开Thonny,它会与Pico通信</p>
-<img alt="2.Python_Tutorial/img/pico/thonny_完整.png" src="2.Python_Tutorial/img/pico/thonny_完整.png" />
+<img alt="../_images/ide_main.png" src="../_images/ide_main.png" />
 <p>Enter <code class="docutils literal notranslate"><span class="pre">print('hello</span> <span class="pre">world')</span></code> in “Shell” and press Enter.</p>
-<img alt="2.Python_Tutorial/img/pico/thonny_测试.png" src="2.Python_Tutorial/img/pico/thonny_测试.png" />
+<img alt="../_images/test_pico.png" src="../_images/test_pico.png" />
 </section>
-<section id="running-online">
-<h3>Running Online<a class="headerlink" href="#running-online" title="Link to this heading"></a></h3>
-<p>ESP32-S3 needs to be connected to a computer when it is run online. Users can use
-Thonny to writer and debug programs.</p>
-<ol class="arabic simple">
-<li><p>Open Thonny and click “Open…”.</p></li>
-</ol>
-<img alt="../_images/online1.png" src="../_images/online1.png" />
-<ol class="arabic simple" start="2">
-<li><p>On the newly pop-up window, click “This computer”.</p></li>
-</ol>
-<img alt="../_images/online2.png" src="../_images/online2.png" />
-<p>In the new dialog box, select “HelloWorld.py” in “ESP32S3_Super_Starter_Kit/Pyt
-hon/Python_Codes/00.0_HelloWorld” folder.</p>
-<img alt="../_images/online3.png" src="../_images/online3.png" />
-<p>Click “Run current script” to execute the program and “Hello World” will be printed in “Shell”.</p>
-<img alt="../_images/online4.png" src="../_images/online4.png" />
+<section id="pico">
+<h3>上传库文件到Pico<a class="headerlink" href="#pico" title="Link to this heading"></a></h3>
+<p>In some projects, you will need additional libraries. So here we upload these libraries to Raspberry Pi Pico W first, and then we can run the code directly later.
+在某些项目中，您将需要额外的库。因此，我们首先将这些库上传到Raspberry Pi Pico W，然后我们可以直接运行代码。</p>
+<p>1.打开thony IDE，用微型USB电缆将Pico插入计算机，然后单击右下角的“MicroPython (Raspberry Pi Pico).COMXX”</p>
+<img alt="../_images/select_pico.png" src="../_images/select_pico.png" />
+<p>2.将ide切换到项目文件夹LAFVIN_Super_Starter_Kit_For_Pico/Library内的所有文件上传到/,上传需要一点时间</p>
+<img alt="../_images/upload_pico1.png" src="../_images/upload_pico1.png" />
+<p>3.现在你将看到你刚刚上传的库在你的pico中</p>
+<img alt="../_images/upload_pico2.png" src="../_images/upload_pico2.png" />
+</section>
+<section id="open-and-run-code">
+<h3>Open and Run Code<a class="headerlink" href="#open-and-run-code" title="Link to this heading"></a></h3>
+<p>1.项目中的code部分会告诉你使用了哪段代码，所以可以在对应路径找到代码文件如果你双击它，一
+个新的窗口会在右边打开。你可以同时打开多个代码。</p>
+<p>2.选择对应要运行脚本，单击“运行当前脚本”按钮或按F5。</p>
+<img alt="2.Python_Tutorial/arg1" src="2.Python_Tutorial/arg1" />
+<p>如果代码中包含需要打印的信息，它就会出现在Shell中；否则，只会显示以下信息。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>MicroPython<span class="w"> </span>vx.xx<span class="w"> </span>on<span class="w"> </span>xxxx-xx-xx<span class="p">;</span><span class="w"> </span>Raspberry<span class="w"> </span>Pi<span class="w"> </span>Pico<span class="w"> </span>W<span class="w">  </span>With<span class="w"> </span>RP2040
+
+Type<span class="w"> </span><span class="s2">&quot;help()&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
+&gt;&gt;&gt;<span class="w"> </span>%Run<span class="w"> </span>-c<span class="w"> </span><span class="nv">$EDITOR_CONTENT</span>
+</pre></div>
+</div>
+<p>3.要停止正在运行的代码，请单击“停止/重新启动后端”按钮。%RUN -c $EDITOR_CONTENT命令在停止后将消失。</p>
+<p>4.我们可以使用ide上面的save按钮或Ctrl+S或来保存对当前文件的修改</p>
+<p>以及使用file -&gt; Save as来将代码保存为单独的文件</p>
+<p>选择树莓派Pico</p>
+<p>输入文件名和扩展名.py后，单击OK。你将在树莓派pico上看到保存的文件</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>When running online, if you press the reset key of ESP32S3, user’s code will
-not be executed again. If you wish to run the code automatically after
-resetting the code, please refer to the following Running Offline.</p>
+<p>Regardless of what name you give your code, it’s best to describe what type
+of code it is, and not give it a meaningless name like abc.py. When you save
+the code as main.py, it will run automatically when the power is turned on.</p>
 </div>
-</section>
-<section id="running-offline">
-<h3>Running Offline<a class="headerlink" href="#running-offline" title="Link to this heading"></a></h3>
-<p>After ESP32-S3 is reset, it runs the file boot.py in root directory first and
-then runs file main.py, and finally, it enters “Shell”. Therefore, to make
-ESP32-S3 execute user’s programs after resetting, we need to add a guiding
-program in boot.py to execute user’s code.</p>
-<p>Move the program folder “Super_Starter_Kit_for_ESP32_S3/Python/Python_C
-odes” to disk(D) in advance with the path of “D:/MicroPy_Codes. Open “Thonny”.</p>
-</section>
-</section>
-<section id="thonny-common-operation">
-<h2>Thonny Common Operation<a class="headerlink" href="#thonny-common-operation" title="Link to this heading"></a></h2>
-<section id="uploading-code-to-esp32s3">
-<h3>Uploading Code to ESP32S3<a class="headerlink" href="#uploading-code-to-esp32s3" title="Link to this heading"></a></h3>
-<p>Each time when ESP32-S3 restarts, if there is a “boot.py” in the root directory,
-it will execute this code first.</p>
-<img alt="../_images/operation1.png" src="../_images/operation1.png" />
-<p>Select “Blink.py” in “01.1_Blink”, right-click your mouse and select “Upload to
-/” to upload code to ESP32S3’s root directory.</p>
-<img alt="../_images/operation2.png" src="../_images/operation2.png" />
-</section>
-<section id="downloading-code-to-computer">
-<h3>Downloading Code to Computer<a class="headerlink" href="#downloading-code-to-computer" title="Link to this heading"></a></h3>
-<p>Select “boot.py” in “MicroPython device”, right-click to select “Download to …
-” to download the code to your computer.</p>
-<img alt="../_images/operation3.png" src="../_images/operation3.png" />
-</section>
-<section id="deleting-files-from-esp32s3s-root-directory">
-<h3>Deleting Files from ESP32S3’s Root Directory<a class="headerlink" href="#deleting-files-from-esp32s3s-root-directory" title="Link to this heading"></a></h3>
-<p>Select “boot.py” in “MicroPython device”, right-click it and select “Delete” to
-delete “boot.py” from ESP32S3’s root directory.</p>
-<img alt="../_images/operation4.png" src="../_images/operation4.png" />
-</section>
-<section id="deleting-files-from-your-computer-directory">
-<h3>Deleting Files from your Computer Directory<a class="headerlink" href="#deleting-files-from-your-computer-directory" title="Link to this heading"></a></h3>
-<p>Select “boot.py” in “00.1_Boot”, right-click it and select “Move to Recycle Bin”
-to delete it from “00.1_Boot”.</p>
-<img alt="../_images/operation5.png" src="../_images/operation5.png" />
-</section>
-<section id="creating-and-saving-the-code">
-<h3>Creating and Saving the code<a class="headerlink" href="#creating-and-saving-the-code" title="Link to this heading"></a></h3>
-<p>Click “File”&gt;&gt;“New” to create and write codes.</p>
-<img alt="../_images/operation6.png" src="../_images/operation6.png" />
-<p>Enter codes in the newly opened file. Here we use codes of “HelloWorld.py” as an
-example.</p>
-<p>Click “Save” on the menu bar. You can save the codes either to your computer or
-to ESP32S3.</p>
-<img alt="../_images/operation7.png" src="../_images/operation7.png" />
-<p>Select “MicroPython device”, enter “main.py” in the newly pop-up window and click “OK”.</p>
-<img alt="../_images/operation9.png" src="../_images/operation9.png" />
-<p>You can see that codes have been uploaded to ESP32S3</p>
-<p>Disconnect and reconnect the USB cable, and you can see that the Shell printed
-“hello world.”</p>
-<img alt="../_images/operation8.png" src="../_images/operation8.png" />
 </section>
 </section>
 </section>

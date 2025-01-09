@@ -1,15 +1,11 @@
 1.1 LED_Blink (Important)
 =================================
-This chapter is the Start Point in the journey to build and explore ESP32-S3 WROOM 
+This chapter is the Start Point in the journey to build and explore Raspberry Pi Pico
 electronic projects. We will start with simple “Blink” project.
 
-Project 1.1 Blink
-------------------------
-In this project, we will use ESP32-S3 WROOM to control blinking a common LED.
+In this project, we will use Pico to control blinking a common LED.
 
-Power ESP32-S3 WROOM needs 5v power supply. In this tutorial, we need connect 
-ESP32-S3 WROOM to computer via USB cable to power it and program it. We can also 
-use other 5v power source to power it.
+Power Pico needs 5v power supply. In this tutorial, we need connect Pico to computer via USB cable to power it and program it.
 
 Component List
 ^^^^^^^^^^^^^^^
@@ -18,7 +14,7 @@ Component List
 - 830 Tie-Points Breadboard x1
 - LED x1
 - Resistor 220Ω x1
-- Jumper Wire x4
+- Jumper Wire x1
   
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
@@ -31,6 +27,14 @@ Component knowledge
 :ref:`Breadboard <cpn_breadboard>`
 """"""""""""""""""""""""""""""""""
 
+Schematic
+^^^^^^^^^^
+.. image:: img/schematic/1.1.png
+
+This circuit works on a simple principle, and the current direction is shown in 
+the figure. The LED will light up after the 220ohm current limiting resistor when 
+GP15 outputs high level (3.3v). The LED will turn off when GP15 outputs low level (0v).
+
 Connect
 ^^^^^^^^^^^^^^^
 
@@ -38,165 +42,49 @@ Connect
 
 Code
 ^^^^^^^^
-Codes used in this tutorial are saved in “Super_Starter_Kit_for_ESP32_S
-3/Python/ Python_Codes”. You can move the codes to any location. For example, we 
-save the codes in Disk(D) with the path of “D:/Micropython_Codes”.
+.. note::
 
-**01.1_Blink**
-Open “Thonny”，click “This computer”>>“D:”>>“Micropython_Codes”.
+    * Open the ``1.1_led_blink.py`` file under the path of ``Super-Starter-Kit-for-Pico\Python\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
 
-.. image:: img/software/1.0.png
+    * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
 
+After running the code, you will see the LED light up for 200 milliseconds and then turn off for 200 milliseconds.
 
-Expand folder “01.1_Blink” and double click “Blink.py” to open it. As shown in 
-the illustration below.
+If you want to stop the code, you can click the stop button in the IDE or press Ctrl+C in the shell area.
 
 .. image:: img/software/1.1.png
 
-Make sure ESP32-S3 has been connected with the computer with ESP32-S3 correctly. 
-Click “Stop/Restart backend” or press the reset button, and then wait to see what 
-interface will sho  w up.
-
-.. image:: img/software/1.2.png
-
-Click “Run current script” shown in the box above，the code starts to be executed 
-and the LED in the circuit starts to blink.
-
-.. note:: 
-    This is the code running online. If you disconnect USB cable and repower 
-    ESP32-S3 or press its reset key, LED stops blinking and the following 
-    messages will be displayed in Thonny.
-
-.. image:: img/software/1.3.png
-
-**Uploading code to ESP32S3**
-
-As shown in the following illustration, right-click the file Blink.py and select 
-“Upload to /” to upload code to ESP32S3.
-
-.. image:: img/software/1.4.png
-
-Upload boot.py in the same way.
-
-.. image:: img/software/1.5-1.png
-
-.. image:: img/software/1.5-2.png
-
-.. image:: img/software/1.5.png
-
-Press the reset key of ESP32-S3 and you can see LED is ON for one second and then 
-OFF for one second, which repeats in an endless loop.
-
-If you want to exit the offline operation mode, you can press Ctrl+C at the same 
-time in the shell to let the ESP32-S3 exit the offline operation mode.
-
-.. image:: img/software/1.6.png
-
-If there is no response after pressing, it is recommended to press again until exiting.
+The following is the program code:
 
 .. code-block:: python
 
     from time import sleep_ms
     from machine import Pin
 
-    led=Pin(2,Pin.OUT) #create LED object from pin2,Set Pin2 to output
+    led = Pin(15, Pin.OUT)  # Create an LED object from pin 15 and set it as output
     try:
         while True:
-            led.value(1)        #Set led turn on
+            led.value(1)  # Turn on the LED
             sleep_ms(200)
-            led.value(0)        #Set led turn off
+            led.value(0)  # Turn off the LED
             sleep_ms(200)
     except:
         pass
 
-Project 1.2 Blink
------------------
-In this project, we will use ESP32-S3 WROOM to control blinking a common LED.
+We can also simplify the previous code by using MicroPython's API. By calling the 
+led.toggle() method in the ``machine.Pin`` class, we can more concisely change the 
+state of the pin without having to explicitly set the pin's high or low voltage 
+value.
 
-Component List
-^^^^^^^^^^^^^^^^^
-- ESP32-S3-WROOM x1
-- GPIO Extension Board x1
-- 830 Tie-Points Breadboard x1
-- LED x1
-- Resistor 220Ω x1
-- Jumper Wire x2
+The following is the program code:
 
-Connect
-^^^^^^^^^
+.. code-block:: python
 
-.. image:: img/connect/1.png
-    
-Code
-^^^^^
-Codes used in this tutorial are saved in “Super_Starter_Kit_for_ESP32_S
-3/Python/ Python_Codes”. You can move the codes to any location. For example, we 
-save the codes in Disk(D) with the path of “D:/Micropython_Codes”.
+    import machine
+    import utime
 
-**01.1_Blink**
-Open “Thonny”，click “This computer”>>“D:”>>“Micropython_Codes”.
+    led = machine.Pin(15, machine.Pin.OUT)  # Create a Pin object for the LED connected to pin 15, set as output
 
-.. image:: img/software/1.0.png
-
-Expand folder “01.1_Blink” and double click “Blink.py” to open it. As shown in 
-the illustration below.
-
-.. image:: img/software/1.1.png
-
-Make sure ESP32-S3 has been connected with the computer with ESP32-S3 correctly. 
-Click “Stop/Restart backend” or press the reset button, and then wait to see 
-what interface will show up.
-
-.. image:: img/software/1.2.png
-
-Click “Run current script” shown in the box above，the code starts to be executed 
-and the LED in the circuit starts to blink.
-
-.. note:: 
-    This is the code running online. If you disconnect USB cable and repower 
-    ESP32-S3 or press its reset key, LED stops blinking and the following 
-    messages will be displayed in Thonny
-
-.. image:: img/software/1.3.png
-
-**Uploading code to ESP32S3** 
-As shown in the following illustration, right-click the file Blink.py and select “Upload to /” to upload code to ESP32S3.
-
-.. image:: img/software/1.4.png
-
-Upload boot.py in the same way.
-
-.. image:: img/software/1.5.png
-
-Press the reset key of ESP32-S3 and you can see LED is ON for one second and 
-then OFF for one second, which repeats in an endless loop. Press the reset key 
-of ESP32-S3 and you can see LED is ON for one second and then OFF for one second, 
-which repeats in an endless loop.
-
-If you want to exit the offline operation mode, you can press Ctrl+C at the same 
-time in the shell to let the ESP32-S3 exit the offline operation mode.
-
-.. image:: img/software/1.6.png
-
-If there is no response after pressing, it is recommended to press again until exiting.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    while True:  # Infinite loop to keep the program running
+        led.toggle()  # Toggle the LED state: turn it on if it's off, and turn it off if it's on
+        utime.sleep(1)  # Wait for 1 second before toggling the LED again, creating a blinking effect every 2 seconds

@@ -1,8 +1,8 @@
 Python Language Preparation
 ============================
 
-Download the Thonny
----------------------
+1.Download the Thonny
+-----------------------
 
 Before you can start to program Pico with MicroPython, you need an integrated 
 development environment (IDE), here we recommend Thonny. Thonny comes with Python 
@@ -19,8 +19,8 @@ development environment (IDE), here we recommend Thonny. Thonny comes with Pytho
 `MacOS Thonny <https://github.com/thonny/thonny/releases/download/v4.1.6/thonny-4.1.6.pkg>`_
 
 .. note:: 
-   You can also open “Super_Starter_Kit_for_ESP
-   2_S3/Python/Python_Software”, we have prepared it in advance.
+   You can also open “Super_Starter_Kit_for_Pico/Python/Software”, 
+   we have prepared it in advance.
 
 Installation
 ------------
@@ -69,132 +69,98 @@ Select “View” >> “Files” and “Shell”.
 
 .. image:: /preparation/img/Python_prepartion/thonny_5.png
 
-Install Micropython Firmware to your Pico(Important)
------------------------------------------------------
-
-我们现在将MicroPython安装到你的Raspberry Pi Pico中,Thonny IDE为我们提供了一键安装的方式
-
-.. Windows
-.. ~~~~~~~~
+2.Install Micropython Firmware to your Pico(Important)
+-------------------------------------------------------
+我们现在将MicroPython安装到Raspberry Pi Pico中,Thonny IDE为我们提供了一键安装的方式
 
 1. 我们先打开Thonny IDE
+
+   .. image:: /preparation/img/Python_prepartion/firmware1.png
+
 2. 我们按住Pico的BOOTSEL按钮,然后使用Micro USB连接Pico和电脑,当电脑弹出一个名为RPI-RP2的设备的时候, 释放BOOTSEL按钮
 3. 在IDE右下角,选择Install MicroPython
-4. 点击之后会出现一个窗口,在Target卷中，您刚刚插入的Pico卷将自动出现，在Micropython变体中，选择Raspberry Pi。Pico W/Pico WH,然后版本选择1.24.1
+
+   .. image:: /preparation/img/Python_prepartion/firmware2.png
+
+4. 点击之后会出现一个窗口,在Target卷中，您刚刚插入的Pico卷将自动出现，在Micropython变体
+中，选择Raspberry Pi。Pico W/Pico WH,然后版本选择1.24.1,点击安装,等待安装结束
+
+   .. image:: /preparation/img/Python_prepartion/firmware3.png
+   
 5. 此时你的Pico已经准备就绪了!
 
-Testing codes (Important)
+3.Testing codes (Important)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 确保Pico已经安装MicroPython并通过数据线连接到计算机。打开Thonny,点击右下角,确保里面有
 MicroPython (Raspberry Pi Pico),其中的COM对于不同的系统可能不同
 
-.. image:: /2.Python_Tutorial/img/pico/thonny_右下角.png
+.. image:: /preparation/img/Python_prepartion/select_pico.png
 
 
 After configuration, every time you open Thonny, it will communicate with Pico. 
 The interface is shown below.
 配置完成之后,每次打开Thonny,它会与Pico通信
 
-.. image:: /2.Python_Tutorial/img/pico/thonny_完整.png
+.. image:: /preparation/img/Python_prepartion/ide_main.png
 
 Enter ``print('hello world')`` in “Shell” and press Enter.
 
-.. image:: /2.Python_Tutorial/img/pico/thonny_测试.png
+.. image:: /preparation/img/Python_prepartion/test_pico.png
 
-Running Online
+上传库文件到Pico
 ^^^^^^^^^^^^^^^^^^^
-ESP32-S3 needs to be connected to a computer when it is run online. Users can use 
-Thonny to writer and debug programs.
+In some projects, you will need additional libraries. So here we upload these libraries to Raspberry Pi Pico W first, and then we can run the code directly later.
+在某些项目中，您将需要额外的库。因此，我们首先将这些库上传到Raspberry Pi Pico W，然后我们可以直接运行代码。
 
-1. Open Thonny and click “Open…”.
+1.打开thony IDE，用微型USB电缆将Pico插入计算机，然后单击右下角的“MicroPython (Raspberry Pi Pico).COMXX”
 
-.. image:: /preparation/img/Python_prepartion/online1.png
+.. image:: /preparation/img/Python_prepartion/select_pico.png
+   
+2.将ide切换到项目文件夹LAFVIN_Super_Starter_Kit_For_Pico/Library内的所有文件上传到/,上传需要一点时间
 
-2. On the newly pop-up window, click “This computer”.
+.. image:: /preparation/img/Python_prepartion/upload_pico1.png
 
-.. image:: /preparation/img/Python_prepartion/online2.png
+3.现在你将看到你刚刚上传的库在你的pico中
 
-In the new dialog box, select “HelloWorld.py” in “ESP32S3_Super_Starter_Kit/Pyt
-hon/Python_Codes/00.0_HelloWorld” folder.
+.. image:: /preparation/img/Python_prepartion/upload_pico2.png
 
-.. image:: /preparation/img/Python_prepartion/online3.png
 
-Click “Run current script” to execute the program and “Hello World” will be printed in “Shell”.
+Open and Run Code
+^^^^^^^^^^^^^^^^^^
+1.项目中的code部分会告诉你使用了哪段代码，所以可以在对应路径找到代码文件如果你双击它，一
+个新的窗口会在右边打开。你可以同时打开多个代码。
 
-.. image:: /preparation/img/Python_prepartion/online4.png
+.. image:: 
+
+2.选择对应要运行脚本，单击“运行当前脚本”按钮或按F5。
+
+.. image:: arg1
+
+如果代码中包含需要打印的信息，它就会出现在Shell中；否则，只会显示以下信息。
+
+.. code-block:: shell
+
+   MicroPython vx.xx on xxxx-xx-xx; Raspberry Pi Pico W  With RP2040
+
+   Type "help()" for more information.
+   >>> %Run -c $EDITOR_CONTENT
+
+3.要停止正在运行的代码，请单击“停止/重新启动后端”按钮。%RUN -c $EDITOR_CONTENT命令在停止后将消失。
+
+.. image::
+
+4.我们可以使用ide上面的save按钮或Ctrl+S或来保存对当前文件的修改
+
+以及使用file -> Save as来将代码保存为单独的文件
+
+.. image:: 
+   
+选择树莓派Pico
+
+输入文件名和扩展名.py后，单击OK。你将在树莓派pico上看到保存的文件
 
 .. note:: 
-   When running online, if you press the reset key of ESP32S3, user’s code will 
-   not be executed again. If you wish to run the code automatically after 
-   resetting the code, please refer to the following Running Offline.
 
-Running Offline
-^^^^^^^^^^^^^^^^^^^
-After ESP32-S3 is reset, it runs the file boot.py in root directory first and 
-then runs file main.py, and finally, it enters “Shell”. Therefore, to make 
-ESP32-S3 execute user’s programs after resetting, we need to add a guiding 
-program in boot.py to execute user’s code.
-
-Move the program folder “Super_Starter_Kit_for_ESP32_S3/Python/Python_C
-odes” to disk(D) in advance with the path of “D:/MicroPy_Codes. Open “Thonny”.
-
-Thonny Common Operation
-------------------------
-Uploading Code to ESP32S3
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Each time when ESP32-S3 restarts, if there is a “boot.py” in the root directory, 
-it will execute this code first.
-
-.. image:: /preparation/img/Python_prepartion/operation1.png
-
-Select “Blink.py” in “01.1_Blink”, right-click your mouse and select “Upload to 
-/” to upload code to ESP32S3’s root directory.
-
-.. image:: /preparation/img/Python_prepartion/operation2.png
-
-Downloading Code to Computer
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Select “boot.py” in “MicroPython device”, right-click to select “Download to ...
-” to download the code to your computer.
-
-.. image:: /preparation/img/Python_prepartion/operation3.png
-
-Deleting Files from ESP32S3’s Root Directory
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Select “boot.py” in “MicroPython device”, right-click it and select “Delete” to 
-delete “boot.py” from ESP32S3’s root directory.
-
-.. image:: /preparation/img/Python_prepartion/operation4.png
-
-Deleting Files from your Computer Directory
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Select “boot.py” in “00.1_Boot”, right-click it and select “Move to Recycle Bin” 
-to delete it from “00.1_Boot”.
-
-.. image:: /preparation/img/Python_prepartion/operation5.png
-
-Creating and Saving the code
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Click “File”>>“New” to create and write codes.
-
-.. image:: /preparation/img/Python_prepartion/operation6.png
-
-Enter codes in the newly opened file. Here we use codes of “HelloWorld.py” as an 
-example.
-
-Click “Save” on the menu bar. You can save the codes either to your computer or 
-to ESP32S3.
-
-.. image:: /preparation/img/Python_prepartion/operation7.png
-
-Select “MicroPython device”, enter “main.py” in the newly pop-up window and click “OK”.
-
-.. image:: /preparation/img/Python_prepartion/operation9.png
-
-You can see that codes have been uploaded to ESP32S3
-
-Disconnect and reconnect the USB cable, and you can see that the Shell printed 
-"hello world."
-
-.. image:: /preparation/img/Python_prepartion/operation8.png
-
+   Regardless of what name you give your code, it’s best to describe what type 
+   of code it is, and not give it a meaningless name like abc.py. When you save 
+   the code as main.py, it will run automatically when the power is turned on.
