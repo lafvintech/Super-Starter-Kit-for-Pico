@@ -6,13 +6,13 @@ LAFVIN Super Starter Kit For Pico
 
 Introduction:
 -------------
-The ESP32-S3-WROOM Smart Development Kit uses the powerful ESP32-S3-WROOM as its core controller, integrating camera and wireless functionality. This kit provides you with a comprehensive learning and development platform, allowing you to easily master the powerful features of the ESP32-S3.
+The Raspberry Pi Pico W Smart Development Kit uses the powerful Raspberry Pi Pico W as its core controller, integrating camera and wireless functionality. This kit provides you with a comprehensive learning and development platform, allowing you to easily master the powerful features of the ESP32-S3.
 The kit offers rich learning resources, including examples of multiple projects in C and MicroPython. Each project comes with detailed circuit diagrams and verified code, helping you quickly understand and practice.
 We provide online web tutorials that you can access and refer to anytime, anywhere. Additionally, our free technical support team is always available to answer your questions, ensuring a smooth learning and development process.
 
 Features:
 ----------
-1. Controller: ESP32-S3-WROOM
+1. Controller: Raspberry Pi Pico W
 2. Programming Languages: Supports both MicroPython and C, catering to different programming preferences
 3. Onboard Camera: Enables image capture and processing capabilities
 4. Wireless Functionality: Supports WiFi and Bluetooth connections, facilitating remote control and data transmission

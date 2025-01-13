@@ -5,8 +5,8 @@
 .. toctree::
     :maxdepth: 1
 
-    5.1xxx
-    5.2xxx
-    5.3xxx
-    5.4xxx
-    5.5xxx
+    5.1_ultrasonic_ranging
+    5.2_temp_and_humidity_monitoring
+    5.3_gy521_module
+    5.4_ir_remote_control
+    5.5_mfrc522_rfid_module

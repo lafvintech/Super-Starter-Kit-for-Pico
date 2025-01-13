@@ -17,7 +17,11 @@ author = 'LAFVIN'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ["myst_parser"]
+extensions = [
+    "myst_parser",
+    "sphinxcontrib.video"  # 新添加的视频扩展
+]
+
 pygments_lexers = {
     "python-repl": Python3Lexer(),
 }

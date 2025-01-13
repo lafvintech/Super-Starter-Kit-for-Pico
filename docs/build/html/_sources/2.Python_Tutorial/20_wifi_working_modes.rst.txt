@@ -10,7 +10,7 @@ Project 20.1 Station mode
 
 Component List
 ^^^^^^^^^^^^^^^
-- ESP32-S3-WROOM x1
+- Raspberry Pi Pico W x1
 - Type C USB Cable x1
 
 Connect

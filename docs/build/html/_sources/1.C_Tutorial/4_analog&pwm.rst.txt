@@ -13,12 +13,12 @@ We will use PWM to achieve this target.
 
 Component List
 ^^^^^^^^^^^^^^^
-- ESP32-S3-WROOM x1
-- GPIO Extension Board x1
+- Raspberry Pi Pico W x1
+
 - 830 Tie-Points Breadboard x1
 - LED x1
 - Resistor 220Ω x1
-- Jumper Wire x2
+- Jumper Wire Several
 
 Connect
 ^^^^^^^^^^^
@@ -71,12 +71,12 @@ istent with the project Flowing Light.
 
 Component List
 ^^^^^^^^^^^^^^^
-- ESP32-S3-WROOM x1
-- GPIO Extension Board x1
+- Raspberry Pi Pico W x1
+
 - 830 Tie-Points Breadboard x1
 - LED Bar Graph x1
 - Resistor 220Ω x8
-- Jumper Wire x8
+- Jumper Wire Several
 
 Connect
 ^^^^^^^

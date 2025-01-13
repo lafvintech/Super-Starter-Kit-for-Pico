@@ -10,12 +10,12 @@ to make a thermometer.
 
 Component List
 ^^^^^^^^^^^^^^^
-- ESP32-S3-WROOM x1
-- GPIO Extension Board x1
+- Raspberry Pi Pico W x1
+
 - 830 Tie-Points Breadboard x1
 - Resistor 10kΩ  x1
 - Thermistor x1
-- Jumper Wire x3
+- Jumper Wire Several
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^

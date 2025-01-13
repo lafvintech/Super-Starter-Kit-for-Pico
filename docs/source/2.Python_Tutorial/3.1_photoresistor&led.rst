@@ -13,14 +13,14 @@ the LED will automatically dim to compensate.
 
 Component List
 ^^^^^^^^^^^^^^^
-- ESP32-S3-WROOM x1
-- GPIO Extension Board x1
+- Raspberry Pi Pico W x1
+
 - 830 Tie-Points Breadboard x1
 - Resistor 10kΩ  x1
 - Resistor 220Ω  x1
 - Photoresistor x1
 - LED x1
-- Jumper Wire x4
+- Jumper Wire Several
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^

@@ -12,10 +12,10 @@ This project reads the value of the touch sensor and prints it out.
 
 Component List
 ^^^^^^^^^^^^^^^
-- ESP32-S3-WROOM x1
-- GPIO Extension Board x1
+- Raspberry Pi Pico W x1
+
 - 830 Tie-Points Breadboard x1
-- Jumper Wire x1
+- Jumper Wire Several
   
 Connect
 ^^^^^^^^^^^
@@ -41,12 +41,12 @@ In this project, we will use ESP32-S3's touch sensor to create a touch switch la
 
 Component List
 ^^^^^^^^^^^^^^^
-- ESP32-S3-WROOM x1
-- GPIO Extension Board x1
+- Raspberry Pi Pico W x1
+
 - 830 Tie-Points Breadboard x1
 - LED x1
 - Resistor 220Ω x1
-- Jumper Wire x3
+- Jumper Wire Several
   
 Connect
 ^^^^^^^

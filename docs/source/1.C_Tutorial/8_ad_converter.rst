@@ -9,11 +9,11 @@ of the potentiometer and print it out through the serial monitor.
 
 Component List
 ^^^^^^^^^^^^^^^
-- ESP32-S3-WROOM x1
-- GPIO Extension Board x1
+- Raspberry Pi Pico W x1
+
 - 830 Tie-Points Breadboard x1
 - Potentiometer(10k) x1
-- Jumper Wire x3
+- Jumper Wire Several
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^

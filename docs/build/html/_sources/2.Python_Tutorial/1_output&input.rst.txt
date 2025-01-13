@@ -12,3 +12,12 @@
     1.5_colorful_light
     1.6_tilt_switch
     1.7_switch_left&right
+    1.8_gentle_press
+    1.9_magnetic_trigger
+    1.10_motion_detection
+    1.11_potentiometer_control
+    1.12_photoresistor&led
+    1.13_thermometer
+    1.14_water_sensor
+    1.15_two_kinds_of_transistors
+    1.16_circuit_control_with_relay

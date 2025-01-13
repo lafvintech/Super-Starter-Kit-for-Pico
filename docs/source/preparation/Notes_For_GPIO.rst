@@ -30,20 +30,20 @@ and their functions under the corresponding configuration.
 
 If you have any difficulties or questions with this tutorial or toolkit, feel free 
 to ask for our quick and free technical support through :guilabel:`tech_edu_service@outlook.com` at 
-any time. or check: `<https://www.espressif.com/sites/default/files/documentation/esp32-s3-wroom-1_wroom1u_datasheet_en.pdf>`_
+any time. or check: `<https://www.espressif.com/sites/default/files/documentation/Raspberry Pi Pico W-1_wroom1u_datasheet_en.pdf>`_
 
 PSRAM Pin
 ---------------
-The module on the ESP32-S3-WROOM board uses the ESP32-S3R8 chip with 8MB of 
+The module on the Raspberry Pi Pico W board uses the ESP32-S3R8 chip with 8MB of 
 external Flash. When we use the OPI PSRAM, please note that the GPIO35-GPIO37 on 
-the ESP32-S3-WROOM board will not be available for other purposes. When OPI PSRAM 
+the Raspberry Pi Pico W board will not be available for other purposes. When OPI PSRAM 
 is not used, GPIO35-GPIO37 on the board can be used as normal GPIO.
 
 .. image:: img/GPIO/GPIO_2.png
 
 SDcard Pin
-An SDcard slot is integrated on the back of the ESP32-S3-WROOM board. We can use 
-GPIO38-GPIO40 of ESP32-S3-WROOM to drive SD card. The SDcard of ESP32-S3-WROOM 
+An SDcard slot is integrated on the back of the Raspberry Pi Pico W board. We can use 
+GPIO38-GPIO40 of Raspberry Pi Pico W to drive SD card. The SDcard of Raspberry Pi Pico W 
 uses SDMMC, a 1-bit bus driving method, which has been integrated in the Arduino 
 IDE, and we can call the "SD_MMC.h" library to drive it. For details, see the 
 SDcard chapter in this tutorial.

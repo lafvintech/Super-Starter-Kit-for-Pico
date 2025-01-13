@@ -8,7 +8,7 @@ Project 21.1 SDMMC Test
 
 Component List
 ^^^^^^^^^^^^^^^
-- ESP32-S3-WROOM x1
+- Raspberry Pi Pico W x1
 - Type C USB Cable x1
 - Memory Card x1
 
@@ -97,7 +97,7 @@ Sketch
 
 .. image:: img/software/21.1.png
 
-Compile and upload the code to ESP32-S3-WROOM, open the serial monitor, and press 
+Compile and upload the code to Raspberry Pi Pico W, open the serial monitor, and press 
 the RST button on the board.
 You can see the printout as shown below.
 

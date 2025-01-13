@@ -8,8 +8,8 @@ Control the direction and speed of the motor with a potentiometer.
 
 Component List
 ^^^^^^^^^^^^^^^
-- ESP32-S3-WROOM x1
-- GPIO Extension Board x1
+- Raspberry Pi Pico W x1
+
 - 830 Tie-Points Breadboard x1
 - L293D x1
 - 9V Battery Connector x1

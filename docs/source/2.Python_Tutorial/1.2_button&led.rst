@@ -1,0 +1,73 @@
+1.2 Button & LED
+=========================
+Usually, there are three essential parts in a complete automatic control device: 
+INPUT, OUTPUT, and CONTROL. In last section, the LED module was the output part 
+and Pico was the control part. In practical applications, we not only make 
+LEDs flash, but also make a device sense the surrounding environment, receive 
+instructions and then take the appropriate action such as LEDs light up, make a 
+buzzer turn ON and so on.
+
+Next, we will build a simple control system to control a LED through a push button switch.
+
+These pins have both input and output functions, as indicated by their name GPIO 
+(General-purpose input/output). Previously, we used the output function; in this 
+chapter, we will use the input function to input the button value.
+
+Component List
+^^^^^^^^^^^^^^^
+- Raspberry Pi Pico W x1
+- MicroUSB cable x1
+- 830 Tie-Points Breadboard x1
+- Resistor 10KΩ x1
+- Jumper Wire Several
+- Button x1
+
+Component knowledge
+^^^^^^^^^^^^^^^^^^^^
+:ref:`Button <cpn_button>`
+"""""""""""""""""""""""""""
+
+Schematic
+^^^^^^^^^^
+.. image:: img/2.sch/1.2.png
+
+As long as one side of the button pin is connected to 3.3v, and the other side pin is connected to GP14, then when the button is pressed, GP14 will be high. However, when the button is not pressed, GP14 is in a suspended state and may be high or low. In order to get a stable low level when the button is not pressed, GP14 needs to be reconnected to GND through a 10K pull-down resistor.
+
+Connect
+^^^^^^^^^^
+.. image:: img/3.connect/1.2.png
+
+Code
+^^^^^^^
+.. note::
+
+    * Open the ``1.2_reading_button_value.py`` file under the path of ``Super-Starter-Kit-for-Pico\Python\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
+
+    * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
+  
+
+After running the code, when you press the button, the IDE's shell will display "The button is pressed!"
+
+.. image:: img/4.software/1.2.png
+
+The following is the program code:
+
+.. code-block:: python
+
+    import machine  # Import the machine module for hardware access
+    import utime    # Import the utime module for time-related functions
+
+    # Create a button object connected to GPIO 14, set as input mode
+    button = machine.Pin(14, machine.Pin.IN)
+
+    # Infinite loop to continuously check the button state
+    while True:
+        # If button.value() returns 1, the button is pressed
+        if button.value() == 1:
+            print("The button is pressed!")  # Print message when the button is pressed
+            utime.sleep(1)  # Pause for 1 second to avoid rapid message printing
+
+Phenomenon
+^^^^^^^^^^^
+.. video:: img/5.phenomenon/1.2.mp4
+    :width: 100%

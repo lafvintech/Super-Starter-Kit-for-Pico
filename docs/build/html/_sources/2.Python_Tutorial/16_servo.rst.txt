@@ -10,11 +10,11 @@ First, we need to learn how to make a servo rotate.
 
 Component List
 ^^^^^^^^^^^^^^^
-- ESP32-S3-WROOM x1
-- GPIO Extension Board x1
+- Raspberry Pi Pico W x1
+
 - 830 Tie-Points Breadboard x1
 - Servo x1
-- Jumper Wire x5
+- Jumper Wire Several
 
 Connect
 ^^^^^^^^^
@@ -72,12 +72,12 @@ Use a potentiometer to control the servo motor to rotate at any angle.
 
 Component List
 ^^^^^^^^^^^^^^^
-- ESP32-S3-WROOM x1
-- GPIO Extension Board x1
+- Raspberry Pi Pico W x1
+
 - 830 Tie-Points Breadboard x1
 - Servo x1
 - Potentiometer(10k) x1
-- Jumper Wire x6
+- Jumper Wire Several
 
 Connect
 ^^^^^^^

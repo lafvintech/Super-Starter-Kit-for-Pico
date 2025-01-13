@@ -10,12 +10,12 @@ switch different colors automatically.
 
 Component List
 ^^^^^^^^^^^^^^^
-- ESP32-S3-WROOM x1
-- GPIO Extension Board x1
+- Raspberry Pi Pico W x1
+
 - 830 Tie-Points Breadboard x1
 - LED-RGB x1
 - Resistor 220Ω x3
-- Jumper Wire x4
+- Jumper Wire Several
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^

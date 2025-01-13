@@ -10,14 +10,14 @@ In this project, we will read an mp3 file from an SD card, decode it through ESP
 
 Component List
 ^^^^^^^^^^^^^^^
-- ESP32-S3-WROOM x1
-- GPIO Extension Board x1
+- Raspberry Pi Pico W x1
+
 - 830 Tie-Points Breadboard x1
 - NPN transistor(S8050) x2
 - Speaker x1
 - Diode x1
 - Resistor 1kΩ  x1
-- Jumper Wire x4
+- Jumper Wire Several
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^

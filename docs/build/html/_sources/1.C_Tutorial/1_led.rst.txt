@@ -11,12 +11,12 @@ In this project, we will use ESP32-S3 WROOM to control blinking a common LED.
 
 Component List
 ---------------
-- ESP32-S3-WROOM x1
-- GPIO Extension Board x1
+- Raspberry Pi Pico W x1
+
 - 830 Tie-Points Breadboard x1
 - LED x1
 - Resistor 220Ω x1
-- Jumper Wire x2
+- Jumper Wire Several
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
@@ -56,7 +56,7 @@ Before uploading the code, click "Tools", "Board" and select "ESP32S3 Dev Module
 Select the serial port. Note that the computer port number of each user may be 
 different. Please select the correct serial port according to your computer. Taking 
 the window system as an example, my computer recognizes that the communication 
-interface of the ESP32-S3-WROOM is COM3, so I select COM3.
+interface of the Raspberry Pi Pico W is COM3, so I select COM3.
 
 .. image:: img/0/port1.png
 
@@ -67,7 +67,7 @@ interface of the ESP32-S3-WROOM is COM3, so I select COM3.
     .. image:: img/0/speed.png
 
 **Sketch_01.1_Blink**
-Click the Upload button and it will compile and upload the Sketch to the ESP32-S3-WROOM.
+Click the Upload button and it will compile and upload the Sketch to the Raspberry Pi Pico W.
 
 .. image:: img/0/upload.png
 

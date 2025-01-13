@@ -95,7 +95,7 @@ chapter, we will use the input function to input the button value.</p>
 <li><p>MicroUSB cable x1</p></li>
 <li><p>830 Tie-Points Breadboard x1</p></li>
 <li><p>Resistor 10KΩ x1</p></li>
-<li><p>Jumper Wire x3</p></li>
+<li><p>Jumper Wire Several</p></li>
 <li><p>Button x1</p></li>
 </ul>
 </section>
@@ -104,6 +104,11 @@ chapter, we will use the input function to input the button value.</p>
 <section id="button">
 <h3><a class="reference internal" href="../components_Kit/component_button.html#cpn-button"><span class="std std-ref">Button</span></a><a class="headerlink" href="#button" title="Link to this heading"></a></h3>
 </section>
+</section>
+<section id="schematic">
+<h2>Schematic<a class="headerlink" href="#schematic" title="Link to this heading"></a></h2>
+<img alt="2.Python_Tutorial/img/schematic/1.2.png" src="2.Python_Tutorial/img/schematic/1.2.png" />
+<p>As long as one side of the button pin is connected to 3.3v, and the other side pin is connected to GP14, then when the button is pressed, GP14 will be high. However, when the button is not pressed, GP14 is in a suspended state and may be high or low. In order to get a stable low level when the button is not pressed, GP14 needs to be reconnected to GND through a 10K pull-down resistor.</p>
 </section>
 <section id="connect">
 <h2>Connect<a class="headerlink" href="#connect" title="Link to this heading"></a></h2>
@@ -118,6 +123,7 @@ chapter, we will use the input function to input the button value.</p>
 <li><p>Don’t forget to click on the “MicroPython (Raspberry Pi Pico)” interpreter in the bottom right corner.</p></li>
 </ul>
 </div>
+<p>After running the code, when you press the button, the IDE’s shell will display “The button is pressed!”</p>
 <p>The following is the program code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">machine</span>  <span class="c1"># Import the machine module for hardware access</span>
 <span class="kn">import</span> <span class="nn">utime</span>    <span class="c1"># Import the utime module for time-related functions</span>

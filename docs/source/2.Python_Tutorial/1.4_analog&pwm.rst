@@ -17,7 +17,7 @@ Component List
 - MicroUSB cable x1
 - 830 Tie-Points Breadboard x1
 - Resistor 220Ω x10
-- Jumper Wire xSeveral 
+- Jumper Wire Several
 - Button x1
 
 Schematic

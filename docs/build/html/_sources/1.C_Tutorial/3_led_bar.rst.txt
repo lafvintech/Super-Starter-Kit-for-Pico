@@ -9,11 +9,11 @@ In this project, we use a number of LEDs to make a flowing light.
 
 Component List
 ^^^^^^^^^^^^^^^
-- ESP32-S3-WROOM x1
-- GPIO Extension Board x1
+- Raspberry Pi Pico W x1
+
 - 830 Tie-Points Breadboard x1
 - Resistor 220Ω x10
-- Jumper Wire x10
+- Jumper Wire Several
 - LED Bar Graph x1
 
 Connect

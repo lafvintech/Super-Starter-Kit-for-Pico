@@ -12,13 +12,13 @@ potentiometer.
 
 Component List
 ^^^^^^^^^^^^^^^
-- ESP32-S3-WROOM x1
-- GPIO Extension Board x1
+- Raspberry Pi Pico W x1
+
 - 830 Tie-Points Breadboard x1
 - Resistor 220Ω x1
 - Potentiometer(10k) x1
 - LED x1
-- Jumper Wire x5
+- Jumper Wire Several
 
 Connect
 ^^^^^^^^^^^^
@@ -81,13 +81,13 @@ RGB LEDs.
 
 Component List
 ^^^^^^^^^^^^^^^
-- ESP32-S3-WROOM x1
-- GPIO Extension Board x1
+- Raspberry Pi Pico W x1
+
 - 830 Tie-Points Breadboard x1
 - Resistor 220Ω  x3
 - Potentiometer(10k) x3
 - LED-RGB x1
-- Jumper Wire x13
+- Jumper Wire Several
 
 Connect
 ^^^^^^^

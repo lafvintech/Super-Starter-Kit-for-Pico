@@ -9,15 +9,15 @@ and when the button is released, the buzzer stops sounding.
 
 Component List
 ^^^^^^^^^^^^^^^
-- ESP32-S3-WROOM x1
-- GPIO Extension Board x1
+- Raspberry Pi Pico W x1
+
 - 830 Tie-Points Breadboard x1
 - NPN transistor(S8050) x2
 - Active Buzzer x1
 - Resistor 10kΩ x2
 - Resistor 1kΩ  x1
 - Button x1
-- Jumper Wire x6
+- Jumper Wire Several
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^

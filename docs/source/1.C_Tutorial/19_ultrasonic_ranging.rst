@@ -9,8 +9,8 @@ out the data in the terminal.
 
 Component List
 ^^^^^^^^^^^^^^^
-- ESP32-S3-WROOM x1
-- GPIO Extension Board x1
+- Raspberry Pi Pico W x1
+
 - 830 Tie-Points Breadboard x1
 - Ultrasonic Sensor x1
 - F-M DuPont Cable x4

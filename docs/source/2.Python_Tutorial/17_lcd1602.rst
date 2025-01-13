@@ -8,8 +8,8 @@ In this section we learn how to use LCD1602 to display something.
 
 Component List
 ^^^^^^^^^^^^^^^
-- ESP32-S3-WROOM x1
-- GPIO Extension Board x1
+- Raspberry Pi Pico W x1
+
 - 830 Tie-Points Breadboard x1
 - LCD1602 IIC x1
 - F-M DuPont Cable x4
