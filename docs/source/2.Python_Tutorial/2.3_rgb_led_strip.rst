@@ -18,8 +18,8 @@ transmission.
 Component List
 ^^^^^^^^^^^^^^^
 - Raspberry Pi Pico W x1
+- MicroUSB cable x1
 - 830 Tie-Points Breadboard x1
-- Transistor S8050 x1
 - RGB LEDs Strip x1
 - Jumper Wire Several
 

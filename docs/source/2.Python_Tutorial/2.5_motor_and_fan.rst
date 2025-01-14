@@ -7,8 +7,8 @@ module to supply power to the motor.
 Component List
 ^^^^^^^^^^^^^^^
 - Raspberry Pi Pico W x1
+- MicroUSB cable x1
 - 830 Tie-Points Breadboard x1
-- Transistor S8050 x1
 - TA6586 x1
 - DC Motor x1
 - Li-po Charger Module x1

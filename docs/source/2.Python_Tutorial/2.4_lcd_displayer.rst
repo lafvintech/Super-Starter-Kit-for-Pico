@@ -14,8 +14,8 @@ Here we will use the I2C1 interface to control the LCD1602 and display text.
 Component List
 ^^^^^^^^^^^^^^^
 - Raspberry Pi Pico W x1
+- MicroUSB cable x1
 - 830 Tie-Points Breadboard x1
-- Transistor S8050 x1
 - LCD1602 IIC x1
 - Jumper Wire Several
 

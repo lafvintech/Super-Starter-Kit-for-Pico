@@ -1,4 +1,4 @@
-2.2 Beep
+2.2 Custom Melody
 =========================
 We have used active buzzer in the previous project, this time we will use passive buzzer.
 

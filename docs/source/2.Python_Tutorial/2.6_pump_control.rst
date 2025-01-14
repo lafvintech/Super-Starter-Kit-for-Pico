@@ -14,12 +14,12 @@ Its power component is an electric motor, driven in exactly the same way as a no
 Component List
 ^^^^^^^^^^^^^^^
 - Raspberry Pi Pico W x1
+- MicroUSB cable x1
 - 830 Tie-Points Breadboard x1
-- Transistor S8050 x1
 - TA6586 x1
-- DC Water Pump
+- DC Water Pump x1
 - Li-po Charger Module x1
-- Battery Holder
+- Battery Holder x1
 - Jumper Wire Several
 
 Component knowledge
@@ -55,7 +55,7 @@ Code
 
 .. image:: img/4.software/2.6.png
 
-Click “Run current script”, xxx
+Click “Run current script”, After the code is run, the pump starts working and you will see water flowing out of the tube at the same time.
 
 The following is the program code:
 
@@ -74,5 +74,5 @@ The following is the program code:
 
 Phenomenon
 ^^^^^^^^^^^
-.. image:: img/5.phenomenon/x.mp4
+.. image:: img/5.phenomenon/2.6.mp4
     :width: 100%
