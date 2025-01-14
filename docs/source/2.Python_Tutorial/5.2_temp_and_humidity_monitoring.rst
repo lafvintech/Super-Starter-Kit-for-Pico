@@ -1,0 +1,9 @@
+.. 5.2_temp_and_humidity_monitoring
+
+================================
+
+5.2 Temp And Humidity Monitoring
+
+================================
+
+This is a generated reStructuredText file for the course.

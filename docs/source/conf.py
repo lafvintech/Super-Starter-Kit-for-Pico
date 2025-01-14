@@ -11,7 +11,7 @@ from pygments.lexers import Python3Lexer
 import time
 
 project = 'Super-Starter-Kit-for-ESP32-S3-WROOM'
-copyright = '2024, LAFVIN'
+copyright = f'{time.localtime().tm_year}, Lafvin'
 author = 'LAFVIN'
 
 # -- General configuration ---------------------------------------------------
@@ -19,6 +19,7 @@ author = 'LAFVIN'
 
 extensions = [
     "myst_parser",
+    "sphinx_copybutton",
     "sphinxcontrib.video"  # 新添加的视频扩展
 ]
 
@@ -32,6 +33,7 @@ source_suffix = {
 }
 
 templates_path = ['_templates']
+
 exclude_patterns = []
 
 

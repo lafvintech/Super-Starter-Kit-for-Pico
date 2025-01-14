@@ -1,0 +1,9 @@
+.. 5.5_mfrc522_rfid_module
+
+=======================
+
+5.5 Mfrc522 Rfid Module
+
+=======================
+
+This is a generated reStructuredText file for the course.

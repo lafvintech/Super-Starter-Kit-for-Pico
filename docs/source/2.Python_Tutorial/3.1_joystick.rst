@@ -1,0 +1,9 @@
+.. 3.1_joystick
+
+============
+
+3.1 Joystick
+
+============
+
+This is a generated reStructuredText file for the course.

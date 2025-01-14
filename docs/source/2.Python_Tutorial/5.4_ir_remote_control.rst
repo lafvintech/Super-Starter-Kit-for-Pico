@@ -1,0 +1,9 @@
+.. 5.4_ir_remote_control
+
+=====================
+
+5.4 Ir Remote Control
+
+=====================
+
+This is a generated reStructuredText file for the course.

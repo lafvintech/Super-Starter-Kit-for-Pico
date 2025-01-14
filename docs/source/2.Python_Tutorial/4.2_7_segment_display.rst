@@ -1,0 +1,9 @@
+.. 4.2_7_segment_display
+
+=====================
+
+4.2 7 Segment Display
+
+=====================
+
+This is a generated reStructuredText file for the course.

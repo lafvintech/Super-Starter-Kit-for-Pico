@@ -26,22 +26,19 @@ Component List
 - MicroUSB cable x1
 - 830 Tie-Points Breadboard x1
 - Jumper Wire Several
-- Relay x1
+- Relay Module x1
 
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
 Relay , Power Supply Module
+
 :ref:`RGB-LED <cpn_rgb_led>` 
 """""""""""""""""""""""""""""""
-
-Schematic
-^^^^^^^^^^
-.. image:: img/schematic/1.16.png
  
 Connect
 ^^^^^^^^^
-.. image:: img/connect/1.16.png
+.. image:: img/3.connect/1.16.png
 
 Code
 ^^^^^^^
@@ -51,7 +48,7 @@ Code
 
     * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
 
-.. image:: img/software/1.16.png
+.. image:: img/4.software/1.16.png
 
 While the code is running, the LED lights up. In addition, you can hear a ticktock 
 caused by breaking normally close contact and closing normally open contact.
@@ -81,4 +78,7 @@ The following is the program code:
         relay.value(0)  # Ensure the relay is turned off before exiting
         pass
 
-
+Phenomenon
+^^^^^^^^^^^
+.. image:: img/5.phenomenon/1.16.mp4
+    :width: 100%

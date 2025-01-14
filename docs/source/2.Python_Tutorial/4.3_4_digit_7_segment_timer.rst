@@ -1,0 +1,9 @@
+.. 4.3_4_digit_7_segment_timer
+
+===========================
+
+4.3 4 Digit 7 Segment Timer
+
+===========================
+
+This is a generated reStructuredText file for the course.

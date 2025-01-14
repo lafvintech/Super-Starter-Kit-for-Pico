@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1.2 Button &amp; LED &mdash; Super-Starter-Kit-for-ESP32-S3-WROOM  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.3 Chaser Light" href="1.3_chaser_light.html" />
+    <link rel="prev" title="1.1 LED_Blink (Important)" href="1.1_led_blink.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_this_kit.html">About This Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../component_list.html">Component List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparation/preparation.html">Preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1.C_Tutorial/c_tutorial.html">C Language Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="python_tutorial.html">Python Language Tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0_python_preparation.html">Python Language Preparation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="1_output%26input.html">1 Output &amp; Input</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="1.1_led_blink.html">1.1 LED_Blink (Important)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1.2 Button &amp; LED</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#component-list">Component List</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#component-knowledge">Component knowledge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#schematic">Schematic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connect">Connect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code">Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phenomenon">Phenomenon</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="1.3_chaser_light.html">1.3 Chaser Light</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.4_analog%26pwm.html">1.4 Analog &amp; PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.5_colorful_light.html">1.5 Colorful Light</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.6_tilt_switch.html">1.6 Tilt Switch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.8_gentle_press.html">1.8 Gentle Press</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.9_magnetic_trigger.html">1.8 Magnetic Trigger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.10_motion_detection.html">1.10 Motion Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.11_potentiometer_control.html">1.11 Potentiometer Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.12_photoresistor%26led.html">1.12 Photoresistor &amp; LED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.13_thermometer.html">1.13 Thermometer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.14_water_sensor.html">1.14 Water Sensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.16_circuit_control_with_relay.html">1.16 Circuit Control with Relay</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_sound%26display%26movement.html">2 Sound &amp; Display &amp; Movement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_controller.html">3 Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_microchip.html">4 Microchip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_advanced.html">5 Advanced</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_fun_projects.html">6 Fun Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_iot_projects.html">7 IoT Projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../components_Kit/Components_Kit.html">Components Introduction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Super-Starter-Kit-for-ESP32-S3-WROOM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="python_tutorial.html">Python Language Tutorial</a></li>
+          <li class="breadcrumb-item"><a href="1_output%26input.html">1 Output &amp; Input</a></li>
+      <li class="breadcrumb-item active">1.2 Button &amp; LED</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/2.Python_Tutorial/1.2_button&amp;led.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="button-led">
+<h1>1.2 Button &amp; LED<a class="headerlink" href="#button-led" title="Link to this heading"></a></h1>
+<p>Usually, there are three essential parts in a complete automatic control device:
+INPUT, OUTPUT, and CONTROL. In last section, the LED module was the output part
+and Pico was the control part. In practical applications, we not only make
+LEDs flash, but also make a device sense the surrounding environment, receive
+instructions and then take the appropriate action such as LEDs light up, make a
+buzzer turn ON and so on.</p>
+<p>Next, we will build a simple control system to control a LED through a push button switch.</p>
+<p>These pins have both input and output functions, as indicated by their name GPIO
+(General-purpose input/output). Previously, we used the output function; in this
+chapter, we will use the input function to input the button value.</p>
+<section id="component-list">
+<h2>Component List<a class="headerlink" href="#component-list" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Raspberry Pi Pico W x1</p></li>
+<li><p>MicroUSB cable x1</p></li>
+<li><p>830 Tie-Points Breadboard x1</p></li>
+<li><p>Resistor 10KΩ x1</p></li>
+<li><p>Jumper Wire Several</p></li>
+<li><p>Button x1</p></li>
+</ul>
+</section>
+<section id="component-knowledge">
+<h2>Component knowledge<a class="headerlink" href="#component-knowledge" title="Link to this heading"></a></h2>
+<section id="button">
+<h3><a class="reference internal" href="../components_Kit/component_button.html#cpn-button"><span class="std std-ref">Button</span></a><a class="headerlink" href="#button" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="schematic">
+<h2>Schematic<a class="headerlink" href="#schematic" title="Link to this heading"></a></h2>
+<img alt="../_images/1.2.png" src="../_images/1.2.png" />
+<p>As long as one side of the button pin is connected to 3.3v, and the other side pin is connected to GP14, then when the button is pressed, GP14 will be high. However, when the button is not pressed, GP14 is in a suspended state and may be high or low. In order to get a stable low level when the button is not pressed, GP14 needs to be reconnected to GND through a 10K pull-down resistor.</p>
+</section>
+<section id="connect">
+<h2>Connect<a class="headerlink" href="#connect" title="Link to this heading"></a></h2>
+<img alt="../_images/1.21.png" src="../_images/1.21.png" />
+</section>
+<section id="code">
+<h2>Code<a class="headerlink" href="#code" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">1.2_reading_button_value.py</span></code> file under the path of <code class="docutils literal notranslate"><span class="pre">Super-Starter-Kit-for-Pico\Python\1.Project</span></code> or copy this code into Thonny, then click “Run Current Script” or simply press F5 to run it.</p></li>
+<li><p>Don’t forget to click on the “MicroPython (Raspberry Pi Pico)” interpreter in the bottom right corner.</p></li>
+</ul>
+</div>
+<p>After running the code, when you press the button, the IDE’s shell will display “The button is pressed!”</p>
+<img alt="../_images/1.22.png" src="../_images/1.22.png" />
+<p>The following is the program code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">machine</span>  <span class="c1"># Import the machine module for hardware access</span>
+<span class="kn">import</span> <span class="nn">utime</span>    <span class="c1"># Import the utime module for time-related functions</span>
+
+<span class="c1"># Create a button object connected to GPIO 14, set as input mode</span>
+<span class="n">button</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
+
+<span class="c1"># Infinite loop to continuously check the button state</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># If button.value() returns 1, the button is pressed</span>
+    <span class="k">if</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The button is pressed!&quot;</span><span class="p">)</span>  <span class="c1"># Print message when the button is pressed</span>
+        <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Pause for 1 second to avoid rapid message printing</span>
+</pre></div>
+</div>
+</section>
+<section id="phenomenon">
+<h2>Phenomenon<a class="headerlink" href="#phenomenon" title="Link to this heading"></a></h2>
+<a class="reference internal image-reference" href="../_images/1.23.png"><img alt="../_images/1.23.png" src="../_images/1.23.png" style="width: 100%;" /></a>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1.1_led_blink.html" class="btn btn-neutral float-left" title="1.1 LED_Blink (Important)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="1.3_chaser_light.html" class="btn btn-neutral float-right" title="1.3 Chaser Light" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, LAFVIN.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

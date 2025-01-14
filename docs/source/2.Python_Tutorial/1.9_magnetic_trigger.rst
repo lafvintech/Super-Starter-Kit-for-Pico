@@ -1,4 +1,4 @@
-1.8 Magnetic Trigger
+1.9 Magnetic Trigger
 =========================
 The most common type of reed switch contains a pair of magnetizable, flexible, m
 etal reeds whose end portions are separated by a small gap when the switch is open.
@@ -26,11 +26,11 @@ Component knowledge
 
 Schematic
 ^^^^^^^^^^
-.. image:: img/schematic/1.9.png
+.. image:: img/2.sch/1.9.png
 
 Connect
 ^^^^^^^^^
-.. image:: img/connect/1.9.png
+.. image:: img/3.connect/1.9.png
 
 Code
 ^^^^^^^
@@ -40,7 +40,7 @@ Code
 
     * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
 
-.. image:: img/software/1.9.png
+.. image:: img/4.software/1.9.png
 
 Click “Run current script”, GP14 goes high when a magnet is near the reed switch, other
 wise it goes low.
