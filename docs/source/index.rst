@@ -1,4 +1,4 @@
-LAFVIN Super Starter Kit For Esp32 S3 
+LAFVIN Super Starter Kit For Pico
 ======================================
 
 .. toctree::
