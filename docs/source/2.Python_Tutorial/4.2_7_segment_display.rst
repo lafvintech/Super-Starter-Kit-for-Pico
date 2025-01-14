@@ -31,7 +31,7 @@ Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/4.2.png
 
-Here the wiring principle is basically the same as 5.1 Microchip - 74HC595, the only difference is that Q0-Q7 are connected to the a ~ g pins of the 7 Segment Display.
+Here the wiring principle is basically the same as 4.1 74HC595, the only difference is that Q0-Q7 are connected to the a ~ g pins of the 7 Segment Display.
 
 Connect
 ^^^^^^^^^
