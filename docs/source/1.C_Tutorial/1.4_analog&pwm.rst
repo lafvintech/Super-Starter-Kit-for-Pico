@@ -33,14 +33,15 @@ Connect
 ^^^^^^^
 .. image:: img/3.connect/1.4.png
 
-
 Code
 ^^^^^^^
 .. note::
 
-    * Open the ``1.4_analog&pwm.py`` file under the path of ``Super-Starter-Kit-for-Pico\Python\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
+    * Open the ``1.4_analog_pwm.ino`` file under the path of ``Super-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
 
-    * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
+    * Or copy this code into Arduino IDE.
+
+    * Don’t forget to select the board(Raspberry Pi Pico) and the correct port before clicking the Upload button.
   
 Click “Run current script”, the LED Bar Graph will continuously flow from left to right.
 
@@ -48,35 +49,36 @@ The following is the program code:
 
 .. code-block:: python
 
-    import machine
-    import utime
+    const int pinNums[] = {6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+    const int PIN_COUNT = 10; 
 
-    pin_nums = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-    pins = [machine.Pin(p, machine.Pin.OUT) for p in pin_nums]
+    const int STEPS = 32;
+    const int MAX_DUTY = 255; 
+    int breathPattern[STEPS];
 
-    pwms = [machine.PWM(pin, freq=1000) for pin in pins]
+    void setup() {
+    for (int i = 0; i < PIN_COUNT; i++) {
+        pinMode(pinNums[i], OUTPUT);
+    }
+    
+    for (int i = 0; i < STEPS; i++) {
+        float ratio = 1.0 - abs((i - STEPS/2.0)/(STEPS/2.0));
+        breathPattern[i] = int(MAX_DUTY * ratio);
+    }
+    }
 
-    MAX_DUTY = 65535
-    steps = 32
-    breath_pattern = []
-    for i in range(steps):
-        duty = int(MAX_DUTY * (1 - abs((i - steps/2)/(steps/2))))
-        breath_pattern.append(duty)
-
-    def cleanup():
-        for pwm in pwms:
-            pwm.deinit()
-
-    try:
-        while True:
-            for step in range(steps):
-                for i, pwm in enumerate(pwms):
-                    phase = (step - i * 2) % steps 
-                    pwm.duty_u16(breath_pattern[phase])
-                utime.sleep_ms(50)
-                
-    except KeyboardInterrupt:
-        cleanup()
+    void loop() {
+    for (int step = 0; step < STEPS; step++) {
+        for (int i = 0; i < PIN_COUNT; i++) {
+        int phase = (step - i * 2) % STEPS;
+        if (phase < 0) {
+            phase += STEPS;
+        }
+        analogWrite(pinNums[i], breathPattern[phase]);
+        }
+        delay(50);
+    }
+    }
 
 Phenomenon
 ^^^^^^^^^^^

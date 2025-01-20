@@ -38,9 +38,11 @@ Code
 ^^^^^^^
 .. note::
 
-    * Open the ``1.5_colorful_light.py`` file under the path of ``Super-Starter-Kit-for-Pico\Python\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
+    * Open the ``1.5_colorful_light.ino`` file under the path of ``Super-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
 
-    * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
+    * Or copy this code into Arduino IDE.
+
+    * Don’t forget to select the board(Raspberry Pi Pico) and the correct port before clicking the Upload button. 
   
 
 **RandomColorLight**
@@ -53,125 +55,52 @@ The following is the program code:
 
 .. code-block:: python
 
-    from machine import Pin, PWM
-    from random import randint
-    import time
+    const int redPin = 13;   
+    const int greenPin = 14;  
+    const int bluePin = 15;  
 
-    pins = [13, 14, 15]
+    void setup()
+    { 
+    pinMode(redPin, OUTPUT); 
+    pinMode(greenPin, OUTPUT); 
+    pinMode(bluePin, OUTPUT); 
+    }    
 
-    pwm0 = PWM(Pin(pins[0]), freq=10000)
-    pwm1 = PWM(Pin(pins[1]), freq=10000)
-    pwm2 = PWM(Pin(pins[2]), freq=10000)
+    void loop() 
+    {    
+    color(255, 0, 0); //  red 
+    delay(1000); 
+    color(0,255, 0); //  green  
+    delay(1000);  
+    color(0, 0, 255); //  blue  
+    delay(1000);
 
-    def map_value(x, in_min, in_max, out_min, out_max):
-        return int((x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min)
+    color(255,0,252); // red  
+    delay(1000);   
+    color(237,109,0); //  orange  
+    delay(1000);   
+    color(255,215,0); //  yellow  
+    delay(1000);   
+    color(34,139,34); //  green  
+    delay(1000);  
+    color(0,112,255); //  blue  
+    delay(1000);  
+    color(0,46,90); //   indigo 
+    delay(1000);  
+    color(128,0,128); //  purple  
+    delay(1000);  
+    }     
 
-    def setColor(r, g, b):
-        pwm0.duty_u16(65535 - map_value(r, 0, 1023, 0, 65535))
-        pwm1.duty_u16(65535 - map_value(g, 0, 1023, 0, 65535))
-        pwm2.duty_u16(65535 - map_value(b, 0, 1023, 0, 65535))
+    void color (unsigned char red, unsigned char green, unsigned char blue)
+    {    
+    analogWrite(redPin, red);   
+    analogWrite(greenPin, green); 
+    analogWrite(bluePin, blue); 
+    }
 
-    try:
-        while True:
-            red = randint(0, 1023)
-            green = randint(0, 1023)
-            blue = randint(0, 1023)
-            setColor(red, green, blue)
-            time.sleep_ms(200)
-            
-    except KeyboardInterrupt:
-        pwm0.deinit()
-        pwm1.deinit()
-        pwm2.deinit()
 
 Phenomenon
 ^^^^^^^^^^^
 .. video:: img/5.phenomenon/1.5-1.mp4
-    :width: 100%
-
-Gradient Color Light
------------------------
-In the previous project, we have mastered the usage of RGB LEDs, but the random display of colors is rather stiff. This project will realize a fashionable light with soft color transitions.
-The component list and circuit are exactly the same as in the random color light project.
-Using a color model, the color transitions from 0 to 255 as illustrated below.
-
-.. image:: img/4.software/1.5-2.png
-    
-Click "Run current script", and the light of the RGB-LED will change gently.
-
-Code
-^^^^^^^
-.. note::
-
-    * Open the ``1.5_colorful_light2.py`` file under the path of ``Super-Starter-Kit-for-Pico\Python\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
-
-    * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
-  
-**Gradient Color Light**
-
-The following is the program code:
-
-.. code-block:: python
-
-    from machine import Pin, PWM
-    import time
-
-    pins = [13,14,15]
-
-    pwm0 = PWM(Pin(pins[0]), freq=1000)
-    pwm1 = PWM(Pin(pins[1]), freq=1000)
-    pwm2 = PWM(Pin(pins[2]), freq=1000)
-
-    red = 0
-    green = 0
-    blue = 0
-
-    def map_value(x, in_min, in_max, out_min, out_max):
-        return int((x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min)
-
-    def setColor():
-        pwm0.duty_u16(map_value(red, 0, 255, 0, 65535))
-        pwm1.duty_u16(map_value(green, 0, 255, 0, 65535))
-        pwm2.duty_u16(map_value(blue, 0, 255, 0, 65535))
-
-    def wheel(pos):
-        global red, green, blue
-        WheelPos = pos % 256
-        
-        if WheelPos < 85:
-            red = 255 - WheelPos * 3
-            green = WheelPos * 3
-            blue = 0
-        elif WheelPos < 170:
-            WheelPos -= 85
-            red = 0
-            green = 255 - WheelPos * 3
-            blue = WheelPos * 3
-        else:
-            WheelPos -= 170
-            red = WheelPos * 3
-            green = 0
-            blue = 255 - WheelPos * 3
-        
-        red = max(0, min(255, red))
-        green = max(0, min(255, green))
-        blue = max(0, min(255, blue))
-
-    try:
-        while True:
-            for i in range(0, 256):
-                wheel(i)
-                setColor()
-                time.sleep_ms(15)
-
-                
-    except KeyboardInterrupt:
-        pwm0.deinit()
-        pwm1.deinit()
-        pwm2.deinit()
-
-Phenomenon
-^^^^^^^^^^^
-.. video:: img/5.phenomenon/1.5-2.mp4
     :width: 100%
 

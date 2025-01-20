@@ -79,23 +79,21 @@ Open the IDE
    are complete unless you click Verify or Upload.
 
 
-设置你的树莓派PICO
+Setting Up Your Raspberry Pi Pico
 -----------------------------------
-1.安装UF2固件
-^^^^^^^^^^^^
+1.Install UF2 Firmware
+^^^^^^^^^^^^^^^^^^^^^^^^
 When you initially connect the Raspberry Pi Pico W or hold down the BOOTSEL button while inserting it, you’ll see the device showing up as a drive without being assigned a COM port. This makes it impossible to upload code.
 
 To fix this, you need to install UF2 firmware. This firmware supports MicroPython and is also compatible with the Arduino IDE.
 
-* 从下面的链接下载固件(或者在项目的LAFVIN_Super_Starter_Kit_For_Pico/Arduino/3.firmware中也可以找到)
+* Download the firmware from the link below (or you can also find it in the project folder: **LAFVIN_Super_Starter_Kit_For_Pico/Arduino/3.firmware**).
 
-* 使用Micro-USB数据线链接Pico和计算机，并复制固件到Pico的根目录。
-
-.. image:: /preparation/img/C_preparation/pico_1.png
+* Connect the Pico to your computer using a Micro-USB cable and copy the firmware to the root directory of the Pico.
 
 * Drag and drop the downloaded UF2 firmware into the RPI-RP2 drive.
 
-.. image:: /preparation/img/C_preparation/pico_1.png
+.. image:: /preparation/img/C_preparation/ins_uf2_1.png
 
 * After this, the RPI-RP2 drive will disappear, and you can proceed with the following steps.
 
@@ -105,11 +103,11 @@ To program the Raspberry Pi Pico W, you’ll need to install the corresponding p
 
 * In the Boards Manager window, search for pico. Click the Install button to commence the installation. This will install the Arduino Mbed OS RP2040 Boards package, which includes support for the Raspberry Pi Pico W.
 
-.. image:: 
+.. image:: /preparation/img/C_preparation/board_ins1.png
 
 * During the process, a few pop-up prompts will appear for the installation of specific device drivers. Select “Install”.
 
-.. image:: arg1
+.. image:: /preparation/img/C_preparation/board_ins2.png
 
 * Afterwards, there will be a notification indicating that the installation is complete.
 
@@ -117,52 +115,70 @@ To program the Raspberry Pi Pico W, you’ll need to install the corresponding p
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 * To select the appropriate board, navigate to Tools -> Board -> Arduino Mbed OS RP2040 Boards -> Raspberry Pi Pico.
 
-.. image:: arg1
+.. image:: /preparation/img/C_preparation/select_com1.png
 
 * If your Raspberry Pi Pico W is connected to the computer, set the right port by navigating to Tools -> Port.
 
-.. image:: arg1
+.. image:: /preparation/img/C_preparation/select_com2.png
 
 * Arduino 2.0 offers a new quick-select feature. For the Raspberry Pi Pico W, which is typically not auto-recognized, click Select other board and port.
 
-.. image:: 
-
 * Type Raspberry Pi Pico into the search bar, select it when it shows up, choose the appropriate port, and click OK.
 
-.. image:: arg1
+.. image:: /preparation/img/C_preparation/select_com3.png
 
 * You can easily reselect it later through this quick access window.
 
-.. image::
+.. image:: /preparation/img/C_preparation/select_com4.png
 
 * Either of these methods will enable you to set the correct board and port. You’re now all set to upload code to the Raspberry Pi Pico W.
 
-4.上传代码
+4.Uploading Code
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 * Open any .ino file or use the empty sketch currently displayed. Then, click the Upload button.
 
-.. image:: arg1
+.. image:: /preparation/img/C_preparation/upload_code1.png
 
 * Wait for the uploading message to appear, as shown below.
 
-.. image:: arg1
+.. image:: /preparation/img/C_preparation/upload_code2.png
 
 * Hold down the BOOTSEL button, quickly unplug your Raspberry Pi Pico W, and plug it back in.
 
-.. image:: arg1
+.. image:: /preparation/img/C_preparation/upload_code4.png
 
+.. note:: 
+   * This step is crucial, especially for first-time users on the Arduino IDE. Skipping this step will result in a failed upload.
 
+   * Once you successfully upload the code this time, your Pico W will be recognized by the computer. For future uses, simply plug it into the computer.
 
+* A prompt indicating successful upload will appear.
 
+.. image:: /preparation/img/C_preparation/upload_code3.png
 
+Install libraries (Important)
+-----------------------------------
+Many libraries are available directly through the Arduino Library Manager. You can access the Library Manager by following these steps:
 
+In the Library Manager, you can search for the desired library by name or browse through different categories.
 
+.. note:: 
+   In projects where library installation is required, there will be prompts 
+   indicating which libraries to install. Follow the instructions provided, such 
+   as “The DHT sensor library library is used here, you can install it from the 
+   Library Manager.” Simply install the recommended libraries as prompted.
 
+.. image:: /preparation/img/C_preparation/import_lib1.png
 
+Once you find the library you want to install, click on it and then click the INSTALL button.
 
+The Arduino IDE will automatically download and install the library for you.
 
+.. note:: 
+   The libraries installed can be found in the default library directory of the Arduino IDE, which is usually located at C:\Users\xxx\Documents\Arduino\libraries.
 
+   If your library directory is different, you can check it by going to **File -> Preferences**.
 
-
+   .. image:: /preparation/img/C_preparation/import_lib2.png
 
 

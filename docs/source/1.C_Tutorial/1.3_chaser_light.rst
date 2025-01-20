@@ -37,9 +37,11 @@ Code
 ^^^^^^^
 .. note::
 
-    * Open the ``1.3_chaser_light.py.py`` file under the path of ``Super-Starter-Kit-for-Pico\Python\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
+    * Open the ``1.3_chaser_light.ino`` file under the path of ``Super-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
 
-    * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
+    * Or copy this code into Arduino IDE.
+
+    * Don’t forget to select the board(Raspberry Pi Pico) and the correct port before clicking the Upload button.
   
 After running the code, the LED Bar Graph will display a running light effect.
 
@@ -49,20 +51,23 @@ The following is the program code:
 
 .. code-block:: python
     
-    import machine
-    import utime
+    void setup() {
+        for(int i=6;i<=15;i++)
+        {
+            pinMode(i,OUTPUT);
+        }
+    }
 
-    pin = [6,7,8,9,10,11,12,13,14,15]
-    led = []
-    for i in range(10):
-        led.append(None)
-        led[i] = machine.Pin(pin[i], machine.Pin.OUT)
+    void loop() {
+        for(int i=6;i<=15;i++)
+        {
+            digitalWrite(i,HIGH);
+            delay(500);
+            digitalWrite(i,LOW);
+            delay(500);    
+        }
+    }
 
-    while True:
-        for i in range(10):
-            led[i].value(1)  # Turn on the current LED
-            utime.sleep(0.2)  # Pause for 0.2 seconds
-            led[i].value(0)  # Turn off the current LED
 
 Phenomenon
 ^^^^^^^^^^^

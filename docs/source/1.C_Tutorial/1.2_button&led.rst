@@ -41,31 +41,34 @@ Code
 ^^^^^^^
 .. note::
 
-    * Open the ``1.2_reading_button_value.py`` file under the path of ``Super-Starter-Kit-for-Pico\Python\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
+    * Open the ``1.2_reading_button_value.ino`` file under the path of ``Super-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
 
-    * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
-  
+    * Or copy this code into Arduino IDE.
 
-After running the code, when you press the button, the IDE's shell will display "The button is pressed!"
+    * Don’t forget to select the board(Raspberry Pi Pico) and the correct port before clicking the Upload button.
+
+After running the code, when you press the button, the IDE's shell will display "You pressed the button!"
 
 .. image:: img/4.software/1.2.png
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
-    import machine  # Import the machine module for hardware access
-    import utime    # Import the utime module for time-related functions
+    const int buttonPin = 14;
+    int buttonState = 0;
 
-    # Create a button object connected to GPIO 14, set as input mode
-    button = machine.Pin(14, machine.Pin.IN)
+    void setup() {
+    pinMode(buttonPin, INPUT);
+    Serial.begin(115200);
+    }
 
-    # Infinite loop to continuously check the button state
-    while True:
-        # If button.value() returns 1, the button is pressed
-        if button.value() == 1:
-            print("The button is pressed!")  # Print message when the button is pressed
-            utime.sleep(1)  # Pause for 1 second to avoid rapid message printing
+    void loop() {
+    buttonState = digitalRead(buttonPin);
+    if (buttonState == HIGH) {
+        Serial.println("You pressed the button!");
+    }
+    }
 
 Phenomenon
 ^^^^^^^^^^^
