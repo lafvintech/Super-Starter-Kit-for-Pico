@@ -12,5 +12,4 @@ Click to view :ref:`C-Tutorial <c_tutorial_0_led>`.
 
     install_driver
     download_code
-
     Notes_For_GPIO

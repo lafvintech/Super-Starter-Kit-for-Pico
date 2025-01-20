@@ -1,7 +1,6 @@
 Python Language Tutorial
 ==========================
 
-
 .. toctree::
     :maxdepth: 1
 

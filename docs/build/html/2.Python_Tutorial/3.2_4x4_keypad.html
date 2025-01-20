@@ -132,14 +132,14 @@
 </section>
 <section id="schematic">
 <h2>Schematic<a class="headerlink" href="#schematic" title="Link to this heading"></a></h2>
-<img alt="2.Python_Tutorial/img/2.sch/3.2.png" src="2.Python_Tutorial/img/2.sch/3.2.png" />
+<img alt="../_images/3.2.png" src="../_images/3.2.png" />
 <p>4 pull-down resistors are connected to each of the columns of the matrix keyboard, so that G6 ~ G9 get a stable low level when the keys are not pressed.</p>
 <p>The rows of the keyboard (G2 ~ G5) are programmed to go high; if one of G6 ~ G9 is read high, then we know which key is pressed.</p>
 <p>For example, if G6 is read high, then numeric key 1 is pressed; this is because the control pins of numeric key 1 are G2 and G6, when numeric key 1 is pressed, G2 and G6 will be connected together and G6 is also high.</p>
 </section>
 <section id="connect">
 <h2>Connect<a class="headerlink" href="#connect" title="Link to this heading"></a></h2>
-<img alt="2.Python_Tutorial/img/3.connect/3.2.png" src="2.Python_Tutorial/img/3.connect/3.2.png" />
+<img alt="../_images/3.21.png" src="../_images/3.21.png" />
 <p>To make the wiring easier, in the above diagram, the column row of the matrix keyboard and the 10K resistors are inserted into the holes where G6 ~ G9 are located at the same time.</p>
 </section>
 <section id="code">
@@ -151,7 +151,7 @@
 <li><p>Don’t forget to click on the “MicroPython (Raspberry Pi Pico)” interpreter in the bottom right corner.</p></li>
 </ul>
 </div>
-<img alt="2.Python_Tutorial/img/4.software/3.2.png" src="2.Python_Tutorial/img/4.software/3.2.png" />
+<img alt="../_images/3.22.png" src="../_images/3.22.png" />
 <p>Click “Run current script”, the Shell will print out the keys you pressed on the Keypad.</p>
 <p>The following is the program code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">machine</span>
@@ -198,7 +198,7 @@
 </section>
 <section id="phenomenon">
 <h2>Phenomenon<a class="headerlink" href="#phenomenon" title="Link to this heading"></a></h2>
-<a class="reference internal image-reference" href="../_images/3.2.png"><img alt="../_images/3.2.png" src="../_images/3.2.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../_images/3.23.png"><img alt="../_images/3.23.png" src="../_images/3.23.png" style="width: 100%;" /></a>
 </section>
 </section>
 

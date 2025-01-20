@@ -1,0 +1,84 @@
+1.16 Circuit Control with Relay
+==================================
+In our daily life, we can press the switch to light up or turn off the lamp. But 
+what if you want to control the lamp with Pico W so that it can turn off automatically 
+after ten minutes?
+
+A relay can help you accomplish this idea.
+
+A relay is actually a special kind of switch that is controlled by one side of the 
+circuit (usually a low-voltage circuit) and used to control the other side of the 
+circuit (usually a high-voltage circuit). This makes it practical to modify our home 
+appliances to be controlled by a program, to become smart devices, or even to access 
+the Internet.
+
+.. warning:: 
+    
+    Modification of electrical appliances comes with great danger, do not try it 
+    lightly, please do it under the guidance of professionals.
+
+Here we only use a simple circuit powered by a breadboard power module as an 
+example to show how to control it using relay.
+
+Component List
+^^^^^^^^^^^^^^^
+- Raspberry Pi Pico W x1
+- MicroUSB cable x1
+- 830 Tie-Points Breadboard x1
+- Jumper Wire Several
+- Relay Module x1
+
+
+Component knowledge
+^^^^^^^^^^^^^^^^^^^^
+Relay , Power Supply Module
+
+:ref:`RGB-LED <cpn_rgb_led>` 
+"""""""""""""""""""""""""""""""
+ 
+Connect
+^^^^^^^^^
+.. image:: img/3.connect/1.16.png
+
+Code
+^^^^^^^
+.. note::
+
+    * Open the ``1.16_circuit_control_with_relay.py`` file under the path of ``Super-Starter-Kit-for-Pico\Python\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
+
+    * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
+
+.. image:: img/4.software/1.16.png
+
+While the code is running, the LED lights up. In addition, you can hear a ticktock 
+caused by breaking normally close contact and closing normally open contact.
+
+
+The following is the program code:
+
+.. code-block:: python
+
+    import machine
+    import utime
+
+    # Initialize the relay connected to GPIO pin 15
+    relay = machine.Pin(15, machine.Pin.OUT)
+
+    while True:
+        print('Relay open...')  # Inform that the relay is being activated
+        relay.value(1)  # Turn on the relay (assuming active low configuration)
+        utime.sleep(2)  # Maintain the relay in the on state for 2 second
+
+        print('...Relay close')  # Inform that the relay is being deactivated
+        relay.value(0)  # Turn off the relay
+        utime.sleep(2)   # Maintain the relay in the off state for 1 second
+
+    except KeyboardInterrupt:
+        # Handle a keyboard interrupt (Ctrl+C) to exit the loop
+        relay.value(0)  # Ensure the relay is turned off before exiting
+        pass
+
+Phenomenon
+^^^^^^^^^^^
+.. image:: img/5.phenomenon/1.16.mp4
+    :width: 100%

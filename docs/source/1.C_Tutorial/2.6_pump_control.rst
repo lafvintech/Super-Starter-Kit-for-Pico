@@ -1,0 +1,110 @@
+2.6 Pump Control
+=========================
+Small centrifugal pumps are suitable for projects with automatic plant watering. It can also be used to make tiny smart water features.
+
+Its power component is an electric motor, driven in exactly the same way as a normal motor.
+
+.. note:: 
+    
+    1.Connect the tube to the motor outlet, submerge the pump in water, and then power it on.
+    2.You need to make sure that the water level is always higher than the motor. Idling may damage the motor due to heat generation and will also generate noise.
+    3.If you are watering plants, you need to avoid soil being drawn in, as this can clog the pump.
+    4.If water does not come out of the tube, there may be residual water in the tube blocking the air flow and needs to be drained first.
+
+Component List
+^^^^^^^^^^^^^^^
+- Raspberry Pi Pico W x1
+- MicroUSB cable x1
+- 830 Tie-Points Breadboard x1
+- TA6586 x1
+- DC Water Pump x1
+- Li-po Charger Module x1
+- Battery Holder x1
+- Jumper Wire Several
+
+Component knowledge
+^^^^^^^^^^^^^^^^^^^^
+
+:ref:`transistor <cpn_transistor>`
+"""""""""""""""""""""""""""""""""""
+
+:ref:`Buzzer <cpn_buzzer>`
+"""""""""""""""""""""""""""
+
+Schematic
+^^^^^^^^^^
+.. image:: img/2.sch/2.6.png
+
+.. note:: 
+
+    * Since DC pump require a high current, we use a Li-po Charger module to power the motor here for safety reasons.
+
+    * Make sure your Li-po Charger Module is connected as shown in the diagram. Otherwise, a short circuit will likely damage your battery and circuitry.
+
+Connect
+^^^^^^^^^
+.. image:: img/3.connect/2.6.png
+
+Code
+^^^^^^^
+.. note::
+
+    * Open the ``2.6_pump_control.py`` file under the path of ``Super-Starter-Kit-for-Pico\Python\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
+
+    * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
+
+.. image:: img/4.software/2.6.png
+
+Click “Run current script”, After the code is run, the pump starts working and you will see water flowing out of the tube at the same time.
+
+The following is the program code:
+
+.. code-block:: python
+
+    import machine
+    import utime
+
+    # Initialize motor control pins
+    motor1A = machine.Pin(14, machine.Pin.OUT)
+    motor2A = machine.Pin(15, machine.Pin.OUT)
+    # Add a control switch
+    switch = machine.Pin(16, machine.Pin.IN, machine.Pin.PULL_UP)
+
+    # Add a state variable to record the pump state
+    pump_state = False
+    # Add a variable to record the last switch state
+    last_switch_state = 1  # 1 indicates not pressed
+
+    def pump_on():
+        motor1A.high()
+        motor2A.low()
+
+    def pump_off():
+        motor1A.low()
+        motor2A.low()
+
+    # Initial state: Off
+    pump_off()
+
+    while True:
+        current_switch_state = switch.value()
+
+        # Detect the moment when the button changes from not pressed to pressed (falling edge)
+        if current_switch_state == 0 and last_switch_state == 1:
+            utime.sleep_ms(20)  # Debounce
+            if switch.value() == 0:  # Confirm the button state again
+                pump_state = not pump_state  # Toggle the state
+                if pump_state:
+                    pump_on()
+                    print("power on")
+                else:
+                    pump_off()
+                    print("power off")
+
+        last_switch_state = current_switch_state
+        utime.sleep_ms(50)  # Add a delay to avoid excessive CPU usage
+
+Phenomenon
+^^^^^^^^^^^
+.. video:: img/5.phenomenon/2.6.mp4
+    :width: 100%
