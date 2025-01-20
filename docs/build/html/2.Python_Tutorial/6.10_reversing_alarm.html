@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6.10 Reversing Alarm &mdash; Super-Starter-Kit-for-ESP32-S3-WROOM  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.11 Game - Guess Number" href="6.11_game_guess_number.html" />
+    <link rel="prev" title="6.9 Fruit Piano" href="6.9_fruit_piano.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_this_kit.html">About This Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../component_list.html">Component List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparation/preparation.html">Preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1.C_Tutorial/c_tutorial.html">C Language Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="python_tutorial.html">Python Language Tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0_python_preparation.html">Python Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_output%26input.html">1 Output &amp; Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_sound%26display%26movement.html">2 Sound &amp; Display &amp; Movement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_controller.html">3 Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_microchip.html">4 Microchip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_advanced.html">5 Advanced</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="6_fun_projects.html">6 Fun Projects</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="6.1_light_theremin.html">6.1 Light Theremin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6.2_electronic_thermometer.html">6.2 Electronic thermometer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6.3_alarm_siren_lamp.html">6.3 Alarm Siren Lamp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6.4_counting_device.html">6.4 Counting Device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6.5_motion_capture_controller.html">6.5 Motion Capture Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6.6_traffic_light.html">6.6 Traffic Light</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6.7_digital_level.html">6.7 Digital Level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6.8_morse_code_generator.html">6.8 Morse Code Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6.9_fruit_piano.html">6.9 Fruit Piano</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">6.10 Reversing Alarm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#component-list">Component List</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#component-knowledge">Component knowledge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#schematic">Schematic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connect">Connect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code">Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phenomenon">Phenomenon</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="6.11_game_guess_number.html">6.11 Game - Guess Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6.12_game_10_second.html">6.12 GAME - 10 Second</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6.13_rfid_player.html">6.13 RFID Player</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="7_iot_projects.html">7 IoT Projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../components_Kit/Components_Kit.html">Components Introduction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Super-Starter-Kit-for-ESP32-S3-WROOM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="python_tutorial.html">Python Language Tutorial</a></li>
+          <li class="breadcrumb-item"><a href="6_fun_projects.html">6 Fun Projects</a></li>
+      <li class="breadcrumb-item active">6.10 Reversing Alarm</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/2.Python_Tutorial/6.10_reversing_alarm.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="reversing-alarm">
+<h1>6.10 Reversing Alarm<a class="headerlink" href="#reversing-alarm" title="Link to this heading"></a></h1>
+<p>This project uses an LED, a buzzer and an ultrasonic module to create a reversing assist system. We can put it on a remote control car to simulate the the actual process of reversing a car into a garage.</p>
+<section id="component-list">
+<h2>Component List<a class="headerlink" href="#component-list" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Raspberry Pi Pico W x1</p></li>
+<li><p>MicroUSB cable x1</p></li>
+<li><p>830 Tie-Points Breadboard x1</p></li>
+<li><p>Resistor 1KΩ x1,220Ω x1</p></li>
+<li><p>Transistor S8050 x1</p></li>
+<li><p>Active Buzzer x1</p></li>
+<li><p>LED x1</p></li>
+<li><p>Ultrasonic Module x1</p></li>
+<li><p>Jumper Wire Several</p></li>
+</ul>
+</section>
+<section id="component-knowledge">
+<h2>Component knowledge<a class="headerlink" href="#component-knowledge" title="Link to this heading"></a></h2>
+<section id="transistor">
+<h3><a class="reference internal" href="../components_Kit/component_transistor.html#cpn-transistor"><span class="std std-ref">transistor</span></a><a class="headerlink" href="#transistor" title="Link to this heading"></a></h3>
+</section>
+<section id="buzzer">
+<h3><a class="reference internal" href="../components_Kit/component_buzzer.html#cpn-buzzer"><span class="std std-ref">Buzzer</span></a><a class="headerlink" href="#buzzer" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="schematic">
+<h2>Schematic<a class="headerlink" href="#schematic" title="Link to this heading"></a></h2>
+<img alt="2.Python_Tutorial/img/2.sch/6.10.png" src="2.Python_Tutorial/img/2.sch/6.10.png" />
+<p>xxx</p>
+</section>
+<section id="connect">
+<h2>Connect<a class="headerlink" href="#connect" title="Link to this heading"></a></h2>
+<img alt="2.Python_Tutorial/img/3.connect/6.10.png" src="2.Python_Tutorial/img/3.connect/6.10.png" />
+</section>
+<section id="code">
+<h2>Code<a class="headerlink" href="#code" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">6.10_reversing_alarm.py</span></code> file under the path of <code class="docutils literal notranslate"><span class="pre">Super-Starter-Kit-for-Pico\Python\1.Project</span></code> or copy this code into Thonny, then click “Run Current Script” or simply press F5 to run it.</p></li>
+<li><p>Don’t forget to click on the “MicroPython (Raspberry Pi Pico)” interpreter in the bottom right corner.</p></li>
+</ul>
+</div>
+<img alt="../_images/6.10.png" src="../_images/6.10.png" />
+<p>As soon as the program runs, the ultrasonic sensor will continuously read the distance to the obstacle in front of you, and you will be able to see the exact distance value on the shell.</p>
+<p>The LED and buzzer will change the frequency of blinking and beeping depending on the distance value, thus indicating the approach of the obstacle.</p>
+<p>The 6.1 Measuring Distance article mentioned that when the ultrasonic sensor works, the program will be paused.</p>
+<p>To avoid interfering with the LED or buzzer timing, we created a separate thread for ranging in this example.</p>
+<p>The following is the program code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># Initialize pins for the buzzer and LED</span>
+<span class="n">buzzer</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>  <span class="c1"># Buzzer on pin 15</span>
+<span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>  <span class="c1"># LED on pin 14</span>
+
+<span class="c1"># Initialize pins for the ultrasonic sensor (HC-SR04)</span>
+<span class="n">TRIG</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>  <span class="c1"># Trigger pin for the ultrasonic sensor</span>
+<span class="n">ECHO</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>  <span class="c1"># Echo pin for the ultrasonic sensor</span>
+
+<span class="n">dis</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Global variable to store the distance</span>
+
+<span class="c1"># Function to measure distance using the ultrasonic sensor</span>
+<span class="k">def</span> <span class="nf">distance</span><span class="p">():</span>
+    <span class="n">TRIG</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_us</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">TRIG</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_us</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">TRIG</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+
+    <span class="n">timeout_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_us</span><span class="p">()</span>  <span class="c1"># Use microseconds for more precision</span>
+
+    <span class="c1"># Wait for ECHO pin to go high (start of echo pulse)</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">ECHO</span><span class="o">.</span><span class="n">value</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_us</span><span class="p">(),</span> <span class="n">timeout_start</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">30000</span><span class="p">:</span>  <span class="c1"># 30ms timeout</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># Timeout, return -1 if no pulse is detected</span>
+
+    <span class="n">time1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_us</span><span class="p">()</span>  <span class="c1"># Start time for pulse width calculation</span>
+
+    <span class="c1"># Wait for ECHO pin to go low (end of echo pulse)</span>
+    <span class="k">while</span> <span class="n">ECHO</span><span class="o">.</span><span class="n">value</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_us</span><span class="p">(),</span> <span class="n">time1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">30000</span><span class="p">:</span>  <span class="c1"># 30ms timeout</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># Timeout, return -1 if pulse is too long</span>
+
+    <span class="n">time2</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_us</span><span class="p">()</span>  <span class="c1"># End time for pulse width calculation</span>
+
+    <span class="c1"># Calculate the distance based on the duration of the echo pulse</span>
+    <span class="n">during</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">time2</span><span class="p">,</span> <span class="n">time1</span><span class="p">)</span>
+    <span class="n">distance_cm</span> <span class="o">=</span> <span class="n">during</span> <span class="o">*</span> <span class="mi">340</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">10000</span>  <span class="c1"># Convert time to distance in cm</span>
+    <span class="k">return</span> <span class="n">distance_cm</span>
+
+<span class="c1"># Function to beep the buzzer and light up the LED</span>
+<span class="k">def</span> <span class="nf">beep</span><span class="p">():</span>
+    <span class="n">buzzer</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Turn on the buzzer</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Turn on the LED</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># Beep duration</span>
+    <span class="n">buzzer</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Turn off the buzzer</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Turn off the LED</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># Short pause between beeps</span>
+
+<span class="c1"># Initialize variables for controlling beep intervals</span>
+<span class="n">intervals</span> <span class="o">=</span> <span class="mi">2000</span>  <span class="c1"># Default long initial interval</span>
+<span class="n">previousMillis</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>  <span class="c1"># Store the previous time to track beep intervals</span>
+
+<span class="c1"># Main loop to handle distance-based beeping intervals</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">dis</span> <span class="o">=</span> <span class="n">distance</span><span class="p">()</span>  <span class="c1"># Measure the distance directly in the main loop</span>
+
+    <span class="c1"># Adjust beep intervals based on the distance</span>
+    <span class="k">if</span> <span class="n">dis</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># Ensure valid distance is measured</span>
+        <span class="k">if</span> <span class="n">dis</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">intervals</span> <span class="o">=</span> <span class="mi">300</span>  <span class="c1"># Close distance, faster beeps</span>
+        <span class="k">elif</span> <span class="n">dis</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">:</span>
+            <span class="n">intervals</span> <span class="o">=</span> <span class="mi">500</span>  <span class="c1"># Medium-close distance, moderate beeps</span>
+        <span class="k">elif</span> <span class="n">dis</span> <span class="o">&lt;=</span> <span class="mi">50</span><span class="p">:</span>
+            <span class="n">intervals</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c1"># Medium distance, slower beeps</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">intervals</span> <span class="o">=</span> <span class="mi">2000</span>  <span class="c1"># Far distance, much slower beeps</span>
+
+        <span class="c1"># Print the measured distance</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Distance: </span><span class="si">{</span><span class="n">dis</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> cm&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Check if it&#39;s time to beep again based on the interval</span>
+        <span class="n">currentMillis</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>  <span class="c1"># Get the current time</span>
+        <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">currentMillis</span><span class="p">,</span> <span class="n">previousMillis</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">intervals</span><span class="p">:</span>
+            <span class="n">beep</span><span class="p">()</span>  <span class="c1"># Beep the buzzer and blink the LED</span>
+            <span class="n">previousMillis</span> <span class="o">=</span> <span class="n">currentMillis</span>  <span class="c1"># Update the time of the last beep</span>
+
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>  <span class="c1"># Small delay to avoid too frequent readings</span>
+</pre></div>
+</div>
+</section>
+<section id="phenomenon">
+<h2>Phenomenon<a class="headerlink" href="#phenomenon" title="Link to this heading"></a></h2>
+<div  class="align-left"><video controls="True" preload="auto" width="100%"><source src="../_images/6.10.mp4" type="video/mp4"></video></div></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="6.9_fruit_piano.html" class="btn btn-neutral float-left" title="6.9 Fruit Piano" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="6.11_game_guess_number.html" class="btn btn-neutral float-right" title="6.11 Game - Guess Number" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Lafvin.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

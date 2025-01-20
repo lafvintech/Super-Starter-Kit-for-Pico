@@ -1,4 +1,4 @@
-1.8 Magnetic Trigger
+1.9 Magnetic Trigger
 =========================
 The most common type of reed switch contains a pair of magnetizable, flexible, m
 etal reeds whose end portions are separated by a small gap when the switch is open.
@@ -49,6 +49,18 @@ The following is the program code:
 
 .. code-block:: python
 
+    import machine
+    import utime
+    reed = machine.Pin(14, machine.Pin.IN)
+    while True:
+        if reed.value() == 1:
+            print("There are magnets here!!")
+            utime.sleep(1)
+
+Phenomenon
+^^^^^^^^^^^
+.. image:: img/5.phenomenon/1.9.png
+    :width: 100%
     
 
 

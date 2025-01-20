@@ -64,6 +64,6 @@ The following is the program code:
 
 Phenomenon
 ^^^^^^^^^^^
-.. video:: img/5.phenomenon/1.7.png
+.. image:: img/5.phenomenon/1.7.png
     :width: 100%
 

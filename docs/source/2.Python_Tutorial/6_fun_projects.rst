@@ -17,3 +17,4 @@
     6.10_reversing_alarm
     6.11_game_guess_number
     6.12_game_10_second
+    6.13_rfid_player

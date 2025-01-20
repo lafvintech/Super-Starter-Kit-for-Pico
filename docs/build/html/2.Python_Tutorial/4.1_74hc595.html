@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4.1 74HC595 &mdash; Super-Starter-Kit-for-ESP32-S3-WROOM  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.2 7-Segment Display" href="4.2_7_segment_display.html" />
+    <link rel="prev" title="4 Microchip" href="4_microchip.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_this_kit.html">About This Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../component_list.html">Component List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparation/preparation.html">Preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1.C_Tutorial/c_tutorial.html">C Language Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="python_tutorial.html">Python Language Tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0_python_preparation.html">Python Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_output%26input.html">1 Output &amp; Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_sound%26display%26movement.html">2 Sound &amp; Display &amp; Movement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_controller.html">3 Controller</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="4_microchip.html">4 Microchip</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">4.1 74HC595</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#component-list">Component List</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#component-knowledge">Component knowledge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#schematic">Schematic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connect">Connect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code">Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phenomenon">Phenomenon</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4.2_7_segment_display.html">4.2 7-Segment Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4.3_4_digit_7_segment_timer.html">4.3 4 Digit 7 Segment Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4.4_led_dot_matrix.html">4.4 LED Dot Matrix</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_advanced.html">5 Advanced</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_fun_projects.html">6 Fun Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_iot_projects.html">7 IoT Projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../components_Kit/Components_Kit.html">Components Introduction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Super-Starter-Kit-for-ESP32-S3-WROOM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="python_tutorial.html">Python Language Tutorial</a></li>
+          <li class="breadcrumb-item"><a href="4_microchip.html">4 Microchip</a></li>
+      <li class="breadcrumb-item active">4.1 74HC595</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/2.Python_Tutorial/4.1_74hc595.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hc595">
+<h1>4.1 74HC595<a class="headerlink" href="#hc595" title="Link to this heading"></a></h1>
+<p>Integrated circuit (integrated circuit) is a kind of miniature electronic device or component, which is represented by the letter “IC” in the circuit.</p>
+<p>A certain process is used to interconnect the transistors, resistors, capacitors, inductors and other components and wiring required in a circuit, fabricate on a small or several small semiconductor wafers or dielectric substrates, and then package them in a package , it has become a micro-structure with the required circuit functions; all of the components have been structured as a whole, making electronic components a big step towards micro-miniaturization, low power consumption, intelligence and high reliability.</p>
+<p>The inventors of integrated circuits are Jack Kilby (integrated circuits based on germanium (Ge)) and Robert Norton Noyce (integrated circuits based on silicon (Si)).</p>
+<p>This kit is equipped with an IC, 74HC595, which can greatly save the use of GPIO pins. Specifically, it can replace 8 pins for digital signal output by writing an 8-bit binary number.</p>
+<section id="component-list">
+<h2>Component List<a class="headerlink" href="#component-list" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Raspberry Pi Pico W x1</p></li>
+<li><p>MicroUSB cable x1</p></li>
+<li><p>830 Tie-Points Breadboard x1</p></li>
+<li><p>LED x8</p></li>
+<li><p>Resistor 220Ω x8</p></li>
+<li><p>74HC595 x1</p></li>
+<li><p>Jumper Wire Several</p></li>
+</ul>
+</section>
+<section id="component-knowledge">
+<h2>Component knowledge<a class="headerlink" href="#component-knowledge" title="Link to this heading"></a></h2>
+<section id="transistor">
+<h3><a class="reference internal" href="../components_Kit/component_transistor.html#cpn-transistor"><span class="std std-ref">transistor</span></a><a class="headerlink" href="#transistor" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="schematic">
+<h2>Schematic<a class="headerlink" href="#schematic" title="Link to this heading"></a></h2>
+<img alt="../_images/4.11.png" src="../_images/4.11.png" />
+<p>When MR (pin10) is high level and OE (pin13) is low level, data is input in the rising edge of SHcp and goes to the memory register through the rising edge of SHcp.</p>
+<p>If the two clocks are connected together, the shift register is always one pulse earlier than the memory register.</p>
+<p>There is a serial shift input pin (Ds), a serial output pin (Q) and an asynchronous reset button (low level) in the memory register.</p>
+<p>The memory register outputs a Bus with a parallel 8-bit and in three states.</p>
+<p>When OE is enabled (low level), the data in memory register is output to the bus(Q0 ~ Q7).</p>
+</section>
+<section id="connect">
+<h2>Connect<a class="headerlink" href="#connect" title="Link to this heading"></a></h2>
+<img alt="../_images/4.12.png" src="../_images/4.12.png" />
+</section>
+<section id="code">
+<h2>Code<a class="headerlink" href="#code" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">4.1_74hc595.py</span></code> file under the path of <code class="docutils literal notranslate"><span class="pre">Super-Starter-Kit-for-Pico\Python\1.Project</span></code> or copy this code into Thonny, then click “Run Current Script” or simply press F5 to run it.</p></li>
+<li><p>Don’t forget to click on the “MicroPython (Raspberry Pi Pico)” interpreter in the bottom right corner.</p></li>
+</ul>
+</div>
+<img alt="../_images/4.13.png" src="../_images/4.13.png" />
+<p>Click “Run current script”, num will be written into the 74HC595 chip as an eight-bit binary number to control the on and off of the 8 LEDs. We can see the current value of num in the shell.</p>
+<p>The following is the program code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">sdi</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">rclk</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">srclk</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">hc595_shift</span><span class="p">(</span><span class="n">dat</span><span class="p">):</span>
+    <span class="n">rclk</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">bit</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">srclk</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dat</span> <span class="o">&gt;&gt;</span> <span class="n">bit</span><span class="p">)</span>
+        <span class="n">sdi</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">srclk</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">rclk</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="p">(</span><span class="n">num</span><span class="o">&lt;&lt;</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">i</span><span class="o">&gt;=</span><span class="mi">8</span><span class="p">:</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="p">(</span><span class="n">num</span> <span class="o">&amp;</span> <span class="mb">0b01111111</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="mi">1</span>
+    <span class="n">hc595_shift</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:0&gt;8b}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="phenomenon">
+<h2>Phenomenon<a class="headerlink" href="#phenomenon" title="Link to this heading"></a></h2>
+<div  class="align-left"><video controls="True" preload="auto" width="100%"><source src="../_images/4.1.mp4" type="video/mp4"></video></div></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="4_microchip.html" class="btn btn-neutral float-left" title="4 Microchip" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4.2_7_segment_display.html" class="btn btn-neutral float-right" title="4.2 7-Segment Display" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Lafvin.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -78,6 +78,7 @@ The following is the program code:
         relay.value(0)  # Ensure the relay is turned off before exiting
         pass
 
-
+Phenomenon
+^^^^^^^^^^^
 .. image:: img/5.phenomenon/1.16.mp4
     :width: 100%

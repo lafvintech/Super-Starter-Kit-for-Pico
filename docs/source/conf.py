@@ -20,7 +20,7 @@ author = 'LAFVIN'
 extensions = [
     "myst_parser",
     "sphinx_copybutton",
-    "sphinxcontrib.video"  # 新添加的视频扩展
+    "sphinxcontrib.video"
 ]
 
 pygments_lexers = {

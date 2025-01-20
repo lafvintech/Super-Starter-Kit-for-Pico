@@ -11,7 +11,7 @@
     1.4_analog&pwm
     1.5_colorful_light
     1.6_tilt_switch
-    1.7_switch_left&right
+    1.7_slide_switch
     1.8_gentle_press
     1.9_magnetic_trigger
     1.10_motion_detection

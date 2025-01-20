@@ -53,4 +53,15 @@ The following is the program code:
 
 .. code-block:: python
 
+    import machine
+    import utime
+    button = machine.Pin(14, machine.Pin.IN)
+    while True:
+        if button.value() == 1:
+            print("The switch works!")
+            utime.sleep(1)
 
+Phenomenon
+^^^^^^^^^^^
+.. image:: img/5.phenomenon/1.8.png
+    :width: 100%

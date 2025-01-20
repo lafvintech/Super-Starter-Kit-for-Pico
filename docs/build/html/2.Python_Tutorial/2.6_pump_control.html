@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2.6 Pump Control &mdash; Super-Starter-Kit-for-ESP32-S3-WROOM  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.7 Swinging Servo" href="2.7_swinging_servo.html" />
+    <link rel="prev" title="2.5 Motor &amp; Fan" href="2.5_motor_and_fan.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_this_kit.html">About This Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../component_list.html">Component List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparation/preparation.html">Preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1.C_Tutorial/c_tutorial.html">C Language Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="python_tutorial.html">Python Language Tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0_python_preparation.html">Python Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_output%26input.html">1 Output &amp; Input</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="2_sound%26display%26movement.html">2 Sound &amp; Display &amp; Movement</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="2.1_beep.html">2.1 Beep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.2_custom_melody.html">2.2 Custom Melody</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.3_rgb_led_strip.html">2.3 RGB LED Strip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.4_lcd_displayer.html">2.4 LCD Displayer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.5_motor_and_fan.html">2.5 Motor &amp; Fan</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.6 Pump Control</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#component-list">Component List</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#component-knowledge">Component knowledge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#schematic">Schematic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connect">Connect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code">Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phenomenon">Phenomenon</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="2.7_swinging_servo.html">2.7 Swinging Servo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_controller.html">3 Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_microchip.html">4 Microchip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_advanced.html">5 Advanced</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_fun_projects.html">6 Fun Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_iot_projects.html">7 IoT Projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../components_Kit/Components_Kit.html">Components Introduction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Super-Starter-Kit-for-ESP32-S3-WROOM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="python_tutorial.html">Python Language Tutorial</a></li>
+          <li class="breadcrumb-item"><a href="2_sound%26display%26movement.html">2 Sound &amp; Display &amp; Movement</a></li>
+      <li class="breadcrumb-item active">2.6 Pump Control</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/2.Python_Tutorial/2.6_pump_control.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pump-control">
+<h1>2.6 Pump Control<a class="headerlink" href="#pump-control" title="Link to this heading"></a></h1>
+<p>Small centrifugal pumps are suitable for projects with automatic plant watering. It can also be used to make tiny smart water features.</p>
+<p>Its power component is an electric motor, driven in exactly the same way as a normal motor.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>1.Connect the tube to the motor outlet, submerge the pump in water, and then power it on.
+2.You need to make sure that the water level is always higher than the motor. Idling may damage the motor due to heat generation and will also generate noise.
+3.If you are watering plants, you need to avoid soil being drawn in, as this can clog the pump.
+4.If water does not come out of the tube, there may be residual water in the tube blocking the air flow and needs to be drained first.</p>
+</div>
+<section id="component-list">
+<h2>Component List<a class="headerlink" href="#component-list" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Raspberry Pi Pico W x1</p></li>
+<li><p>MicroUSB cable x1</p></li>
+<li><p>830 Tie-Points Breadboard x1</p></li>
+<li><p>TA6586 x1</p></li>
+<li><p>DC Water Pump x1</p></li>
+<li><p>Li-po Charger Module x1</p></li>
+<li><p>Battery Holder x1</p></li>
+<li><p>Jumper Wire Several</p></li>
+</ul>
+</section>
+<section id="component-knowledge">
+<h2>Component knowledge<a class="headerlink" href="#component-knowledge" title="Link to this heading"></a></h2>
+<section id="transistor">
+<h3><a class="reference internal" href="../components_Kit/component_transistor.html#cpn-transistor"><span class="std std-ref">transistor</span></a><a class="headerlink" href="#transistor" title="Link to this heading"></a></h3>
+</section>
+<section id="buzzer">
+<h3><a class="reference internal" href="../components_Kit/component_buzzer.html#cpn-buzzer"><span class="std std-ref">Buzzer</span></a><a class="headerlink" href="#buzzer" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="schematic">
+<h2>Schematic<a class="headerlink" href="#schematic" title="Link to this heading"></a></h2>
+<img alt="../_images/2.6.png" src="../_images/2.6.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Since DC pump require a high current, we use a Li-po Charger module to power the motor here for safety reasons.</p></li>
+<li><p>Make sure your Li-po Charger Module is connected as shown in the diagram. Otherwise, a short circuit will likely damage your battery and circuitry.</p></li>
+</ul>
+</div>
+</section>
+<section id="connect">
+<h2>Connect<a class="headerlink" href="#connect" title="Link to this heading"></a></h2>
+<img alt="../_images/2.61.png" src="../_images/2.61.png" />
+</section>
+<section id="code">
+<h2>Code<a class="headerlink" href="#code" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">2.6_pump_control.py</span></code> file under the path of <code class="docutils literal notranslate"><span class="pre">Super-Starter-Kit-for-Pico\Python\1.Project</span></code> or copy this code into Thonny, then click “Run Current Script” or simply press F5 to run it.</p></li>
+<li><p>Don’t forget to click on the “MicroPython (Raspberry Pi Pico)” interpreter in the bottom right corner.</p></li>
+</ul>
+</div>
+<img alt="2.Python_Tutorial/img/4.software/2.6.png" src="2.Python_Tutorial/img/4.software/2.6.png" />
+<p>Click “Run current script”, After the code is run, the pump starts working and you will see water flowing out of the tube at the same time.</p>
+<p>The following is the program code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+
+<span class="c1"># Initialize motor control pins</span>
+<span class="n">motor1A</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">motor2A</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="c1"># Add a control switch</span>
+<span class="n">switch</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+
+<span class="c1"># Add a state variable to record the pump state</span>
+<span class="n">pump_state</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="c1"># Add a variable to record the last switch state</span>
+<span class="n">last_switch_state</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># 1 indicates not pressed</span>
+
+<span class="k">def</span> <span class="nf">pump_on</span><span class="p">():</span>
+    <span class="n">motor1A</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+    <span class="n">motor2A</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">pump_off</span><span class="p">():</span>
+    <span class="n">motor1A</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+    <span class="n">motor2A</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+
+<span class="c1"># Initial state: Off</span>
+<span class="n">pump_off</span><span class="p">()</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">current_switch_state</span> <span class="o">=</span> <span class="n">switch</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+
+    <span class="c1"># Detect the moment when the button changes from not pressed to pressed (falling edge)</span>
+    <span class="k">if</span> <span class="n">current_switch_state</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">last_switch_state</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>  <span class="c1"># Debounce</span>
+        <span class="k">if</span> <span class="n">switch</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># Confirm the button state again</span>
+            <span class="n">pump_state</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">pump_state</span>  <span class="c1"># Toggle the state</span>
+            <span class="k">if</span> <span class="n">pump_state</span><span class="p">:</span>
+                <span class="n">pump_on</span><span class="p">()</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;power on&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">pump_off</span><span class="p">()</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;power off&quot;</span><span class="p">)</span>
+
+    <span class="n">last_switch_state</span> <span class="o">=</span> <span class="n">current_switch_state</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>  <span class="c1"># Add a delay to avoid excessive CPU usage</span>
+</pre></div>
+</div>
+</section>
+<section id="phenomenon">
+<h2>Phenomenon<a class="headerlink" href="#phenomenon" title="Link to this heading"></a></h2>
+<div  class="align-left"><video controls="True" preload="auto" width="100%"><source src="../_images/2.6.mp4" type="video/mp4"></video></div></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2.5_motor_and_fan.html" class="btn btn-neutral float-left" title="2.5 Motor &amp; Fan" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="2.7_swinging_servo.html" class="btn btn-neutral float-right" title="2.7 Swinging Servo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Lafvin.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-Python Language Preparation
+Python Preparation
 ============================
 
 1.Download the Thonny
