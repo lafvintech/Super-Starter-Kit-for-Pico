@@ -82,7 +82,7 @@ After the program runs, the Shell will print out the Celsius and Fahrenheit temp
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
     import machine
     import utime

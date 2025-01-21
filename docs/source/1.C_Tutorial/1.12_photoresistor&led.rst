@@ -64,7 +64,7 @@ shine a flashlight on it or cover it up with your hand to see how the value will
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
     import machine
     import utime

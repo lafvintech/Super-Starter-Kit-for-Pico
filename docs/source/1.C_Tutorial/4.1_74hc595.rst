@@ -58,7 +58,7 @@ Click “Run current script”, num will be written into the 74HC595 chip as an 
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
     import machine
     import time

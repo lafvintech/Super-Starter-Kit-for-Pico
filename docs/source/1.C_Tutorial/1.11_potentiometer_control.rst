@@ -79,20 +79,23 @@ the same time, the brightness of the LED will increase as the analog value incre
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
-    import machine
-    import utime
+    const int sensorPin = A2;
+    const int ledPin = 15;
 
-    potentiometer = machine.ADC(28)
-    led = machine.PWM(machine.Pin(15)) 
-    led.freq(1000)
+    void setup() {
+    pinMode(ledPin, OUTPUT);
+    Serial.begin(9600);
+    }
 
-    while True:
-        value=potentiometer.read_u16()
-        print(value)
-        led.duty_u16(value)
-        utime.sleep_ms(200)
+    void loop() {
+    int sensorValue = analogRead(sensorPin);
+    Serial.println(sensorValue);
+    int brightness = map(sensorValue, 0, 1023, 0, 255);
+    analogWrite(ledPin, brightness);
+    }
+
 
 Phenomenon
 ^^^^^^^^^^^

@@ -55,7 +55,7 @@ Click “Run current script”, the Shell prints out the x,y,z values of joystic
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
     import machine
     import utime

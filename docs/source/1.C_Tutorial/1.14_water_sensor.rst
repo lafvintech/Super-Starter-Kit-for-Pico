@@ -54,7 +54,7 @@ and as the depth increases, the Shell will print a larger value.
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
     import machine
     import utime

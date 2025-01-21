@@ -54,7 +54,7 @@ Click “Run current script”, the motor will rotate back and forth in a regula
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
     import machine
     import utime

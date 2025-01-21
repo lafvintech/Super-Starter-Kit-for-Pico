@@ -58,7 +58,7 @@ Click “Run current script”, you will hear a beep every second.
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
     import machine
     import utime

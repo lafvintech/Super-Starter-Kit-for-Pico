@@ -60,7 +60,7 @@ Click “Run current script”, Let’s select some favorite colors and display 
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
     import machine
     from ws2812 import WS2812

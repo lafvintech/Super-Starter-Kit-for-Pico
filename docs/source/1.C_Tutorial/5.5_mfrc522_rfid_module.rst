@@ -51,7 +51,7 @@ The main function is divided into two:
 
 After running you will be able to type message in the shell and then put the card (or key) close to the MFRC522 module to write the message in.
 
-.. code-block:: python
+.. code-block:: c++
 
     from mfrc522 import SimpleMFRC522
 
@@ -71,7 +71,7 @@ After running you will be able to type message in the shell and then put the car
 
 After running, you will be able to read the message stored in the card (or key).
 
-.. code-block:: python
+.. code-block:: c++
 
     from mfrc522 import SimpleMFRC522
 

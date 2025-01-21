@@ -58,7 +58,7 @@ caused by breaking normally close contact and closing normally open contact.
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
     import machine
     import utime

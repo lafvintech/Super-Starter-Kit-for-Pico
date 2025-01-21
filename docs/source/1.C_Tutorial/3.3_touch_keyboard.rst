@@ -48,7 +48,7 @@ You can extend the electrodes to connect other conductors such as fruit, wire, f
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
     from mpr121 import MPR121
     from machine import Pin, I2C

@@ -45,7 +45,7 @@ The new remote control has a plastic piece at the end to isolate the battery ins
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
     import time
     from machine import Pin, freq

@@ -61,7 +61,7 @@ Click “Run current script”, After the code is run, the pump starts working a
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
     import machine
     import utime

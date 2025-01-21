@@ -40,7 +40,7 @@ Code
 ^^^^^^^
 .. note::
 
-    * Open the ``1.7_tilt_switch.ino`` file under the path of ``Super-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
+    * Open the ``1.7_slide_switch.ino`` file under the path of ``Super-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
 
     * Or copy this code into Arduino IDE.
 
@@ -53,22 +53,23 @@ switch works!” will appear in the shell.
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
-    const int slidePin = 14;
-    int state = 0;
+    const int slidePin = 14;  // Define the pin connected to the slide switch
+    int state = 0;            // Variable to store the state of the switch
 
     void setup() {
-    pinMode(slidePin, INPUT);
-    Serial.begin(115200)
+    pinMode(slidePin, INPUT);  // Set the slide switch pin as an input
+    Serial.begin(115200);      // Initialize serial communication at 115200 baud rate
     }
 
     void loop() {
-    state = digitalRead(slidePin);
-    if (state == HIGH) {
-        Serial.println("ON")
-    }else{
-        Serial.println("OFF")    
+    state = digitalRead(slidePin);  // Read the state of the slide switch
+    if (state == HIGH) {            // Check if the switch is in the HIGH position
+        Serial.println("ON");         // Print "ON" to the serial monitor
+    }
+    else {                          // If the switch is not HIGH (i.e., LOW)
+        Serial.println("OFF");        // Print "OFF" to the serial monitor
     }
     }
 

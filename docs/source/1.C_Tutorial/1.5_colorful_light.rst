@@ -53,7 +53,7 @@ Click “Run current script”, RGBLED begins to display random colors.
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
     const int redPin = 13;   
     const int greenPin = 14;  

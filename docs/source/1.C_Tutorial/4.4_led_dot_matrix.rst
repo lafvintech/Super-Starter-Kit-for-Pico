@@ -73,7 +73,7 @@ Click “Run current script”, you will see a x graphic displayed on the 8x8 do
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
     import machine
     import time

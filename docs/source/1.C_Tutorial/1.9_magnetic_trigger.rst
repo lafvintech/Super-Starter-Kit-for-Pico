@@ -49,15 +49,23 @@ wise it goes low.
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
-    import machine
-    import utime
-    reed = machine.Pin(14, machine.Pin.IN)
-    while True:
-        if reed.value() == 1:
-            print("There are magnets here!!")
-            utime.sleep(1)
+    const int reedPin = 14;
+    int state = 0;
+
+    void setup() {
+    pinMode(reedPin, INPUT);
+    Serial.begin(115200);
+    }
+
+    void loop() {
+    state = digitalRead(reedPin);
+    if (state == HIGH) {
+        Serial.println("There are magnets here!!");
+    }   
+    }
+
 
 Phenomenon
 ^^^^^^^^^^^

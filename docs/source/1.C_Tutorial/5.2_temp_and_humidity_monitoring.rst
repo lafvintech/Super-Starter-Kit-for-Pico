@@ -53,7 +53,7 @@ Click “Run current script”, you will see the Shell continuously print out th
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
     from machine import Pin
     import utime as time

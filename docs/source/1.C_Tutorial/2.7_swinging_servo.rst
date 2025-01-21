@@ -52,7 +52,7 @@ The program will always run because of the while True loop, we need to press the
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
     import machine
     import utime

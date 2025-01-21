@@ -49,7 +49,7 @@ After running the code, the LED Bar Graph will display a running light effect.
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
     
     void setup() {
         for(int i=6;i<=15;i++)

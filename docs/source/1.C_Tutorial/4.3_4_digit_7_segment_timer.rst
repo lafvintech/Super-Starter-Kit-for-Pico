@@ -53,7 +53,7 @@ Click “Run current script”, you will see the 4-digit 7-segment display becom
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
     import machine
     import time

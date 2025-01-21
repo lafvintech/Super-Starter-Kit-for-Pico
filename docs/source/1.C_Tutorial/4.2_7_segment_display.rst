@@ -53,7 +53,7 @@ Click “Run current script”, you will be able to see the LED Segment Display 
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
     import machine
     import time

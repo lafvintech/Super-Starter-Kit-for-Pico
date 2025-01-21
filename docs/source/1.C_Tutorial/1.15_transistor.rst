@@ -53,7 +53,7 @@ circuit;
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
     import machine
     button = machine.Pin(14, machine.Pin.IN)

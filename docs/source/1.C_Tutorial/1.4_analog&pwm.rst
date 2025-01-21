@@ -47,7 +47,7 @@ Click “Run current script”, the LED Bar Graph will continuously flow from le
 
 The following is the program code:
 
-.. code-block:: python
+.. code-block:: c++
 
     const int pinNums[] = {6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
     const int PIN_COUNT = 10; 
