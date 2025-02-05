@@ -55,17 +55,22 @@ The following is the program code:
 
 .. code-block:: c++
 
-    import machine
-    button = machine.Pin(14, machine.Pin.IN)
-    signal = machine.Pin(15, machine.Pin.OUT)
+    const int signalPin = 15;
+    const int buttonPin = 14;
 
-    while True:
-        button_status = button.value()
-        if button_status== 1:
-            signal.value(1)
-        elif button_status == 0:
-            signal.value(0)
+    void setup() {
+    pinMode(signalPin, OUTPUT);
+    pinMode(buttonPin, INPUT);
+    }
 
+    void loop() {
+    int buttonState = digitalRead(buttonPin);
+    if (buttonState == HIGH) {
+        digitalWrite(signalPin, HIGH);
+    } else {
+        digitalWrite(signalPin, LOW);
+    }
+    }
 
 Phenomenon
 ^^^^^^^^^^^

@@ -59,17 +59,22 @@ The following is the program code:
 
 .. code-block:: c++
 
-    import machine
-    import utime
+    const int buzzerPin = 15;
 
-    buzzer = machine.Pin(15, machine.Pin.OUT)
-    while True:
-        for i in range(4):
-            buzzer.value(1)
-            utime.sleep(0.3)
-            buzzer.value(0)
-            utime.sleep(0.3)
-        utime.sleep(1)
+    void setup() {
+        pinMode(buzzerPin, OUTPUT);
+    }
+
+    void loop() {
+    for (int i=0;i<4;i++){
+        digitalWrite(buzzerPin, HIGH);   
+        delay(300);                       
+        digitalWrite(buzzerPin, LOW);    
+        delay(300);     
+    }
+    delay(1000);      
+    }
+
 
 Phenomenon
 ^^^^^^^^^^^

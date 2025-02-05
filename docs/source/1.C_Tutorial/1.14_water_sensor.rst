@@ -56,15 +56,18 @@ The following is the program code:
 
 .. code-block:: c++
 
-    import machine
-    import utime
+    const int sensorPin = A2;
 
-    sensor = machine.ADC(28)
+    void setup() {
+    Serial.begin(9600);
+    }
 
-    while True:
-        value=sensor.read_u16()
-        print(value)
-        utime.sleep_ms(200)
+    void loop() {
+    int sensorValue = analogRead(sensorPin);
+    Serial.println(sensorValue);
+    delay(100);
+}
+
 
 Phenomenon
 ^^^^^^^^^^^

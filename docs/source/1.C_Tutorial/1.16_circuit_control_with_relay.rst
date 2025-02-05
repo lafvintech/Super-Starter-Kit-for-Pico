@@ -60,27 +60,23 @@ The following is the program code:
 
 .. code-block:: c++
 
-    import machine
-    import utime
+    const int relayPin = 15;
 
-    # Initialize the relay connected to GPIO pin 15
-    relay = machine.Pin(15, machine.Pin.OUT)
+    void setup() {
 
-    while True:
-        print('Relay open...')  # Inform that the relay is being activated
-        relay.value(1)  # Turn on the relay (assuming active low configuration)
-        utime.sleep(2)  # Maintain the relay in the on state for 2 second
+        pinMode(relayPin, OUTPUT);
+    }
 
-        print('...Relay close')  # Inform that the relay is being deactivated
-        relay.value(0)  # Turn off the relay
-        utime.sleep(2)   # Maintain the relay in the off state for 1 second
 
-    except KeyboardInterrupt:
-        # Handle a keyboard interrupt (Ctrl+C) to exit the loop
-        relay.value(0)  # Ensure the relay is turned off before exiting
-        pass
+    void loop() {
+        digitalWrite(relayPin, HIGH);   
+        delay(2000);                     
+        digitalWrite(relayPin, LOW);    
+        delay(2000);                      
+    }
+
 
 Phenomenon
 ^^^^^^^^^^^
-.. image:: img/5.phenomenon/1.16.mp4
+.. video:: img/5.phenomenon/1.16.mp4
     :width: 100%
