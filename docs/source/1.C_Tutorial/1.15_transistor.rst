@@ -74,5 +74,5 @@ The following is the program code:
 
 Phenomenon
 ^^^^^^^^^^^
-.. image:: img/5.phenomenon/1.15.mp4
+.. video:: img/5.phenomenon/1.15.mp4
     :width: 100%

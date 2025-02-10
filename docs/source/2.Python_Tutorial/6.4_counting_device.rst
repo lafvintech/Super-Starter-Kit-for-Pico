@@ -1,6 +1,6 @@
 6.4 Counting Device
 =========================
-Here we will make a number-displaying counter system, consisting of a PIR sensor and a 4-digit segment display. When the PIR detects that someone is passing by, the number on the 4-digit segment display will add 1. You can use this counter to count the number of people walking through the passageway.
+Here we will make a number-displaying counter system, consisting of a PIR sensor and a LCD1602 Display. When the PIR detects that someone is passing by, the number on the LCD1602 Display will add 1. You can use this counter to count the number of people walking through the passageway.
 
 
 Component List
@@ -9,7 +9,7 @@ Component List
 - MicroUSB cable x1
 - 830 Tie-Points Breadboard x1
 - Resistor 220Ω x4
-- 4-Digit 7-Segment Display x1
+- LCD1602 Display x1
 - 74HC595 x1
 - PIR Motion Sensor Module x1
 - Jumper Wire Several
@@ -27,11 +27,9 @@ Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/6.4.png
 
-This circuit is based on the 4.3 4 Digit 7 Segment Timer with the addition of a PIR module.
+The circuit consists of an LCD1602 and a PIR module.
 
 The PIR will send a high signal of about 2.8s long when someone passes by.
-
-The PIR module has two potentiometers: one adjusts sensitivity, the other adjusts detection distance. To make the PIR module work better, you need to turn both of them counterclockwise to the end.
 
 .. image:: img/6.other/PIR.png
 
@@ -54,7 +52,7 @@ Code
 
 .. image:: img/4.software/6.4.png
 
-Click “Run current script”, the number on the 4-digit 7-segment display will be added by one if someone passes in front of the PIR module.
+Click “Run current script”, the number on the LCD1602 Display will be added by one if someone passes in front of the PIR module.
 
 The following is the program code:
 

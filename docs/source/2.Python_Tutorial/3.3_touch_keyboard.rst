@@ -24,8 +24,6 @@ Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/3.3.png
 
-xxx
-
 Connect
 ^^^^^^^^^
 .. image:: img/3.connect/3.3.png

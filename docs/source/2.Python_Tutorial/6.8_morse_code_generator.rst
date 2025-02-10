@@ -26,8 +26,6 @@ Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/6.8.png
 
-xxx
-
 Connect
 ^^^^^^^^^
 .. image:: img/3.connect/6.8.png

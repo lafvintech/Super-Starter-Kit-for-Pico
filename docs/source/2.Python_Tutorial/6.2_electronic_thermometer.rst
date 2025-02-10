@@ -10,7 +10,7 @@ Component List
 - MicroUSB cable x1
 - 830 Tie-Points Breadboard x1
 - LCD1602 IIC x1
-- Thermistor x1
+- DHT11 Module x1
 - Jumper Wire Several
 
 Component knowledge
@@ -25,6 +25,8 @@ Component knowledge
 Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/6.2.png
+
+.. image:: img/2.sch/6.2-1.png
 
 Connect
 ^^^^^^^^^
