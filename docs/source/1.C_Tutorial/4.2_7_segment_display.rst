@@ -41,7 +41,7 @@ Code
 ^^^^^^^
 .. note::
 
-    * Open the ``4.2_7_segment_display.ino`` file under the path of ``Super-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
+    * Open the ``4.2_7_segment_display.ino`` file under the path of ``Ultimate-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
 
     * Or copy this code into Arduino IDE.
 
@@ -55,34 +55,29 @@ The following is the program code:
 
 .. code-block:: c++
 
-    import machine
-    import time
+    const int STcp = 1;//Pin connected to ST_CP of 74HC595
+    const int SHcp = 2;//Pin connected to SH_CP of 74HC595 
+    const int DS = 0; //Pin connected to DS of 74HC595 
+    int datArray[] = {0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};
 
-    SEGCODE = [0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f]
+    void setup ()
+    {
+    //set pins to output
+    pinMode(STcp,OUTPUT);
+    pinMode(SHcp,OUTPUT);
+    pinMode(DS,OUTPUT);
+    }
+    void loop()
+    {
+    for(int num = 0; num <10; num++)
+    {
+        digitalWrite(STcp,LOW); //ground ST_CP and hold low for as long as you are transmitting
+        shiftOut(DS,SHcp,MSBFIRST,datArray[num]);
+        digitalWrite(STcp,HIGH); //pull the ST_CPST_CP to save the data
+        delay(1000);
+    }
+    }
 
-    sdi = machine.Pin(0,machine.Pin.OUT)
-    rclk = machine.Pin(1,machine.Pin.OUT)
-    srclk = machine.Pin(2,machine.Pin.OUT)
-
-    def hc595_shift(dat):
-        rclk.low()
-        time.sleep_ms(5)
-        for bit in range(7, -1, -1):
-            srclk.low()
-            time.sleep_ms(5)
-            value = 1 & (dat >> bit)
-            sdi.value(value)
-            time.sleep_ms(5)
-            srclk.high()
-            time.sleep_ms(5)
-        time.sleep_ms(5)
-        rclk.high()
-        time.sleep_ms(5)
-
-    while True:
-        for num in range(10):
-            hc595_shift(SEGCODE[num])
-            time.sleep_ms(500)
 
 
 Phenomenon

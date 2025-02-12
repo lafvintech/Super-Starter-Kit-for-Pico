@@ -40,7 +40,7 @@ Code
 ^^^^^^^
 .. note::
 
-    * Open the ``3.1_joystick.ino`` file under the path of ``Super-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
+    * Open the ``3.1_joystick.ino`` file under the path of ``Ultimate-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
 
     * Or copy this code into Arduino IDE.
 
@@ -57,18 +57,27 @@ The following is the program code:
 
 .. code-block:: c++
 
-    import machine
-    import utime
+    // Define analog pins for joystick X and Y axes
+    const int X_PIN = A1;  // X-axis connected to analog pin A1
+    const int Y_PIN = A0;  // Y-axis connected to analog pin A0
 
-    x_joystick = machine.ADC(27)
-    y_joystick = machine.ADC(26)
+    void setup() {
+    Serial.begin(9600);  // Initialize serial communication at 9600 baud rate
+    }
 
-    while True:
-        x_value = x_joystick.read_u16()
-        y_value = y_joystick.read_u16()
+    void loop() {
+    // Read analog values from joystick X and Y axes
+    int xValue = analogRead(X_PIN);  // Read X-axis analog value (range: 0-1023)
+    int yValue = analogRead(Y_PIN);  // Read Y-axis analog value (range: 0-1023)
 
-        print('X: %d  Y: %d' % (x_value, y_value))
-        utime.sleep_ms(200)
+    // Output the read X and Y values through serial communication
+    Serial.print("X: ");
+    Serial.print(xValue);  // Output X-axis value
+    Serial.print("  Y: ");
+    Serial.println(yValue);  // Output Y-axis value and move to next line
+
+    delay(200);  // Delay for 200 milliseconds to control reading and output frequency
+    }
 
 Phenomenon
 ^^^^^^^^^^^

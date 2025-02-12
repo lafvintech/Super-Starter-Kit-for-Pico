@@ -31,7 +31,7 @@ Code
 ^^^^^^^
 .. note::
 
-    * Open the ``5.1_ultrasonic_ranging.ino`` file under the path of ``Super-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
+    * Open the ``5.1_ultrasonic_ranging.ino`` file under the path of ``Ultimate-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
 
     * Or copy this code into Arduino IDE.
 
@@ -45,31 +45,34 @@ The following is the program code:
 
 .. code-block:: c++
 
-    import machine
-    import time
+    const int echoPin = 16;
+    const int trigPin = 17;
 
-    TRIG = machine.Pin(17,machine.Pin.OUT)
-    ECHO = machine.Pin(16,machine.Pin.IN)
 
-    def distance():
-        TRIG.low()
-        time.sleep_us(2)
-        TRIG.high()
-        time.sleep_us(10)
-        TRIG.low()
-        while not ECHO.value():
-            pass
-        time1 = time.ticks_us()
-        while ECHO.value():
-            pass
-        time2 = time.ticks_us()
-        during = time.ticks_diff(time2,time1)
-        return during * 340 / 2 / 10000
+    void setup(){
+    Serial.begin(9600);
+    pinMode(echoPin, INPUT);
+    pinMode(trigPin, OUTPUT);
+    Serial.println("Ultrasonic sensor:");  
+    }
 
-    while True:
-        dis = distance()
-        print ('Distance: %.2f' % dis)
-        time.sleep_ms(300)
+    void loop(){
+    float distance = readSensorData();
+    Serial.print(distance);   
+    Serial.println(" cm");
+    delay(400);
+    }
+
+    float readSensorData(){
+    digitalWrite(trigPin, LOW); 
+    delayMicroseconds(2);
+    digitalWrite(trigPin, HIGH); 
+    delayMicroseconds(10);
+    digitalWrite(trigPin, LOW);  
+    float distance = pulseIn(echoPin, HIGH)/58.00;  //Equivalent to (340m/s*1us)/2
+    return distance;
+    }
+
 
 
 Phenomenon

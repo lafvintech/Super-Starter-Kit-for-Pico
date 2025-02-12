@@ -39,7 +39,7 @@ Code
 ^^^^^^^
 .. note::
 
-    * Open the ``5.2_temp_and_humidity_monitoring.ino`` file under the path of ``Super-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
+    * Open the ``5.2_temp_and_humidity_monitoring.ino`` file under the path of ``Ultimate-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
 
     * Or copy this code into Arduino IDE.
 
@@ -53,23 +53,39 @@ The following is the program code:
 
 .. code-block:: c++
 
-    from machine import Pin
-    import utime as time
-    from dht import DHT11, InvalidPulseCount
+    #include <DHT.h>
 
-    pin = Pin(16, Pin.IN)
-    sensor = DHT11(pin)
-    time.sleep(5)  # initial delay
+    #define DHTPIN 16     // Define the pin connected to the DHT11 sensor
+    #define DHTTYPE DHT11 // Define the type of sensor used
 
-    while True:
-        try:
-            sensor.measure()
-            string = "Temperature:{}\nHumidity: {}".format(sensor.temperature, sensor.humidity)
-            print(string)
-            time.sleep(4)
+    DHT dht(DHTPIN, DHTTYPE);
 
-        except InvalidPulseCount as e:
-            print('Bad pulse count - retrying ...')
+    void setup() {
+    Serial.begin(9600);
+    dht.begin();
+    delay(5000);  // Initial delay of 5 seconds
+    }
+
+    void loop() {
+    // Read humidity and temperature
+    float humidity = dht.readHumidity();
+    float temperature = dht.readTemperature();
+
+    // Check if reading failed
+    if (isnan(humidity) || isnan(temperature)) {
+        Serial.println("Failed to read from DHT sensor!");
+    } else {
+        // Print temperature and humidity
+        Serial.print("Temperature: ");
+        Serial.print(temperature);
+        Serial.print(" °C\nHumidity: ");
+        Serial.print(humidity);
+        Serial.println(" %");
+    }
+
+    delay(4000);  // Wait for 4 seconds
+    }
+
 
 
 Phenomenon

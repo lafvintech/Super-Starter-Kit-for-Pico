@@ -38,7 +38,7 @@ Code
 ^^^^^^^
 .. note::
 
-    * Open the ``2.7_swinging_servo.ino`` file under the path of ``Super-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
+    * Open the ``2.7_swinging_servo.ino`` file under the path of ``Ultimate-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
 
     * Or copy this code into Arduino IDE.
 
@@ -54,27 +54,31 @@ The following is the program code:
 
 .. code-block:: c++
 
-    import machine
-    import utime
+    #include <Servo.h>
 
-    servo = machine.PWM(machine.Pin(15))
-    servo.freq(50)
+    Servo myservo;//create servo object to control a servo
 
-    def interval_mapping(x, in_min, in_max, out_min, out_max):
-        return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
+    void setup()
+    {
+    myservo.attach(15);//attachs the servo on pin 15 to servo object
+    myservo.write(0);//back to 0 degrees
+    delay(1000);//wait for a second
+    }
 
-    def servo_write(pin,angle):
-        pulse_width=interval_mapping(angle, 0, 180, 0.5,2.5)
-        duty=int(interval_mapping(pulse_width, 0, 20, 0,65535))
-        pin.duty_u16(duty)
+    void loop()
+    {
+    for (int i = 0; i <= 180; i++)
+    {
+        myservo.write(i); //write the i angle to the servo
+        delay(15); //delay 15ms
+    }
+    for (int i = 180; i >= 0; i--)
+    {
+        myservo.write(i); //write the i angle to the servo
+        delay(15); //delay 15ms
+    }
+    }
 
-    while True:
-        for angle in range(180):
-            servo_write(servo,angle)
-            utime.sleep_ms(20)
-        for angle in range(180,-1,-1):
-            servo_write(servo,angle)
-            utime.sleep_ms(20)
 
 Phenomenon
 ^^^^^^^^^^^

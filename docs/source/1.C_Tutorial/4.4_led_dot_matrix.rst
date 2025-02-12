@@ -61,7 +61,7 @@ Code
 ^^^^^^^
 .. note::
 
-    * Open the ``4.4_led_dot_matrix.ino`` file under the path of ``Super-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
+    * Open the ``4.4_led_dot_matrix.ino`` file under the path of ``Ultimate-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
 
     * Or copy this code into Arduino IDE.
 
@@ -75,103 +75,132 @@ The following is the program code:
 
 .. code-block:: c++
 
-    import machine
-    import time
+    // Define pins
+    const int SDI_PIN = 18;   // Data input
+    const int RCLK_PIN = 19;  // Storage register clock
+    const int SRCLK_PIN = 20; // Shift register clock
 
-    sdi = machine.Pin(18, machine.Pin.OUT)
-    rclk = machine.Pin(19, machine.Pin.OUT)
-    srclk = machine.Pin(20, machine.Pin.OUT)
+    // Define pattern arrays
+    const byte hi_pattern[] = {
+        0xFF, // 11111111
+        0xAD, // 10101101
+        0xAD, // 10101101
+        0xA1, // 10100001
+        0xAD, // 10101101
+        0xAD, // 10101101
+        0xFF, // 11111111
+        0xFF  // 11111111
+    };
 
+    const byte music_note[] = {
+        0xFF, // 11111111
+        0xFF, // 11110111
+        0xF1, // 11110001
+        0xF3, // 11110011
+        0xF7, // 11110111
+        0xF7, // 11110111
+        0xF7, // 11110111
+        0xFF  // 11111111
+    };
 
-    hi_pattern = [
-        0xFF, # 11111111
-        0xAD, # 10101101
-        0xAD, # 10101101
-        0xA1, # 10100001
-        0xAD, # 10101101
-        0xAD, # 10101101
-        0xFF, # 11111111
-        0xFF  # 11111111
-    ]
+    const byte smile[] = {
+        0xFF, // 11111111
+        0xFF, // 11111111
+        0xC3, // 11000011
+        0xBD, // 10111101
+        0xFF, // 11111111
+        0x93, // 10010011
+        0x93, // 10010011
+        0xFF  // 11111111
+    };
 
-    music_note = [
-        0xFF, # 11111111
-        0xFF, # 11110111
-        0xF1, # 11110001
-        0xF3, # 11110011
-        0xF7, # 11110111
-        0xF7, # 11110111
-        0xF7, # 11110111
-        0xFF  # 11111111
-    ]
+    const byte arrow_right[] = {0xFF,0xF7,0xFB,0x81,0xFB,0xF7,0xFF,0xFF};
+    const byte arrow_left[] = {0xFF,0xEF,0xDF,0x81,0xDF,0xEF,0xFF,0xFF};
 
-    smile = [
-        0xFF, # 11111111
-        0xFF, # 11111111
-        0xC3, # 11000011
-        0xBD, # 10111101
-        0xFF, # 11111111
-        0x93, # 10010011
-        0x93, # 10010011
-        0xFF  # 11111111
-    ]
+    void setup() {
+    pinMode(SDI_PIN, OUTPUT);
+    pinMode(RCLK_PIN, OUTPUT);
+    pinMode(SRCLK_PIN, OUTPUT);
+    }
 
-    arrow_right = [0xFF,0xF7,0xFB,0x81,0xFB,0xF7,0xFF,0xFF]
-    arrow_left = [0xFF,0xEF,0xDF,0x81,0xDF,0xEF,0xFF,0xFF]
+    // Send data to 74HC595
+    void hc595_in(byte dat) {
+    for (int bit = 7; bit >= 0; bit--) {
+        digitalWrite(SRCLK_PIN, LOW);
+        digitalWrite(SDI_PIN, (dat >> bit) & 0x01);
+        digitalWrite(SRCLK_PIN, HIGH);
+    }
+    }
 
-    def scroll_pattern_left(pattern):
-        return [((row << 1) | (row >> 7)) & 0xFF for row in pattern]
+    // Output data to storage register
+    void hc595_out() {
+    digitalWrite(RCLK_PIN, HIGH);
+    digitalWrite(RCLK_PIN, LOW);
+    }
 
-    def scroll_pattern_right(pattern):
-        return [((row >> 1) | (row << 7)) & 0xFF for row in pattern]
+    // Display pattern
+    void display_pattern(const byte pattern[], unsigned long duration_ms) {
+    unsigned long start_time = millis();
+    while (millis() - start_time < duration_ms) {
+        for (int i = 0; i < 8; i++) {
+        hc595_in(pattern[i]);
+        hc595_in(0x80 >> i);
+        hc595_out();
+        delayMicroseconds(500);
+        }
+    }
+    }
 
-    def scroll_animation(pattern, direction='left', steps=8, step_delay=200):
-        current = pattern
-        for _ in range(steps):
-            display_pattern(current, step_delay)
-            if direction == 'left':
-                current = scroll_pattern_left(current)
-            else:
-                current = scroll_pattern_right(current)
+    // Scroll pattern to the left
+    void scroll_pattern_left(byte result[], const byte pattern[]) {
+    for (int i = 0; i < 8; i++) {
+        result[i] = ((pattern[i] << 1) | (pattern[i] >> 7)) & 0xFF;
+    }
+    }
 
-    def hc595_in(dat):
-        for bit in range(7, -1, -1):
-            srclk.low()
-            sdi.value(1 & (dat >> bit))
-            srclk.high()
+    // Scroll pattern to the right
+    void scroll_pattern_right(byte result[], const byte pattern[]) {
+    for (int i = 0; i < 8; i++) {
+        result[i] = ((pattern[i] >> 1) | (pattern[i] << 7)) & 0xFF;
+    }
+    }
 
-    def hc595_out():
-        rclk.high()
-        rclk.low()
+    // Scroll animation
+    void scroll_animation(const byte pattern[], char direction, int steps, int step_delay) {
+    byte current[8];
+    memcpy(current, pattern, 8);
+    
+    for (int step = 0; step < steps; step++) {
+        display_pattern(current, step_delay);
+        byte temp[8];
+        if (direction == 'l') {
+        scroll_pattern_left(temp, current);
+        } else {
+        scroll_pattern_right(temp, current);
+        }
+        memcpy(current, temp, 8);
+    }
+    }
 
-    def display_pattern(pattern, duration_ms=1000):
-        end_time = time.ticks_add(time.ticks_ms(), duration_ms)
-        while time.ticks_diff(end_time, time.ticks_ms()) > 0:
-            for i in range(8):
-                hc595_in(pattern[i]) 
-                hc595_in(0x80 >> i) 
-                hc595_out()
-                time.sleep_us(500) 
+    void loop() {
+    // Display "HI" pattern
+    display_pattern(hi_pattern, 1500);
 
-    def main():
-        while True:
-            display_pattern(hi_pattern, 1500)
-            
-            display_pattern(music_note, 1000)
-            scroll_animation(music_note, 'left', 8, 150)
-            scroll_animation(music_note, 'right', 8, 150)
-            
-            display_pattern(smile, 1500)
-            
-            for _ in range(2):
-                display_pattern(arrow_right, 400)
-                display_pattern(arrow_left, 400)
+    // Display music note pattern and scroll
+    display_pattern(music_note, 1000);
+    scroll_animation(music_note, 'l', 8, 150);
+    scroll_animation(music_note, 'r', 8, 150);
 
-    try:
-        main()
-    except KeyboardInterrupt:
-        pass
-            
+    // Display smiley face
+    display_pattern(smile, 1500);
+
+    // Display arrow animation
+    for (int i = 0; i < 2; i++) {
+        display_pattern(arrow_right, 400);
+        display_pattern(arrow_left, 400);
+    }
+    }
+
 Phenomenon
 ^^^^^^^^^^^
 .. video:: img/5.phenomenon/4.4.mp4

@@ -41,7 +41,7 @@ Code
 ^^^^^^^
 .. note::
 
-    * Open the ``4.3_4_digit_7_segment_timer.ino`` file under the path of ``Super-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
+    * Open the ``4.3_4_digit_7_segment_timer.ino`` file under the path of ``Ultimate-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
 
     * Or copy this code into Arduino IDE.
 
@@ -55,64 +55,58 @@ The following is the program code:
 
 .. code-block:: c++
 
-    import machine
-    import time
+    const int STcp = 19;//Pin connected to ST_CP of 74HC595
+    const int SHcp = 20;//Pin connected to SH_CP of 74HC595 
+    const int DS = 18; //Pin connected to DS of 74HC595 
+    const int placePin[4] = {13,12,11,10}; 
 
-    SEGCODE = [0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f]
+    int datArray[] = {0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};
+    unsigned long timerStart = 0;
 
-    sdi = machine.Pin(18,machine.Pin.OUT)
-    rclk = machine.Pin(19,machine.Pin.OUT)
-    srclk = machine.Pin(20,machine.Pin.OUT)
 
-    placePin = []
-    pin = [10,13,12,11]
-    for i in range(4):
-        placePin.append(None)
-        placePin[i] = machine.Pin(pin[i], machine.Pin.OUT)
+    void setup ()
+    {
+    //set pins to output
+    pinMode(STcp,OUTPUT);
+    pinMode(SHcp,OUTPUT);
+    pinMode(DS,OUTPUT);
+    for (int i = 0; i<4;i++){
+        pinMode(placePin[i],OUTPUT);
+    }
+    timerStart = millis();
+    }
 
-    timerStart=time.ticks_ms()
+    void loop()
+    {
+    unsigned int count = (millis()-timerStart)/1000;
+    
+    pickDigit(0);
+    hc595_shift(count%10/1);
+    
+    pickDigit(1);
+    hc595_shift(count%100/10);
+    
+    pickDigit(2);
+    hc595_shift(count%1000/100);
+    
+    pickDigit(3);
+    hc595_shift(count%10000/1000);
+    }
 
-    def timer1():
-        return int((time.ticks_ms()-timerStart)/1000)
+    void pickDigit(int digit){
+    for(int i = 0; i < 4; i++){
+        digitalWrite(placePin[i],HIGH);
+    }
+    digitalWrite(placePin[digit],LOW);
+    }
 
-    def pickDigit(digit):
-        for i in range(4):
-            placePin[i].value(1)
-        placePin[digit].value(0)
+    void hc595_shift(int num){
+        digitalWrite(STcp,LOW); //ground ST_CP and hold low for as long as you are transmitting
+        shiftOut(DS,SHcp,MSBFIRST,datArray[num]);
+        digitalWrite(STcp,HIGH); //pull the ST_CPST_CP to save the data
+        delay(1);
+    }
 
-    def clearDisplay():
-        hc595_shift(0x00)
-
-    def hc595_shift(dat):
-        rclk.low()
-        time.sleep_us(200)
-        for bit in range(7, -1, -1):
-            srclk.low()
-            time.sleep_us(200)
-            value = 1 & (dat >> bit)
-            sdi.value(value)
-            time.sleep_us(200)
-            srclk.high()
-            time.sleep_us(200)
-        time.sleep_us(200)
-        rclk.high()
-        time.sleep_us(200)
-
-    while True:
-        count = timer1()
-        #print(count)
-
-        pickDigit(0)
-        hc595_shift(SEGCODE[count%10])
-
-        pickDigit(1)
-        hc595_shift(SEGCODE[count%100//10])
-
-        pickDigit(2)
-        hc595_shift(SEGCODE[count%1000//100])
-
-        pickDigit(3)
-        hc595_shift(SEGCODE[count%10000//1000])
 
 
 Phenomenon

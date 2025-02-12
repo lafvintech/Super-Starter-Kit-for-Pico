@@ -16,9 +16,11 @@ Component List
 - Raspberry Pi Pico W x1
 - MicroUSB cable x1
 - 830 Tie-Points Breadboard x1
+- Resistor 1KΩ x1
 - TA6586 x1
 - DC Water Pump x1
 - Li-po Charger Module x1
+- Button x1
 - Battery Holder x1
 - Jumper Wire Several
 
@@ -49,7 +51,7 @@ Code
 ^^^^^^^
 .. note::
 
-    * Open the ``2.6_pump_control.ino`` file under the path of ``Super-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
+    * Open the ``2.6_pump_control.ino`` file under the path of ``Ultimate-Starter-Kit-for-Pico\Arduino\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
 
     * Or copy this code into Arduino IDE.
 
@@ -63,48 +65,52 @@ The following is the program code:
 
 .. code-block:: c++
 
-    import machine
-    import utime
+    const int motor1A = 14;
+    const int motor2A = 15;
+    const int switchPin = 16;
 
-    # Initialize motor control pins
-    motor1A = machine.Pin(14, machine.Pin.OUT)
-    motor2A = machine.Pin(15, machine.Pin.OUT)
-    # Add a control switch
-    switch = machine.Pin(16, machine.Pin.IN, machine.Pin.PULL_UP)
+    bool pumpState = false;
+    int lastSwitchState = HIGH; // HIGH indicates not pressed
 
-    # Add a state variable to record the pump state
-    pump_state = False
-    # Add a variable to record the last switch state
-    last_switch_state = 1  # 1 indicates not pressed
+    void setup() {
+    pinMode(motor1A, OUTPUT);
+    pinMode(motor2A, OUTPUT);
+    pinMode(switchPin, INPUT_PULLUP);
 
-    def pump_on():
-        motor1A.high()
-        motor2A.low()
+    pumpOff(); // Initial state: Off
+    }
 
-    def pump_off():
-        motor1A.low()
-        motor2A.low()
+    void loop() {
+    int currentSwitchState = digitalRead(switchPin);
 
-    # Initial state: Off
-    pump_off()
+    // Detect the moment when the button changes from not pressed to pressed (falling edge)
+    if (currentSwitchState == LOW && lastSwitchState == HIGH) {
+        delay(20); // Debounce
+        if (digitalRead(switchPin) == LOW) { // Confirm the button state again
+        pumpState = !pumpState; // Toggle the state
+        if (pumpState) {
+            pumpOn();
+            Serial.println("Power on");
+        } else {
+            pumpOff();
+            Serial.println("Power off");
+        }
+        }
+    }
 
-    while True:
-        current_switch_state = switch.value()
+    lastSwitchState = currentSwitchState;
+    delay(50); // Add a delay to avoid excessive CPU usage
+    }
 
-        # Detect the moment when the button changes from not pressed to pressed (falling edge)
-        if current_switch_state == 0 and last_switch_state == 1:
-            utime.sleep_ms(20)  # Debounce
-            if switch.value() == 0:  # Confirm the button state again
-                pump_state = not pump_state  # Toggle the state
-                if pump_state:
-                    pump_on()
-                    print("power on")
-                else:
-                    pump_off()
-                    print("power off")
+    void pumpOn() {
+    digitalWrite(motor1A, HIGH);
+    digitalWrite(motor2A, LOW);
+    }
 
-        last_switch_state = current_switch_state
-        utime.sleep_ms(50)  # Add a delay to avoid excessive CPU usage
+    void pumpOff() {
+    digitalWrite(motor1A, LOW);
+    digitalWrite(motor2A, LOW);
+    }
 
 Phenomenon
 ^^^^^^^^^^^
