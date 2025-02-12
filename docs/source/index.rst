@@ -1,4 +1,4 @@
-LAFVIN Super Starter Kit For Pico
+LAFVIN Ultimate Starter Kit For Pico
 ======================================
 
 .. toctree::
