@@ -34,12 +34,3 @@ Backlight can be enabled by jumper cap, unplugg the jumper cap to disable the ba
 * **Potentiometer**: It is used to adjust the contrast (the clarity of the displayed text), which is increased in the clockwise direction and decreased in the counterclockwise direction.
 
 
-
-
-**Example**
-
-* :ref:`py_lcd` (For MicroPython User)
-* :ref:`py_room_temp` (For MicroPython User)
-* :ref:`py_guess_number` (For MicroPython User)
-* :ref:`ar_lcd` (For Arduino User)
-
