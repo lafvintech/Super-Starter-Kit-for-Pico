@@ -54,7 +54,7 @@ The following is the program code:
     import time
 
     # Initialize I2C communication;
-    i2c = I2C(1, sda=Pin(14), scl=Pin(15), freq=400000)
+    i2c = I2C(1, sda=Pin(6), scl=Pin(7), freq=400000)
 
     # Create an LCD object for interfacing with the LCD1602 display
     lcd = LCD(i2c)
