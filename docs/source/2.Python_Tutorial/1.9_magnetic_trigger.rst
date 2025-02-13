@@ -1,14 +1,12 @@
 1.9 Magnetic Trigger
 =========================
-The most common type of reed switch contains a pair of magnetizable, flexible, m
-etal reeds whose end portions are separated by a small gap when the switch is open.
+The typical reed switch consists of two flexible metal reeds that can be magnetized. 
+These reeds are normally separated by a small gap at their ends when the switch is open. 
+When a magnetic field (from either an electromagnet or a permanent magnet) is applied, the 
+reeds are attracted to each other, closing the electrical circuit. Once the magnetic field 
+is removed, the spring-like nature of the reeds causes them to separate again, reopening the circuit.
 
-A magnetic field from an electromagnet or a permanent magnet will cause the reed
-s to attract each other, thus completing an electrical circuit. The spring force 
-of the reeds causes them to separate, and open the circuit, when the magnetic field ceases.
-
-A common example of a reed switch application is to detect the opening of a door 
-or windows, for a security alarm.
+A common use of reed switches is in security systems to detect when doors or windows are opened.
 
 Component List
 ^^^^^^^^^^^^^^^
@@ -27,6 +25,10 @@ Component knowledge
 Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/1.9.png
+    
+GP14 is normally low and will switch to a high state when a magnet is brought close to the reed switch.
+
+The 10K resistor helps maintain a stable low level on GP14 when no magnet is present, ensuring reliable operation.
 
 Connect
 ^^^^^^^^^
