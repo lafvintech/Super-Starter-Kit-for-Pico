@@ -20,12 +20,8 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-
-:ref:`transistor <cpn_transistor>`
-"""""""""""""""""""""""""""""""""""
-
-:ref:`Buzzer <cpn_buzzer>`
-"""""""""""""""""""""""""""
+:ref:`7-segment Display <cpn_7-segment_display>`
+"""""""""""""""""""""""""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^

@@ -1,8 +1,8 @@
 1.6 Tilt Switch
 =================
-The tilt switch is a 2-pin device with a metal ball in the middle. When the swit
-ch is upright, the two pins are connected; when it is tilted, the two pins are d
-isconnected.
+The tilt switch is a simple 2-pin component that contains a metal ball inside. 
+When the switch is in an upright position, the two pins are connected. However, 
+when it is tilted, the connection between the two pins is broken.
 
 Component List
 ^^^^^^^^^^^^^^^
@@ -15,17 +15,17 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-:ref:`RGB-LED <cpn_rgb_led>`
-"""""""""""""""""""""""""""""""
+:ref:`Tilt Switch <cpn_tilt_switch>`
+"""""""""""""""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/1.6.png
 
-When you put it upright, GP14 will get high; after tilting it, GP14 will get low.
+When the tilt switch is placed in an upright position, GP14 will be in a high state. 
+Conversely, when the switch is tilted, GP14 will be in a low state.
 
-The purpose of the 10K resistor is to keep the GP14 in a stable low state when 
-the tilt switch is in a tilted state.
+The 10K resistor is used to ensure that GP14 remains in a stable low state when the tilt switch is tilted.
 
 Connect
 ^^^^^^^^^

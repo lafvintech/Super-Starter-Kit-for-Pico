@@ -1,4 +1,3 @@
-
 .. _cpn_audio_speaker:
 
 Audio Module and Speaker

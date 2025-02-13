@@ -16,11 +16,8 @@ Component List
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
 
-:ref:`transistor <cpn_transistor>`
-"""""""""""""""""""""""""""""""""""
-
-:ref:`Buzzer <cpn_buzzer>`
-"""""""""""""""""""""""""""
+:ref:`Joystick Module <cpn_joystick>`
+""""""""""""""""""""""""""""""""""""""
 
 Connect
 ^^^^^^^^^

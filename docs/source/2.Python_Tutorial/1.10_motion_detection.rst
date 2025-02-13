@@ -18,8 +18,8 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-:ref:`RGB-LED <cpn_rgb_led>`
-"""""""""""""""""""""""""""""""
+:ref:`PIR Motion Sensor Module <cpn_pir_module>`
+"""""""""""""""""""""""""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^

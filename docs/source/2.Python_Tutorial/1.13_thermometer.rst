@@ -27,11 +27,10 @@ Component List
 - Resistor 10KΩ x1
 - Thermistor x1
 
-
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-:ref:`RGB-LED <cpn_rgb_led>`
-"""""""""""""""""""""""""""""""
+:ref:`Thermistor <cpn_thermistor>`
+"""""""""""""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^

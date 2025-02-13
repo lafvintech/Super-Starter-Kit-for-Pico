@@ -26,8 +26,8 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-:ref:`RGB-LED <cpn_rgb_led>`
-"""""""""""""""""""""""""""""""
+:ref:`Water Level Module <cpn_water_level_module>`
+""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^

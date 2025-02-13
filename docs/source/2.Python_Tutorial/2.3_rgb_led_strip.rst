@@ -25,9 +25,8 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-
-:ref:`transistor <cpn_transistor>`
-"""""""""""""""""""""""""""""""""""
+:ref:`RGB 8 LED Strip <cpn_rgb_led_strip>`
+"""""""""""""""""""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^

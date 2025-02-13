@@ -14,15 +14,6 @@ Component List
 - I2C LCD1602 x1
 - Jumper Wire Several
 
-Component knowledge
-^^^^^^^^^^^^^^^^^^^^
-
-:ref:`transistor <cpn_transistor>`
-"""""""""""""""""""""""""""""""""""
-
-:ref:`Buzzer <cpn_buzzer>`
-"""""""""""""""""""""""""""
-
 Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/6.11.png

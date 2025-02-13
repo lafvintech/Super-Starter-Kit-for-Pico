@@ -17,12 +17,14 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-
-:ref:`transistor <cpn_transistor>`
-"""""""""""""""""""""""""""""""""""
-
-:ref:`Buzzer <cpn_buzzer>`
+:ref:`TA6586 <cpn_ta6586>`
 """""""""""""""""""""""""""
+
+:ref:`Li-po Charger Module <cpn_li-po_charger_module>`
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+:ref:`DC Motor <cpn_dc_motor>`
+""""""""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^

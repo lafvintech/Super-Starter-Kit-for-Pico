@@ -21,12 +21,6 @@ Component List
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
 
-:ref:`transistor <cpn_transistor>`
-"""""""""""""""""""""""""""""""""""
-
-:ref:`Buzzer <cpn_buzzer>`
-"""""""""""""""""""""""""""
-
 Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/6.12.png

@@ -17,12 +17,8 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-
-:ref:`transistor <cpn_transistor>`
+:ref:`4x4 Keypad <cpn_keypad>`
 """""""""""""""""""""""""""""""""""
-
-:ref:`Buzzer <cpn_buzzer>`
-"""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^

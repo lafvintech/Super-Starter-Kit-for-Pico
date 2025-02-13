@@ -20,12 +20,9 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-
-:ref:`transistor <cpn_transistor>`
+:ref:`DHT11 Module <cpn_dht11_module>`
 """""""""""""""""""""""""""""""""""
 
-:ref:`Buzzer <cpn_buzzer>`
-"""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^

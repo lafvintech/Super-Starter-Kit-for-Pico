@@ -17,8 +17,8 @@ Component List
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
 
-:ref:`transistor <cpn_transistor>`
-"""""""""""""""""""""""""""""""""""
+:ref:`Servo <cpn_servo>`
+""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^

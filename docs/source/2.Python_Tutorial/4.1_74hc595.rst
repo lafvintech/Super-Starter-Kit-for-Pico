@@ -21,7 +21,7 @@ Component List
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
 
-:ref:`transistor <cpn_transistor>`
+:ref:`74HC595 <cpn_74hc595>`
 """""""""""""""""""""""""""""""""""
 
 Schematic

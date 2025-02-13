@@ -28,13 +28,10 @@ Component List
 - Jumper Wire Several
 - Relay Module x1
 
-
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-Relay , Power Supply Module
-
-:ref:`RGB-LED <cpn_rgb_led>` 
-"""""""""""""""""""""""""""""""
+:ref:`Relay Module <cpn_relay_module>` 
+"""""""""""""""""""""""""""""""""""""""
  
 Connect
 ^^^^^^^^^

@@ -13,12 +13,8 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-
-:ref:`transistor <cpn_transistor>`
+:ref:`MPR121 Module <cpn_mpr121>`
 """""""""""""""""""""""""""""""""""
-
-:ref:`Buzzer <cpn_buzzer>`
-"""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^

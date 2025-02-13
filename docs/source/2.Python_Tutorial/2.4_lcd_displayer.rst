@@ -22,8 +22,8 @@ Component List
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
 
-:ref:`transistor <cpn_transistor>`
-"""""""""""""""""""""""""""""""""""
+:ref:`LCD1602 <cpn_lcd1602>`
+"""""""""""""""""""""""""""""
 
 :ref:`Buzzer <cpn_buzzer>`
 """""""""""""""""""""""""""

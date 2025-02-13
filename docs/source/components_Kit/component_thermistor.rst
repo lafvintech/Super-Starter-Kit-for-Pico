@@ -1,4 +1,4 @@
-.. _component_thermistor:
+.. _cpn_thermistor:
 
 Thermistor
 ===============

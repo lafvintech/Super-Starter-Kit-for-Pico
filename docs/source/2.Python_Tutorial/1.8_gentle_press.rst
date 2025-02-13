@@ -19,8 +19,8 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-:ref:`RGB-LED <cpn_rgb_led>`
-"""""""""""""""""""""""""""""""
+:ref:`Micro Switch <cpn_micro_switch>`
+"""""""""""""""""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^

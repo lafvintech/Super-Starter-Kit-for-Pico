@@ -13,15 +13,6 @@ Component List
 - Active Buzzer x1
 - Jumper Wire Several
 
-Component knowledge
-^^^^^^^^^^^^^^^^^^^^
-
-:ref:`transistor <cpn_transistor>`
-"""""""""""""""""""""""""""""""""""
-
-:ref:`Buzzer <cpn_buzzer>`
-"""""""""""""""""""""""""""
-
 Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/6.8.png

@@ -35,8 +35,8 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-:ref:`RGB-LED <cpn_rgb_led>`
-"""""""""""""""""""""""""""""""
+:ref:`Potentiometer <cpn_potentiometer>`
+"""""""""""""""""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^

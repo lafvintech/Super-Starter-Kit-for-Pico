@@ -16,8 +16,8 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-:ref:`RGB-LED <cpn_rgb_led>`
-"""""""""""""""""""""""""""""""
+:ref:`Photoresistor <cpn_photoresistor>`
+"""""""""""""""""""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^

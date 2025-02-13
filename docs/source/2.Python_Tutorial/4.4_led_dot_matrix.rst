@@ -20,12 +20,8 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-
-:ref:`transistor <cpn_transistor>`
-"""""""""""""""""""""""""""""""""""
-
-:ref:`Buzzer <cpn_buzzer>`
-"""""""""""""""""""""""""""
+:ref:`LED Dot Matrix <cpn_led_dot_matrix>`
+""""""""""""""""""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^

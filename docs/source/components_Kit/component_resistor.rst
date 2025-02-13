@@ -1,4 +1,4 @@
-.. _component_resistor:
+.. _cpn_resistor:
 
 Resistor
 ============

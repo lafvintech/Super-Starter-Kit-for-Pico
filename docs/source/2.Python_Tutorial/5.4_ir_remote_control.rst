@@ -15,11 +15,8 @@ Component List
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
 
-:ref:`transistor <cpn_transistor>`
-"""""""""""""""""""""""""""""""""""
-
-:ref:`Buzzer <cpn_buzzer>`
-"""""""""""""""""""""""""""
+:ref:`Infrared Receiver <cpn_infrared_receiver>`
+"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^

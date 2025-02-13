@@ -12,12 +12,8 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-
-:ref:`transistor <cpn_transistor>`
-"""""""""""""""""""""""""""""""""""
-
-:ref:`Buzzer <cpn_buzzer>`
-"""""""""""""""""""""""""""
+:ref:`Ultrasonic Module <cpn_ultrasonic_module>`
+""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^
