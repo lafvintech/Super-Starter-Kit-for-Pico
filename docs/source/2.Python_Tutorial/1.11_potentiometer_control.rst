@@ -1,27 +1,26 @@
 1.11 Potentiometer Control
 ===========================
-In the previous projects, we have used the digital input on the Pico W. For 
-example, a button can change the pin from low level (off) to high level (on). 
-This is a binary working state.
+In our earlier projects, we utilized digital inputs on the Pico W. For instance, 
+pressing a button changes the pin state from low (off) to high (on), representing 
+a binary operation.
 
-However, Pico W can receive another type of input signal: analog input. It can 
-be in any state from fully closed to fully open, and has a range of possible 
-values. The analog input allows the microcontroller to sense the light intensity, 
-sound intensity, temperature, humidity, etc. of the physical world.
+However, the Pico W is also capable of handling another type of input: analog input. 
+Unlike digital, analog signals can vary continuously between fully closed and fully 
+open, offering a wide range of values. This feature enables the microcontroller to 
+detect physical quantities such as light intensity, sound level, temperature, and 
+humidity.
 
-Usually, a microcontroller needs an additional hardware to implement analog 
-input-the analogue-to-digital converter (ADC). But Pico W itself has a built-in 
-ADC for us to use directly.
+Typically, microcontrollers require additional hardware—an analog-to-digital converter 
+(ADC)—to process analog inputs. Fortunately, the Pico W comes equipped with a built-in 
+ADC, ready for direct use.
 
-.. 介绍pico的adc部分
+.. image:: img/6.other/pico_adc.png
 
-.. image:: 
+The Pico W features three GPIO pins capable of analog input: GP26, GP27, and GP28, 
+corresponding to analog channels 0, 1, and 2. Additionally, there is a fourth analog 
+channel connected to an internal temperature sensor, which we won't cover here.
 
-Pico W has three GPIO pins that can use analog input, GP26, GP27, GP28. That is, 
-analog channels 0, 1, and 2. In addition, there is a fourth analog channel, which 
-is connected to the built-in temperature sensor and will not be introduced here.
-
-In this project, we try to read the analog value of potentiometer.
+In this project, we will focus on reading the analog value from a potentiometer.
     
 Component List
 ^^^^^^^^^^^^^^^
@@ -42,20 +41,19 @@ Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/1.11.png
 
-The potentiometer is an analog device and when you turn it in 2 different directions.
+The potentiometer is an analog device that outputs different voltage levels when turned in different directions.
 
-Connect the middle pin of the potentiometer to the analog pin GP28. The Raspberry 
-Pi Pico W wcontains a multi-channel, 16-bit analog-to-digital converter. This means 
-that it maps the input voltage between 0 and the operating voltage (3.3V) to an 
-integer value between 0 and 65535, so the GP28 value ranges from 0 to 65535.
+Connect the middle pin of the potentiometer to the analog input pin GP28 on the 
+Raspberry Pi Pico W. The Pico W has a multi-channel, 16-bit analog-to-digital 
+converter (ADC), which converts the input voltage ranging from 0 to the supply 
+voltage (3.3V) into an integer value between 0 and 65535. Therefore, the value 
+read from GP28 will range from 0 to 65535.
 
-The calculation formula is shown below.
-
+The calculation formula is as follows:
 (Vp/3.3V) x 65535 = Ap
 
-Then program the value of GP28 (potentiometer) as the PWM value of GP15 (LED). 
-This way you will find that by rotating the potentiometer, the brightness of the 
-LED will change at the same time.
+Next, program the value read from GP28 (the potentiometer) to be the PWM (Pulse Width Modulation) 
+value for GP15 (the LED). By doing this, you will notice that as you rotate the potentiometer, the brightness of the LED changes accordingly.
 
 Connect
 ^^^^^^^^^

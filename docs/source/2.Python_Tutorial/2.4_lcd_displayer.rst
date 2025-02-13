@@ -21,12 +21,8 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-
 :ref:`LCD1602 <cpn_lcd1602>`
 """""""""""""""""""""""""""""
-
-:ref:`Buzzer <cpn_buzzer>`
-"""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^

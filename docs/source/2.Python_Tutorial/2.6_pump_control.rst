@@ -24,12 +24,8 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-
 :ref:`DC Water Pump <cpn_dc_water_pump>`
 """"""""""""""""""""""""""""""""""""""""""
-
-:ref:`Buzzer <cpn_buzzer>`
-"""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^

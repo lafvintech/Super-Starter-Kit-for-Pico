@@ -1,11 +1,9 @@
 1.10 Motion Detection
 =========================
-Passive infrared sensor (PIR sensor) is a common sensor that can measure infrared 
-(IR) light emitted by objects in its field of view. Simply put, it will receive 
-infrared radiation emitted from the body, thereby detecting the movement of 
-people and other animals. More specifically, it tells the main control board 
-that someone has entered your room.
-
+The Passive Infrared Sensor (PIR sensor) is a widely used device that detects infrared 
+(IR) radiation emitted by objects within its range. In simpler terms, it picks up the 
+heat signatures from human or animal bodies, allowing it to sense motion. Specifically, 
+it signals the main control board when someone or something enters the room.
 
 Component List
 ^^^^^^^^^^^^^^^
