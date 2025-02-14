@@ -22,7 +22,7 @@ development environment (IDE), here we recommend Thonny. Thonny comes with Pytho
    You can also open “Super_Starter_Kit_for_Pico/Python/Software”, 
    we have prepared it in advance.
 
-Installation
+2.Installation
 ------------
 Windows
 ^^^^^^^^
@@ -57,7 +57,7 @@ see the below icon on your desktop.
    .. image:: /preparation/img/Python_prepartion/thonny_2.png
       :align: center
 
-Basic Configuration of Thonny
+3.Basic Configuration of Thonny
 -------------------------------
 Click the desktop icon of Thonny and you can see the interface of it as follows:
 
@@ -69,7 +69,7 @@ Select “View” >> “Files” and “Shell”.
 
 .. image:: /preparation/img/Python_prepartion/thonny_5.png
 
-2.Install Micropython Firmware to your Pico(Important)
+(1).Install Micropython Firmware to your Pico(Important)
 -------------------------------------------------------
 We will now install MicroPython onto the Raspberry Pi Pico. Thonny IDE provides a 
 one-click installation method.
@@ -89,7 +89,7 @@ one-click installation method.
    
 5. Your Pico is now ready!
 
-3.Testing codes (Important)
+4.Testing codes (Important)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Ensure that the Pico has MicroPython installed and is connected to your computer via a USB cable. Open Thonny and click on the bottom right corner to ensure that MicroPython (Raspberry Pi Pico) is selected. The COM port may vary depending on your system.
 
@@ -105,7 +105,7 @@ Enter ``print('hello world')`` in “Shell” and press Enter.
 
 .. image:: /preparation/img/Python_prepartion/test_pico.png
 
-Uploading Libraries to Pico
+5.Uploading Libraries to Pico
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 In some projects, you will need additional libraries. So here we upload these libraries to Raspberry Pi Pico W first, and then we can run the code directly later.
 
@@ -122,8 +122,8 @@ In some projects, you will need additional libraries. So here we upload these li
 .. image:: /preparation/img/Python_prepartion/upload_pico2.png
 
 
-Open and Run Code
-^^^^^^^^^^^^^^^^^^
+6.Open and Run Code
+^^^^^^^^^^^^^^^^^^^^^
 1.The Code section in the project will tell you which code snippet is used, so you can find the code file at the corresponding path. If you double-click it, a new window will open on the right side. You can open multiple codes at the same time.
 
 .. image:: /preparation/img/Python_prepartion/open_code1.png
