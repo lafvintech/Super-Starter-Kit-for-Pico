@@ -1,6 +1,6 @@
 5.1 Ultrasonic Ranging
 =========================
-The ultrasonic sensor module works on the principle of sonar and radar systems for determining the distance to an object.
+The ultrasonic sensor module operates based on the principles of sonar and radar to measure the distance to an object.
 
 Component List
 ^^^^^^^^^^^^^^^
@@ -12,9 +12,9 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
+:ref:`Ultrasonic Module <cpn_ultrasonic_module>`
+""""""""""""""""""""""""""""""""""""""""""""""""""
 
-:ref:`transistor <cpn_transistor>`
-"""""""""""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^

@@ -1,8 +1,17 @@
 5.3 GY521 Module
 =========================
-The GY-521 module is an integrated six-axis motion tracking sensor that includes a 3-axis gyroscope and a 3-axis accelerometer. It is based on the MPU-6050 chip, which is a sensor specifically designed for mobile devices such as smartphones, tablets, and wearables. The GY-521 inherits the low power consumption, low cost, and high performance characteristics of the MPU-6050, meeting the stringent demands of these devices for dynamic capture and motion analysis. It is widely used in robots, game controllers, motion tracking systems, and any applications requiring precise measurement and analysis of movement data. With its I²C interface, the GY-521 can easily connect to various microcontrollers and processors, providing developers with a flexible and powerful solution.
+The GY-521 module is a compact six-axis motion tracking sensor that combines a 3-axis 
+gyroscope and a 3-axis accelerometer. It is built around the MPU-6050 chip, a sensor 
+designed for mobile devices such as smartphones, tablets, and wearables. The GY-521 
+inherits the MPU-6050's low power consumption, low cost, and high performance, making 
+it suitable for applications that require precise dynamic capture and motion analysis. 
+It is widely used in robotics, gaming controllers, motion tracking systems, and other 
+applications needing accurate movement data. With its I²C interface, the GY-521 can easily 
+integrate with various microcontrollers and processors, offering a versatile and powerful 
+solution for developers.
 
-In this experiment, use I²C to obtain the values of the three-axis acceleration sensor and three-axis gyroscope for GY-521 and display them on the screen.
+In this experiment, we will use the I²C interface to retrieve data from the GY-521's 
+three-axis accelerometer and three-axis gyroscope and display these values on a screen.
 
 Component List
 ^^^^^^^^^^^^^^^

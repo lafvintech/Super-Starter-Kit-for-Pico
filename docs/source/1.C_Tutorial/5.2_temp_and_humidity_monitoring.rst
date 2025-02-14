@@ -1,14 +1,26 @@
 5.2 Temp & Humidity Monitoring
 ==============================
-Humidity and temperature are closely related from the physical quantity itself to the actual people’s life. The temperature and humidity of human environment will directly affect the thermoregulatory function and heat transfer effect of human body. It will further affect the thinking activity and mental state, thus affecting the efficiency of our study and work.
+Humidity and temperature are closely intertwined, both in physical terms and in their 
+impact on daily life. The temperature and humidity of our environment directly influence 
+the body's thermoregulation and heat transfer mechanisms. These factors can further 
+affect cognitive function and mental state, ultimately influencing our efficiency 
+in studying and working.
 
-Temperature is one of the seven basic physical quantities in the International System of Units, which is used to measure the degree of hot and cold of an object. Celsius is one of the more widely used temperature scales in the world, expressed by the symbol “℃”.
+Temperature is one of the seven base physical quantities in the International System 
+of Units (SI) and is used to measure how hot or cold an object is. The Celsius scale, 
+denoted by the symbol “℃” is one of the most widely used temperature scales globally.
 
-Humidity is the concentration of water vapor present in the air. The relative humidity of air is commonly used in life and is expressed in %RH. Relative humidity is closely related to temperature. For a certain volume of sealed gas, the higher the temperature, the lower the relative humidity, and the lower the temperature, the higher the relative humidity.
+Humidity refers to the amount of water vapor present in the air. In everyday life, 
+relative humidity is commonly used and is expressed in %RH (percent relative humidity). 
+Relative humidity is closely related to temperature. For a given volume of sealed gas, 
+higher temperatures result in lower relative humidity, while lower temperatures lead 
+to higher relative humidity.
 
 .. image:: img/1.detail/5.2.png
 
-A basic digital temperature and humidity sensor, the DHT11, is provided in this kit. It uses a capacitive humidity sensor and thermistor to measure the surrounding air and outputs a digital signal on the data pins (no analog input pins are required).
+A basic digital temperature and humidity sensor, the DHT11, is provided in this kit. 
+It uses a capacitive humidity sensor and thermistor to measure the surrounding air 
+and outputs a digital signal on the data pins (no analog input pins are required).
 
 Component List
 ^^^^^^^^^^^^^^^
@@ -20,9 +32,8 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-
-:ref:`transistor <cpn_transistor>`
-"""""""""""""""""""""""""""""""""""
+:ref:`DHT11 Module <cpn_dht11_module>`
+""""""""""""""""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^

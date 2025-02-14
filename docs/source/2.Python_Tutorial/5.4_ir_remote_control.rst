@@ -1,8 +1,14 @@
 5.4 IR Remote Control
 =========================
-In consumer electronics, remote controls are used to operate devices such as televisions and DVD players. In some cases, remote controls allow people to operate devices that are out of their reach, such as central air conditioners.
+In consumer electronics, remote controls are commonly used to operate devices like 
+televisions and DVD players. They also enable users to control devices that are out 
+of reach, such as central air conditioning systems.
 
-IR Receiver is a component with photocell that is tuned to receive to infrared light. It is almost always used for remote control detection - every TV and DVD player has one of these in the front to receive for the IR signal from the clicker. Inside the remote control is a matching IR LED, which emits IR pulses to tell the TV to turn on, off or change channels.
+An IR Receiver is a component equipped with a photocell that is specifically designed 
+to detect infrared light. It is typically used for remote control detection—almost 
+every TV and DVD player has an IR Receiver on the front to capture the IR signals 
+from the remote. Inside the remote control, there is a matching IR LED that emits 
+infrared pulses to instruct the TV to turn on, off, or change channels.
 
 Component List
 ^^^^^^^^^^^^^^^
