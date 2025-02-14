@@ -1,10 +1,12 @@
 2.7 Swinging Servo
 =========================
-In this kit, in addition to LED and passive buzzer, there is also a device controlled by PWM signal, Servo.
+In this kit, besides the LED and passive buzzer, there’s also a servo motor that’s 
+controlled by a PWM signal. A servo is a type of position (angle) control device, 
+perfect for systems that require continuous angle adjustments and the ability to 
+maintain specific positions. It’s widely used in high-end remote-controlled toys, 
+including model airplanes, submarines, and robotic devices.
 
-Servo is a position (angle) servo device, which is suitable for those control systems that require constant angle changes and can be maintained. It has been widely used in high-end remote control toys, such as airplanes, submarine models, and remote control robots.
-
-Now, try to make the servo sway!
+Now, let’s try making the servo motor swing back and forth!
 
 Component List
 ^^^^^^^^^^^^^^^

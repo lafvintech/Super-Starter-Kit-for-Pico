@@ -1,7 +1,9 @@
 3.3 Touch Keyboard
 =========================
-The MPR121 is a good choice when you want to add a large number of touch switches to your project. It has electrodes that can be extended with conductors. If you connect the electrodes to a banana, you can turn the banana into a touch switch.
-
+The MPR121 is an excellent option for adding multiple touch switches to your project. 
+It features electrodes that can be extended using conductive materials. For example, 
+if you connect the electrodes to a banana, you can transform the banana into a 
+functional touch switch.
 
 Component List
 ^^^^^^^^^^^^^^^

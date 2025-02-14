@@ -1,10 +1,12 @@
 3.2 4x4 Keypad
 =========================
-The 4x4 keyboard, also known as the matrix keyboard, is a matrix of 16 keys excluded in a single panel.
+The 4x4 keyboard, often referred to as a matrix keyboard, consists of a grid of 16 
+keys arranged in a single panel. This type of keypad is commonly found on devices 
+that primarily require numeric input, such as calculators, TV remotes, push-button 
+phones, vending machines, ATMs, combination locks, and digital door locks.
 
-The keypad can be found on devices that mainly require digital input, such as calculators, TV remote controls, push-button phones, vending machines, ATMs, combination locks, and digital door locks.
-
-In this project, we will learn how to determine which key is pressed and get the related key value.
+In this project, we will explore how to detect which key is pressed and retrieve 
+the corresponding key value.
 
 Component List
 ^^^^^^^^^^^^^^^
@@ -17,20 +19,21 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-
-:ref:`transistor <cpn_transistor>`
+:ref:`4x4 Keypad <cpn_keypad>`
 """""""""""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/3.2.png
 
-4 pull-down resistors are connected to each of the columns of the matrix keyboard, so that G6 ~ G9 get a stable low level when the keys are not pressed.
+Each column of the matrix keyboard is connected to a pull-down resistor, ensuring 
+that G6 to G9 remain at a stable low level when no keys are pressed. The rows of 
+the keyboard (G2 to G5) are programmed to output a high signal. If any of G6 to 
+G9 is detected as high, it indicates that a specific key has been pressed.
 
-The rows of the keyboard (G2 ~ G5) are programmed to go high; if one of G6 ~ G9 is read high, then we know which key is pressed.
-
-For example, if G6 is read high, then numeric key 1 is pressed; this is because the control pins of numeric key 1 are G2 and G6, when numeric key 1 is pressed, G2 and G6 will be connected together and G6 is also high.
-
+For instance, if G6 is read as high, it means that the numeric key 1 has been 
+pressed. This is because the control pins for numeric key 1 are G2 and G6. When 
+key 1 is pressed, G2 and G6 are connected, causing G6 to go high.
 
 Connect
 ^^^^^^^^^

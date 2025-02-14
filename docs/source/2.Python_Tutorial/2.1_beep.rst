@@ -1,6 +1,7 @@
 2.1 Beep
 =========================
-The active buzzer is a typical digital output device that is as easy to use as lighting up an LED!
+The active buzzer is a typical digital output device that is as easy to use as 
+lighting up an LED. It acts like a digital output device, where you simply turn it ON or OFF.
 
 Component List
 ^^^^^^^^^^^^^^^
@@ -23,13 +24,10 @@ Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/2.2.png
 
-When the GP15 output is high, after the 1K current limiting resistor (to protect 
-the transistor), the S8050 (NPN transistor) will conduct, so that the buzzer will 
-sound.
-
-The role of S8050 (NPN transistor) is to amplify the current and make the buzzer 
-sound louder. In fact, you can also connect the buzzer directly to GP15, but you 
-will find that the buzzer sound is smaller.
+When GP15 outputs a high signal, the 1K current-limiting resistor protects the transistor. 
+The S8050 (NPN transistor) then conducts, allowing the buzzer to sound. The S8050 transistor 
+amplifies the current, making the buzzer louder. While you can connect the buzzer directly to 
+GP15, the sound will be quieter without the transistor.
 
 Connect
 ^^^^^^^^

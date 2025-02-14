@@ -1,19 +1,18 @@
 2.3 RGB LED Strip
 =========================
-WS2812 is a intelligent control LED light source that the control circuit and RGB 
-chip are integrated in a package of 5050 components. It internal include intelligent 
-digital port data latch and signal reshaping amplification drive circuit. Also 
-include a precision internal oscillator and a programmable constant current control 
-part, effectively ensuring the pixel point light color height consistent.
+The WS2812 is an intelligent LED light source that integrates a control circuit 
+and an RGB chip within a 5050 package. It features an intelligent digital port with 
+a data latch and a signal reshaping amplification drive circuit. Additionally, it 
+includes a precision oscillator and a programmable constant current control, ensuring 
+consistent color output across each pixel.
 
-The data transfer protocol use single NZR communication mode. After the pixel power-on 
-reset, the DIN port receive data from controller, the first pixel collect initial 
-24bit data then sent to the internal data latch, the other data which reshaping 
-by the internal signal reshaping amplification circuit sent to the next cascade 
-pixel through the DO port. After transmission for each pixel, the signal to reduce 
-24bit. pixel adopt auto reshaping transmit technology, making the pixel cascade 
-number is not limited the signal transmission, only depend on the speed of signal 
-transmission.
+The data transfer protocol relies on a single-line NRZ (Non-Return-to-Zero) communication 
+mode. Upon power-on reset, the DIN port receives data from the controller. The first pixel 
+captures the initial 24-bit data and sends it to its internal latch, while the remaining 
+data is reshaped by the internal amplification circuit and forwarded to the next pixel via 
+the DO port. With each pixel, the signal is reduced by 24 bits. The WS2812 uses auto-reshaping 
+transmission technology, allowing for unlimited pixel cascading, limited only by the speed of 
+signal transmission.
 
 Component List
 ^^^^^^^^^^^^^^^
@@ -25,9 +24,8 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-
-:ref:`transistor <cpn_transistor>`
-"""""""""""""""""""""""""""""""""""
+:ref:`RGB 8 LED Strip <cpn_rgb_led_strip>`
+"""""""""""""""""""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^

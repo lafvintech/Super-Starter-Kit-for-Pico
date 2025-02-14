@@ -1,10 +1,10 @@
 2.6 Pump Control
 =========================
-Small centrifugal pumps are suitable for projects with automatic plant watering. It can also be used to make tiny smart water features.
+Miniature centrifugal pumps are ideal for projects involving automated plant watering 
+systems and can also be utilized to create small-scale smart water features. These pumps 
+are powered by an electric motor, which operates in the same manner as a standard motor.
 
-Its power component is an electric motor, driven in exactly the same way as a normal motor.
-
-.. note:: 
+.. attention:: 
     
     1.Connect the tube to the motor outlet, submerge the pump in water, and then power it on.
     2.You need to make sure that the water level is always higher than the motor. Idling may damage the motor due to heat generation and will also generate noise.
@@ -31,7 +31,7 @@ Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/2.6.png
 
-.. note:: 
+.. warning:: 
 
     * Since DC pump require a high current, we use a Li-po Charger module to power the motor here for safety reasons.
 

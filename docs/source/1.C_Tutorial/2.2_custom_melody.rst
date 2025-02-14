@@ -1,10 +1,12 @@
 2.2 Custom Melody
 =========================
-We have used active buzzer in the previous project, this time we will use passive buzzer.
-
-Like the active buzzer, the passive buzzer also uses the phenomenon of electromagnetic induction to work. The difference is that a passive buzzer does not have oscillating source, so it will not beep if DC signals are used. But this allows the passive buzzer to adjust its own oscillation frequency and can emit different notes such as “doh, re, mi, fa, sol, la, ti”.
-
-Let the passive buzzer emit a melody!
+In our previous project, we used an active buzzer, but this time we'll switch to 
+a passive buzzer. Similar to the active buzzer, the passive buzzer operates based 
+on electromagnetic induction. However, unlike the active buzzer, the passive buzzer 
+lacks an internal oscillation source, meaning it won't produce sound with a simple 
+DC signal. This feature, however, allows the passive buzzer to adjust its own 
+oscillation frequency, enabling it to produce different musical notes like “doh, 
+re, mi, fa, sol, la, ti.” Let's make the passive buzzer play a melody!
 
 Component List
 ^^^^^^^^^^^^^^^
@@ -28,9 +30,11 @@ Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/2.2.png
 
-When the GP15 output is high, after the 1K current limiting resistor (to protect the transistor), the S8050 (NPN transistor) will conduct, so that the buzzer will sound.
-
-The role of S8050 (NPN transistor) is to amplify the current and make the buzzer sound louder. In fact, you can also connect the buzzer directly to GP15, but you will find that the buzzer sound is smaller.
+When GP15 outputs a high signal, the 1K resistor limits the current to protect the 
+transistor. The S8050 (NPN transistor) then conducts, allowing the buzzer to sound. 
+The S8050 transistor amplifies the current, resulting in a louder sound from the 
+buzzer. While you can connect the buzzer directly to GP15, the sound will be quieter 
+without the transistor.
 
 Connect
 ^^^^^^^^

@@ -21,7 +21,7 @@ The default address is basically 0x27, in a few cases it may be 0x3F.
 
 Taking the default address of 0x27 as an example, the device address can be modified by shorting the A0/A1/A2 pads; in the default state, A0/A1/A2 is 1, and if the pad is shorted, A0/A1/A2 is 0.
 
-|i2c_address|
+.. image:: img/i2c_address.jpg
 
 **Backlight/Contrast**
 

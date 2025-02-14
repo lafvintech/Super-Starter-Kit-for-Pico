@@ -1,8 +1,12 @@
 3.1 Joystick
 =========================
-If you play a lot of video games, then you should be very familiar with the Joystick. It is usually used to move the character around, rotate the screen, etc.
-
-The principle behind Joystick’s ability to allow the computer to read our actions is very simple. It can be thought of as consisting of two potentiometers that are perpendicular to each other. These two potentiometers measure the analog value of the joystick vertically and horizontally, resulting in a value (x,y) in a planar right-angle coordinate system.
+If you’re an avid gamer, you’re likely very familiar with the joystick. It’s commonly 
+used to navigate characters, rotate screens, and perform other in-game actions. The 
+way a joystick allows a computer to interpret our movements is actually quite straightforward. 
+Essentially, it consists of two potentiometers oriented perpendicular to each other. 
+These potentiometers measure the joystick’s position in both the vertical and horizontal 
+directions, generating a coordinate value (x, y) within a two-dimensional Cartesian 
+coordinate system.
 
 Component List
 ^^^^^^^^^^^^^^^
@@ -15,7 +19,6 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-
 :ref:`Joystick Module <cpn_joystick>`
 """"""""""""""""""""""""""""""""""""""
 

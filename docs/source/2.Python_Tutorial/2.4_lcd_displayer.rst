@@ -1,15 +1,14 @@
 2.4 LCD Displayer
 =========================
-LCD1602 is a character type liquid crystal display, which can display 32 (16*2) 
-characters at the same time.
+The LCD1602 is a character-based liquid crystal display capable of showing 32 
+characters at once, arranged in two rows of 16 characters each.
 
-As we all know, though LCD and some other displays greatly enrich the man-machine 
-interaction, they share a common weakness. When they are connected to a controller, 
-multiple IOs will be occupied of the controller which has no so many outer ports. 
-Also it restricts other functions of the controller. Therefore, LCD1602 with an 
-I2C bus is developed to solve the problem.
+While LCDs and other displays enhance human-machine interaction, they often have a 
+drawback: connecting them to a controller occupies multiple I/O ports, which are 
+limited in number. This can also restrict the controller's other functions. To address 
+this issue, the LCD1602 with an I²C bus interface was developed.
 
-Here we will use the I2C1 interface to control the LCD1602 and display text.
+In this project, we will use the I²C1 interface to control the LCD1602 and display text.
 
 Component List
 ^^^^^^^^^^^^^^^
@@ -27,7 +26,6 @@ Component knowledge
 Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/2.4.png
-
 
 Connect
 ^^^^^^^^^
