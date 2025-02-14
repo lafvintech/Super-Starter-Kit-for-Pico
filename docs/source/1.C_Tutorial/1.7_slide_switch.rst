@@ -1,9 +1,8 @@
 1.7 Slide_Switch
 =========================
-The slide switch is a 3-pin device, with pin 2 (middle) being the common pin. 
-When the switch is toggled to the left, the left two pins are connected together
-, and when toggled to the right, the right two pins are connected together.
-
+The slide switch is a 3-pin component, where pin 2 (the middle one) serves as the 
+common pin. When the switch is moved to the left, the left two pins connect, and 
+when moved to the right, the right two pins connect.
 
 Component List
 ^^^^^^^^^^^^^^^
@@ -18,18 +17,21 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-:ref:`RGB-LED <cpn_rgb_led>`
-"""""""""""""""""""""""""""""""
+:ref:`Slide Switch <cpn_slide_switch>`
+"""""""""""""""""""""""""""""""""""""""
+
+:ref:`Capacitor <cpn_capacitor>`
+"""""""""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/1.7.png
 
-GP14 will get a different level, when you toggle the slide switch to the right or left.
+When you move the slide switch to the left or right, GP14 will receive different voltage levels.
 
-The purpose of the 10K resistor is to keep the GP14 low during toggling (not toggling to the far left and not toggling to the far right).
+The 10K resistor ensures that GP14 stays low when the switch is in the middle position (neither fully to the left nor fully to the right).
 
-The 104 ceramic capacitor is used here to eliminate jitter.
+Additionally, the 104 ceramic capacitor is used to filter out any jitter.
 
 Connect
 ^^^^^^^^^

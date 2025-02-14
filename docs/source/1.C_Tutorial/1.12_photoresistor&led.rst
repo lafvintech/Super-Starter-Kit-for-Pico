@@ -1,9 +1,9 @@
 1.12 Photoresistor & LED
 =========================
-The photoresistor is a typical device for analog inputs and it is used in a very 
-similar way to a potentiometer. Its resistance value depends on the intensity of 
-the light, the stronger the irradiated light, the smaller its resistance value; 
-conversely, it increases.
+The photoresistor is a common analog input device that functions similarly to a 
+potentiometer. Its resistance changes based on the light intensity: the stronger 
+the light it receives, the lower its resistance becomes. Conversely, when the light 
+is weaker, its resistance increases.
 
 Component List
 ^^^^^^^^^^^^^^^
@@ -16,31 +16,32 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-:ref:`RGB-LED <cpn_rgb_led>`
-"""""""""""""""""""""""""""""""
+:ref:`Photoresistor <cpn_photoresistor>`
+"""""""""""""""""""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/1.12.png
 
 In this circuit, the 10K resistor and the photoresistor are connected in series, 
-and the current passing through them is the same. The 10K resistor acts as a protection, 
-and the GP28 reads the value after the voltage conversion of the photoresistor.
+with the same current flowing through both. The 10K resistor serves as a protective 
+element, while GP28 reads the value after the voltage division caused by the photoresistor.
 
-When the light is enhanced, the resistance of the photoresistor decreases, then 
-its voltage decreases, so the value from GP28 will decrease; if the light is strong 
-enough, the resistance of the photoresistor will be close to 0, and the value of GP28 
-will be close to 0. At this time, the 10K resistor plays a protective role, so that 
-3.3V and GND are not connected together, resulting in a short circuit.
+When the light intensity increases, the resistance of the photoresistor decreases, 
+leading to a lower voltage across it and a corresponding decrease in the value read 
+by GP28. If the light is strong enough, the resistance of the photoresistor will be 
+close to zero, and the value from GP28 will be close to zero. At this point, the 10K 
+resistor ensures that 3.3V and GND are not directly short-circuited.
 
-If you place the photoresistor in a dark situation, the value of GP28 will increase. 
-In a dark enough situation, the resistance of the photoresistor will be infinite, and 
-its voltage will be close to 3.3v (the 10K resistor is negligible), and the value of 
-GP28 will be close to the maximum value of 65535.
+Conversely, if the photoresistor is placed in a dark environment, the value from 
+GP28 will increase. In a very dark situation, the resistance of the photoresistor 
+will be extremely high, and its voltage will be close to 3.3V (with the 10K resistor 
+being negligible), causing the value from GP28 to approach the maximum of 65535.
 
-The calculation formula is shown below.
-
+The calculation formula is as follows:
 (Vp/3.3V) x 65535 = Ap
+
+where Vp is the voltage across the photoresistor, and Ap is the corresponding ADC value.
 
 Connect
 ^^^^^^^^^
@@ -60,7 +61,6 @@ Code
 
 After the program runs, the Shell prints out the photoresistor values. You can 
 shine a flashlight on it or cover it up with your hand to see how the value will change.
-
 
 The following is the program code:
 

@@ -40,6 +40,7 @@ being negligible), causing the value from GP28 to approach the maximum of 65535.
 
 The calculation formula is as follows:
 (Vp/3.3V) x 65535 = Ap
+
 where Vp is the voltage across the photoresistor, and Ap is the corresponding ADC value.
 
 Connect
@@ -58,7 +59,6 @@ Code
 
 After the program runs, the Shell prints out the photoresistor values. You can 
 shine a flashlight on it or cover it up with your hand to see how the value will change.
-
 
 The following is the program code:
 

@@ -35,7 +35,6 @@ Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/1.13.png
 
-
 In this setup, a 10K resistor and an NTC thermistor are wired in series, sharing 
 the same current flow. The 10K resistor serves as a protective element, preventing 
 potential short circuits. Meanwhile, GP28 reads the voltage value after it has been 
@@ -54,6 +53,7 @@ GP28 value gets close to the maximum of 65535.
 
 The calculation formula is as follows:
 (Vp/3.3V) x 65535 = Ap
+
 where Vp is the voltage across the thermistor, and Ap is the corresponding ADC value.
 
 Connect

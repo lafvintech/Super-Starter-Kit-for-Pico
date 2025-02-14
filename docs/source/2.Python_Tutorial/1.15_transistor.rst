@@ -48,7 +48,6 @@ After the program runs, The circuit using the S8050 (NPN transistor) will light
 up when the button is pressed, which means it is receiving a high-level conduction 
 circuit;
 
-
 The following is the program code:
 
 .. code-block:: python

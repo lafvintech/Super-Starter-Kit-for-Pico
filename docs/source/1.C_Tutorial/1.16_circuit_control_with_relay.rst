@@ -1,16 +1,17 @@
 1.16 Circuit Control with Relay
 ==================================
-In our daily life, we can press the switch to light up or turn off the lamp. But 
-what if you want to control the lamp with Pico W so that it can turn off automatically 
-after ten minutes?
+In everyday life, we typically turn on or off a lamp by pressing a switch. But what 
+if you want to control the lamp using the Pico W, so that it automatically turns off 
+after ten minutes? A relay module can help you achieve this.
 
-A relay can help you accomplish this idea.
+A relay module is essentially a special type of switch that is controlled by one 
+side of the circuit—usually a low-voltage circuit—and used to control the other 
+side of the circuit—typically a high-voltage circuit. This makes it practical to 
+modify household appliances to be programmatically controlled, turning them into 
+smart devices or even connecting them to the Internet.
 
-A relay is actually a special kind of switch that is controlled by one side of the 
-circuit (usually a low-voltage circuit) and used to control the other side of the 
-circuit (usually a high-voltage circuit). This makes it practical to modify our home 
-appliances to be controlled by a program, to become smart devices, or even to access 
-the Internet.
+The relay module we are using includes additional components like resistors, which 
+help in safely controlling the relay and ensuring stable operation.
 
 .. warning:: 
     
@@ -28,13 +29,10 @@ Component List
 - Jumper Wire Several
 - Relay Module x1
 
-
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-Relay , Power Supply Module
-
-:ref:`RGB-LED <cpn_rgb_led>` 
-"""""""""""""""""""""""""""""""
+:ref:`Relay Module <cpn_relay_module>` 
+"""""""""""""""""""""""""""""""""""""""
  
 Connect
 ^^^^^^^^^

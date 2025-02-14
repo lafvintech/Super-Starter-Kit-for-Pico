@@ -1,6 +1,7 @@
 1.6 Tilt Switch
 =================
-The tilt switch is a simple 2-pin component that contains a metal ball inside. 
+The tilt switch is a simple 2-pin component that contains a metal ball inside.
+ 
 When the switch is in an upright position, the two pins are connected. However, 
 when it is tilted, the connection between the two pins is broken.
 

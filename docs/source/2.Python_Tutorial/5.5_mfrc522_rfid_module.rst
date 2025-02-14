@@ -42,7 +42,7 @@ Code
 
     * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
     
-    * Here you need to use the libraries in mfrc522 folder, please check if it has been uploaded to Pico W, 可以在 Python Preparation中的上传库文件查看详情
+    * Please ensure that the libraries in the mfrc522 folder have been uploaded to the Pico W. You can refer to the details in the "Uploading Library Files" section of the Python Preparation guide for more information.
 
 The main function is divided into two:
 

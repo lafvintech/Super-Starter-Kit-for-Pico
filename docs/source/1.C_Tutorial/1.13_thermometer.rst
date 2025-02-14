@@ -1,20 +1,19 @@
 1.13 Thermometer
 =========================
-A thermometer is a device that measures temperature or a temperature gradient 
-(the degree of hotness or coldness of an object). A thermometer has two important 
-elements: (1) a temperature sensor (e.g. the bulb of a mercury-in-glass thermometer 
-or the pyrometric sensor in an infrared thermometer) in which some change occurs 
-with a change in temperature; and (2) some means of converting this change into a 
-numerical value (e.g. the visible scale that is marked on a mercury-in-glass 
-thermometer or the digital readout on an infrared model). Thermometers are widely 
-used in technology and industry to monitor processes, in meteorology, in medicine, 
-and in scientific research.
+A thermometer is a tool used to measure temperature or the degree of warmth or 
+coolness of an object. It consists of two key components: (1) a temperature sensor, 
+such as the bulb in a mercury thermometer or the infrared sensor in a digital 
+thermometer, which undergoes a change when the temperature varies; and (2) a mechanism 
+to convert this change into a numerical value, like the scale on a mercury thermometer 
+or the digital display on an electronic model. Thermometers are essential in various 
+fields, including industrial processes, weather forecasting, medical diagnostics, 
+and scientific research.
 
-A thermistor is a type of temperature sensor whose resistance is strongly dependent 
-on temperature, and it has two types: Negative Temperature Coefficient (NTC) and 
-Positive Temperature Coefficient (PTC), also known as NTC and PTC. The resistance 
-of PTC thermistor increases with temperature, while the condition of NTC is opposite 
-to the former.
+Thermistors are temperature sensors whose resistance changes significantly with 
+temperature. They come in two main types: Negative Temperature Coefficient (NTC) 
+and Positive Temperature Coefficient (PTC). In PTC thermistors, resistance increases 
+as temperature rises, while in NTC thermistors, resistance decreases with increasing 
+temperature.
 
 In this experiment we use an NTC thermistor to make a thermometer.
 
@@ -27,34 +26,35 @@ Component List
 - Resistor 10KΩ x1
 - Thermistor x1
 
-
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-:ref:`RGB-LED <cpn_rgb_led>`
-"""""""""""""""""""""""""""""""
+:ref:`Thermistor <cpn_thermistor>`
+"""""""""""""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/1.13.png
 
-In this circuit, the 10K resistor and the thermistor are connected in series, and 
-the current passing through them is the same. The 10K resistor acts as a protection, 
-and the GP28 reads the value after the voltage conversion of the thermistor.
+In this setup, a 10K resistor and an NTC thermistor are wired in series, sharing 
+the same current flow. The 10K resistor serves as a protective element, preventing 
+potential short circuits. Meanwhile, GP28 reads the voltage value after it has been 
+modified by the thermistor.
 
-When the temperature increases, the resistance value of NTC thermistor decreases, 
-then its voltage decreases, so the value from GP28 will decrease; If the temperature 
-is high enough, the resistance of the thermistor will be close to 0, and the value 
-of GP28 will be close to 0. At this time, the 10K resistor plays a protective role, 
-so that 3.3V and GND are not connected together, resulting in a short circuit.
+As the temperature rises, the resistance of the NTC thermistor decreases, leading 
+to a drop in the voltage across it. Consequently, the value read by GP28 also 
+decreases. If the temperature becomes sufficiently high, the thermistor's resistance 
+approaches zero, and the GP28 value nears zero as well. The 10K resistor ensures 
+that the 3.3V supply does not short directly to ground, avoiding a short circuit.
 
-When the temperature drops, the value of GP28 will increase. When the temperature 
-is low enough, the resistance of the thermistor will be infinite, and its voltage 
-will be close to 3.3v (the 10K resistor is negligible), and the value of GP28 will 
-be close to the maximum value of 65535.
+Conversely, when the temperature decreases, the GP28 value increases. In extremely 
+low temperatures, the thermistor's resistance becomes very high, almost infinite. 
+Its voltage then approaches 3.3V (with the 10K resistor being negligible), and the 
+GP28 value gets close to the maximum of 65535.
 
-The calculation formula is shown below.
-
+The calculation formula is as follows:
 (Vp/3.3V) x 65535 = Ap
+
+where Vp is the voltage across the thermistor, and Ap is the corresponding ADC value.
 
 Connect
 ^^^^^^^^^

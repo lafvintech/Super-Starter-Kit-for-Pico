@@ -13,7 +13,6 @@ Component List
 - Jumper Wire Several
 - PIR Motion Sensor Module x1
 
-
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
 :ref:`PIR Motion Sensor Module <cpn_pir_module>`
