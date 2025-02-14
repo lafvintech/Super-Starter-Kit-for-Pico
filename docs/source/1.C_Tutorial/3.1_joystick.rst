@@ -14,7 +14,6 @@ Component List
 - MicroUSB cable x1
 - 830 Tie-Points Breadboard x1
 - Joystick Module x1
-- Resistor 10KΩ x1
 - Jumper Wire Several
 
 Component knowledge

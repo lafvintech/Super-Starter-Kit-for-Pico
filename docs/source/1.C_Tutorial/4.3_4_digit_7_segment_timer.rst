@@ -1,10 +1,16 @@
 4.3 4 Digit 7 Segment Timer
 ================================
-4-digit 7-segment display consists of four 7-segment displays working together.
+A 4-digit 7-segment display is composed of four individual 7-segment displays that 
+operate in tandem. Each digit functions independently, leveraging the principle of 
+human visual persistence. By rapidly cycling through and displaying characters on 
+each 7-segment display, it creates the illusion of a continuous string of characters.
 
-The 4-digtal 7-segment display works independently. It uses the principle of human visual persistence to quickly display the characters of each 7-segment in a loop to form continuous strings.
-
-For example, when “1234” is displayed on the display, “1” is displayed on the first 7-segment, and “234” is not displayed. After a period of time, the second 7-segment shows “2”, the 1st 3th 4th of 7-segment does not show, and so on, the four digital display show in turn. This process is very short (typically 5ms), and because of the optical afterglow effect and the principle of visual residue, we can see four characters at the same time.
+For example, when displaying “1234,” the first 7-segment shows “1” while the others 
+remain blank. After a brief interval, the second 7-segment displays “2,” with the 
+first, third, and fourth segments inactive. This sequence continues, cycling through 
+all four digits. Because each cycle is extremely short (typically 5ms), the optical 
+afterglow effect and the principle of visual persistence allow us to perceive all 
+four characters simultaneously.
 
 Component List
 ^^^^^^^^^^^^^^^
@@ -18,18 +24,17 @@ Component List
 
 Component knowledge
 ^^^^^^^^^^^^^^^^^^^^
-
-:ref:`transistor <cpn_transistor>`
-"""""""""""""""""""""""""""""""""""
-
+:ref:`4-Digit 7-Segment Display <cpn_4-digit_7-segment_display>`
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/4.3.png
 
-Here the wiring principle is basically the same as 4.1 74HC595, the only difference is that Q0-Q7 are connected to the a ~ g pins of the 4-digit 7-segment display.
-
-Then G10 ~ G13 will select which 7-segment display to work.
+The wiring principle here is fundamentally the same as that of the 74HC595 described 
+in Section 4.1. The only difference is that the Q0-Q7 outputs are connected to the a 
+to g pins of the 4-digit 7-segment display. Additionally, pins G10 to G13 are used 
+to select which of the four 7-segment displays is active at any given time.
 
 Connect
 ^^^^^^^^^

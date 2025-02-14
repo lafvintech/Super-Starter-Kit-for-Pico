@@ -18,6 +18,7 @@ Component List
 - 830 Tie-Points Breadboard x1
 - TA6586 x1
 - DC Water Pump x1
+- Resistor 10KΩ x1
 - Li-po Charger Module x1
 - Battery Holder x1
 - Jumper Wire Several

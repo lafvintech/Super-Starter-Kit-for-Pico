@@ -1,8 +1,13 @@
 4.2 7-Segment Display
 =========================
-7 Segment Display can be seen everywhere in life. For example, on an air conditioner, it can be used to display temperature; on a traffic indicator, it can be used to display a timer.
+7 Segment Displays are ubiquitous in everyday life. For instance, they are used 
+on air conditioners to display temperature and on traffic indicators to show countdown 
+timers. Essentially, a 7 Segment Display is a package of 8 LEDs, with 7 strip-shaped 
+LEDs forming an "8" shape and an additional smaller dot LED serving as a decimal 
+point. These LEDs are labeled as a, b, c, d, e, f, g, and dp. 
 
-The 7 Segment Display is essentially a device packaged by 8 LEDs, of which 7 strip-shaped LEDs form an “8” shape, and there is a slightly smaller dotted LED as a decimal point. These LEDs are marked as a, b, c, d, e, f, g, and dp. They have their own anode pins and share cathodes. Their pin locations are shown in the figure below.
+They each have their own anode pins and share common cathodes. The pin layout is 
+illustrated in the figure below.
 
 .. image:: img/1.detail/4.2.png
 
@@ -27,7 +32,9 @@ Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/4.2.png
 
-Here the wiring principle is basically the same as 4.1 74HC595, the only difference is that Q0-Q7 are connected to the a ~ g pins of the 7 Segment Display.
+The wiring principle here is largely the same as that of the 74HC595 described in 
+Section 4.1, with the only difference being that the Q0-Q7 outputs are connected 
+to the a to g pins of the 7 Segment Display.
 
 Connect
 ^^^^^^^^^

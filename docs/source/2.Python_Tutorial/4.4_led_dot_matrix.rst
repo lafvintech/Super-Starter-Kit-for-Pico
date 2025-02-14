@@ -1,13 +1,18 @@
 4.4 LED Dot Matrix
 =========================
-LED matrix is a low-resolution dot-matrix display. it uses an array of light-emitting diodes as pixels for patterned displays.
+The LED matrix is a low-resolution dot-matrix display that uses an array of light-emitting 
+diodes (LEDs) as pixels to create patterned displays. These matrices are bright enough to 
+be visible even in outdoor sunlight and are commonly seen in stores, billboards, signs, 
+and variable message displays (such as those on public transit vehicles).
 
-They are bright enough to be visible in outdoor sunlight, and you can see them on some stores, billboards, signs, and variable message displays (such as those on public transit vehicles).
+The LED matrix used in this kit is an 8x8 dot matrix with 16 pins. The anodes of the 
+LEDs are connected in rows, while the cathodes are connected in columns (at the circuit 
+level). This configuration allows control over the 64 individual LEDs.
 
-Used in this kit is an 8x8 dot matrix with 16 pins. Their anodes are connected in rows and their cathodes are connected in columns (at the circuit level), which together control these 64 LEDs.
-
-To light the first LED, you should provide a high level for Row1 and a low level for Col1. To light the second LED, it should provide a high level for Row1, a low level for Col2, and so on. By controlling the current through each pair of rows and columns, each LED can be controlled individually to display characters or pictures.
-
+To light up the first LED, you need to provide a high level to Row 1 and a low level 
+to Column 1. To light up the second LED, you would provide a high level to Row 1 and 
+a low level to Column 2, and so on. By controlling the current through each pair of 
+rows and columns, each LED can be individually controlled to display characters or images.
 
 Component List
 ^^^^^^^^^^^^^^^
@@ -27,11 +32,16 @@ Schematic
 ^^^^^^^^^^
 .. image:: img/2.sch/4.4.png
 
-The 8x8 dot matrix is controlled by two 74HC595 chips, one controlling the rows and one controlling the columns, while these two chips share G18~G20, which can greatly save the I/O ports of the Pico W board.
+The 8x8 dot matrix is controlled by two 74HC595 chips: one for the rows and one for 
+the columns. These two chips share pins G18 to G20, which significantly reduces the 
+number of I/O ports required on the Pico W board.
 
-Pico W needs to output a 16-bit binary number at a time, the first 8 bits are given to the 74HC595 which controls the rows, and the last 8 bits are given to the 75HC595 which controls the columns, so that the dot matrix can display a specific pattern.
+To display a pattern, the Pico W outputs a 16-bit binary number. The first 8 bits 
+are sent to the 74HC595 controlling the rows, while the last 8 bits are sent to the 
+74HC595 controlling the columns.
 
-Q7’: Series output pin, connected to DS of another 74HC595 to connect multiple 74HC595s in series.
+The Q7' pin is a series output pin, which can be connected to the DS pin of another 
+74HC595 to daisy-chain multiple 74HC595 chips together.
 
 Connect
 ^^^^^^^^^
