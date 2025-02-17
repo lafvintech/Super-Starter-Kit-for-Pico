@@ -1,12 +1,12 @@
 About This Kit
 ===============
 
-LAFVIN Ultimate Starter Kit For Pico W
+LAFVIN Ultimate Starter Kit for Pico W W
 ---------------------------------------
 
 Introduction
 -------------
-The LAFVIN Ultimate Starter Kit for Pico uses the powerful Raspberry Pi Pico W as its core controller and integrates wireless functionality. This kit provides you with a comprehensive learning and development platform, allowing you to easily master the powerful features of the Raspberry Pi Pico W.
+The LAFVIN Ultimate Starter Kit for Pico W uses the powerful Raspberry Pi Pico W as its core controller and integrates wireless functionality. This kit provides you with a comprehensive learning and development platform, allowing you to easily master the powerful features of the Raspberry Pi Pico W.
 The kit offers rich learning resources, including multiple project examples written in C, MicroPython, and Piper Make. Each project comes with detailed circuit diagrams and verified code to help you quickly understand and practice.
 We provide online web tutorials that you can access and refer to anytime, anywhere. Additionally, our free technical support team is always available to answer your questions, ensuring a smooth learning and development process.
 
