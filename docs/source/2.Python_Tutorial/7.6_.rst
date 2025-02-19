@@ -1,139 +1,147 @@
-6.13 RFID Player
-=========================
-Through our previous project, 5.5 Radio Frequency Identification, we learned that the MFRC522 module allows us to write up to 48 letters of information to the card (or key), including both the key and identity information, as well as the music score.
+7.6.IoT Controlled Relay
+==================================
+In this project, we will build an IoT Relay using Raspberry Pi Pico W WiFi and control the Relay via a Web Server. We will use Thonny IDE to program the Raspberry Pi Pico W using MicroPython Code. It’s a great way to build a Wi-Fi switch to turn on and off any electrical device spending very little money.
 
-As an example, if you write EEFGGFEDCCDEEDD EEFGGFEDCCDEDCC, the buzzer will play the music when the card (or key) is read again. It can also be equipped with an WS2812 to display amazing effects.
-
-You can find more sheet music on the Internet, or even write your own music, put them into the card (or key), and share them with your friends!
+This DIY IoT Relay based on the Raspberry Pi Pico W WiFi + Bluetooth module can be used to control High Power Devices like Water Pumps, Air Conditioners, Heaters, and other High Ampere loads. The best thing about this IoT Relay is that it can be controlled remotely in a local network using WiFi technology. The cell phone or any web application can be used to access the Web Server. Using the web page, you can turn ON/OFF any appliances at your home.
 
 Component List
 ^^^^^^^^^^^^^^^
 - Raspberry Pi Pico W x1
 - MicroUSB cable x1
 - 830 Tie-Points Breadboard x1
-- Resistor 1kΩ x1
-- Transistor S8050 x1
-- Passive Buzzer x1
-- MFRC522 Module x1
-- RGB 8 LED Strip x1
+- Resistor 220Ω x1
+- LED x1
+- Relay Module x1
 - Jumper Wire Several
 
-Component knowledge
-^^^^^^^^^^^^^^^^^^^^
-
-Schematic
-^^^^^^^^^^
-.. image:: img/2.sch/6.12.png
-
-This circuit is based on 4.3 Time Counter with the addition of a tilt switch.
-
-GP16 is high when the tilt switch is upright; low when tilted.
+.. warning:: 
+    
+    Modification of electrical appliances comes with great danger, do not try it 
+    lightly, please do it under the guidance of professionals.
 
 Connect
 ^^^^^^^^^
-.. image:: img/3.connect/6.12.png
+.. image:: img/3.connect/1.16.png
+
+This circuit is based on 1.16 Circuit Control with Relay.
 
 Code
 ^^^^^^^
 .. note::
 
-    * Open the ``6.12_game_10_second.py`` file under the path of ``Ultimate-Starter-Kit-for-Pico-W\Python\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
+    * Open the ``7.6.py`` file under the path of ``Ultimate-Starter-Kit-for-Pico-W\Python\1.Project\iot`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
 
     * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
+    
+    * Before running the code, you need to make sure you have do_connect.py and secrets.py scripts in your Pico W, if not please refer to 8.1 Access to the Network to create them.
 
-.. image:: img/4.software/6.12.png
+.. image:: img/4.software/7.6.png
 
-Click “Run current script”, The 4-digit 7-segment display will begin counting when you shake the wand, and will stop counting when you shake it again. You win if you manage to keep the displayed count at 10.00. The game will continue after one more shake.
+Click 'Run current script'. After a successful connection, the shell will display the IP address of the Pico W. You can then enter the IP address in your browser to see the webpage, where you can use the switch above to control the relay and thus turn the LED light on and off.
+
+If you want this script to be able to boot up, you can save it to the Raspberry Pi Pico W as ``main.py``.
 
 The following is the program code:
 
 .. code-block:: python
 
-    import machine
+    from machine import Pin
+    import network
     import time
+    from secrets import *
+    from do_connect import *
+    import usocket as socket
 
-    # 7-segment display codes for digits 0-9, using hexadecimal to represent LED segments
-    SEGCODE = [0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f]
+    # Initialize network connection
+    do_connect()
 
-    # Define pins for shift register communication (74HC595)
-    sdi = machine.Pin(18, machine.Pin.OUT)   # Serial Data Input
-    rclk = machine.Pin(19, machine.Pin.OUT)  # Register Clock (Latch)
-    srclk = machine.Pin(20, machine.Pin.OUT) # Shift Register Clock
+    # Define relay pin configuration
+    RELAY_PIN = 15
+    relay = Pin(RELAY_PIN, Pin.OUT)
+    relay.value(0)  # Set initial state to OFF (0)
 
-    # Initialize list to store 4 digit control pins
-    placePin = []
+    # HTML template for web interface
+    # Contains CSS for switch styling and JavaScript for AJAX requests
+    HTML_TEMPLATE = """<html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    body{{font-family:Arial; text-align: center; margin: 0px auto; padding-top:30px;}}
+    .switch{{position:relative;display:inline-block;width:120px;height:68px}}
+    .switch input{{display:none}}
+    .slider{{position:absolute;top:0;left:0;right:0;bottom:0;background-color:#ccc;border-radius:34px}}
+    .slider:before{{position:absolute;content:"";height:52px;width:52px;left:8px;bottom:8px;background-color:#fff;-webkit-transition:.4s;transition:.4s;border-radius:68px}}
+    input:checked+.slider{{background-color:#2196F3}}
+    input:checked+.slider:before{{-webkit-transform:translateX(52px);-ms-transform:translateX(52px);transform:translateX(52px)}}
+    </style>
+    <script>
+    function toggleCheckbox(element) {{
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/?relay=" + (element.checked ? "on" : "off"), true);
+    xhr.send();
+    }}
+    </script>
+    </head>
+    <body>
+    <h1>Pico W IoT Relay Control</h1>
+    <label class="switch">
+    <input type="checkbox" onchange="toggleCheckbox(this)" {state}>
+    <span class="slider"></span>
+    </label>
+    </body>
+    </html>"""
 
-    # Define control pins for each of the four digits (common anodes)
-    pin = [10,13,12,11]  # Pin numbers for the 4-digit display
-    for i in range(4):
-        placePin.append(None)  # Reserve space in list
-        placePin[i] = machine.Pin(pin[i], machine.Pin.OUT)  # Initialize pin as output
+    def web_server():
+        """
+        Generate HTML response based on current relay state
+        Returns: HTML content with current relay state
+        """
+        relay_state = 'checked' if relay.value() == 1 else ''
+        return HTML_TEMPLATE.format(state=relay_state)
 
-    # Function to select which digit (0-3) to display by controlling the common anode pins
-    def pickDigit(digit):
-        for i in range(4):
-            placePin[i].value(1)  # Turn off all digits
-        placePin[digit].value(0)  # Turn on the selected digit
+    def handle_request(conn):
+        """
+        Handle incoming HTTP requests
+        Args:
+            conn: Socket connection object
+        """
+        # Receive and process HTTP request
+        request = conn.recv(1024)
+        request = str(request)
+        print('Content = %s' % request)
+        
+        # Process relay control commands
+        if '/?relay=on' in request:
+            print('RELAY ON')
+            relay.value(1)
+        elif '/?relay=off' in request:
+            print('RELAY OFF')
+            relay.value(0)
 
-    # Function to clear the display by sending '0x00' to the shift register
-    def clearDisplay():
-        hc595_shift(0x00)
+        # Send HTTP response
+        response = web_server()
+        conn.send(b'HTTP/1.1 200 OK\n')
+        conn.send(b'Content-Type: text/html\n')
+        conn.send(b'Connection: close\n\n')
+        conn.sendall(response.encode('utf-8'))
+        conn.close()
 
-    # Function to send data to the shift register (74HC595)
-    def hc595_shift(dat):
-        rclk.low()  # Pull latch low to prepare for data shifting
-        time.sleep_us(200)  # Small delay for timing stability
-        for bit in range(7, -1, -1):  # Loop through each bit (MSB first)
-            srclk.low()  # Prepare to send the next bit
-            time.sleep_us(200)
-            value = 1 & (dat >> bit)  # Extract the current bit from the data
-            sdi.value(value)  # Set the data line to the current bit value
-            time.sleep_us(200)
-            srclk.high()  # Pulse the shift clock to store the bit in the register
-            time.sleep_us(200)
-        time.sleep_us(200)
-        rclk.high()  # Pulse the register clock to move the data to the output
+    # Initialize socket server
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.bind(('', 80))  # Bind to port 80
+    s.listen(5)       # Listen for up to 5 connections
 
-    # Function to display a number on the 7-segment display
-    # This function breaks down the number into its individual digits and displays them one at a time
-    def display(num):
-        pickDigit(0)  # Select the units place
-        hc595_shift(SEGCODE[num % 10])  # Display units
+    print('Server started, waiting for connections...')
 
-        pickDigit(1)  # Select the tens place
-        hc595_shift(SEGCODE[num % 100 // 10])  # Display tens
-
-        pickDigit(2)  # Select the hundreds place
-        hc595_shift(SEGCODE[num % 1000 // 100] + 0x80)  # Display hundreds (with decimal point)
-
-        pickDigit(3)  # Select the thousands place
-        hc595_shift(SEGCODE[num % 10000 // 1000])  # Display thousands
-
-    # Initialize the tilt switch sensor on pin 16
-    tilt_switch = machine.Pin(16, machine.Pin.IN)
-
-    # Boolean flag to control whether the counting should continue
-    count_flag = False
-
-    # Interrupt handler for the tilt switch, toggles the counting flag on each trigger
-    def shake(pin):
-        global timeStart, count_flag
-        count_flag = not count_flag  # Toggle the counting state
-        if count_flag == True:
-            timeStart = time.ticks_ms()  # Record the time when counting starts
-
-    # Set up an interrupt on the tilt switch to detect shaking and call the shake() function
-    tilt_switch.irq(trigger=machine.Pin.IRQ_RISING, handler=shake)
-
-    # Initialize the count variable to zero
-    count = 0
-
-    # Main loop to continuously update the display based on the elapsed time since the tilt switch was triggered
+    # Main loop to handle incoming connections
     while True:
-        if count_flag == True:
-            count = int((time.ticks_ms() - timeStart) / 10)  # Calculate the count in tenths of a second
-        display(count)  # Update the display with the current count
-
+        try:
+            # Accept new connection
+            conn, addr = s.accept()
+            print('Got a connection from %s' % str(addr))
+            handle_request(conn)
+        except OSError as e:
+            print('Connection closed: %s' % e)
 
 Phenomenon
 ^^^^^^^^^^^

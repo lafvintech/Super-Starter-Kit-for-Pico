@@ -1,141 +1,218 @@
-6.13 RFID Player
+7.1 Access to the Network
 =========================
-Through our previous project, 5.5 Radio Frequency Identification, we learned that the MFRC522 module allows us to write up to 48 letters of information to the card (or key), including both the key and identity information, as well as the music score.
-
-As an example, if you write EEFGGFEDCCDEEDD EEFGGFEDCCDEDCC, the buzzer will play the music when the card (or key) is read again. It can also be equipped with an WS2812 to display amazing effects.
-
-You can find more sheet music on the Internet, or even write your own music, put them into the card (or key), and share them with your friends!
+Raspberry Pi Pico W is very similar to Raspberry Pi Pico, with the same GPIO, mi
+croUSB port, and size. The only difference is the addition of the CYW43439 2.4-G
+Hz Wi-Fi chip from Infineon. Now let’s see how it connects to our Wi-Fi network.
 
 Component List
 ^^^^^^^^^^^^^^^
 - Raspberry Pi Pico W x1
 - MicroUSB cable x1
-- 830 Tie-Points Breadboard x1
-- Resistor 1kΩ x1
-- Transistor S8050 x1
-- Passive Buzzer x1
-- MFRC522 Module x1
-- RGB 8 LED Strip x1
-- Jumper Wire Several
 
-Component knowledge
-^^^^^^^^^^^^^^^^^^^^
+1.Connect to the Internet
+-----------------------------------------------
+With just five lines of MicroPython, our Raspberry Pi Pico W is happily connected to the Internet.
 
-Schematic
-^^^^^^^^^^
-.. image:: img/2.sch/6.12.png
-
-This circuit is based on 4.3 Time Counter with the addition of a tilt switch.
-
-GP16 is high when the tilt switch is upright; low when tilted.
-
-Connect
-^^^^^^^^^
-.. image:: img/3.connect/6.12.png
-
-Code
-^^^^^^^
-.. note::
-
-    * Open the ``6.12_game_10_second.py`` file under the path of ``Ultimate-Starter-Kit-for-Pico-W\Python\1.Project`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it.
-
-    * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
-
-.. image:: img/4.software/6.12.png
-
-Click “Run current script”, The 4-digit 7-segment display will begin counting when you shake the wand, and will stop counting when you shake it again. You win if you manage to keep the displayed count at 10.00. The game will continue after one more shake.
-
-The following is the program code:
+These 5 lines of code can be run directly from the Shell, pressing the ``Enter`` after you typing.
+Or refer to the following method and create a new ``.py`` file to run it.
 
 .. code-block:: python
 
-    import machine
+    import network
+    wlan = network.WLAN(network.STA_IF)
+    wlan.active(True)
+    wlan.connect("SSID","PASSWORD")
+    print(wlan.isconnected())
+
+#. Create a new script by clicking the **New** button on Thonny, and copy and paste the above code, changing the ``SSID`` and ``PASSWORD`` to your own.
+
+    .. image:: img/access1.png
+
+#. To run the script, click the **Run current script** button or press F5. If the connection is successful, ``true`` will be printed. 
+
+    .. note::
+
+        Make sure the Raspberry Pi Pico W is connected to computer via a USB cable, then click on the bottom right corner to select MicroPython (Raspberry Pi Pico).COMXxx as the interpreter.
+
+    .. image:: img/access2.png
+
+
+2. Timeout Judgment and Show IP
+-----------------------------------------------
+
+
+Considering some poor network conditions, let's add some timeout judgment to the code.
+
+If the connection is successful, the IP of Pico W will be displayed after copying and running the script.
+
+.. code-block:: python
+
+    import network
     import time
 
-    # 7-segment display codes for digits 0-9, using hexadecimal to represent LED segments
-    SEGCODE = [0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f]
+    wlan = network.WLAN(network.STA_IF)
+    wlan.active(True)
+    wlan.connect("SSID","PASSWORD")
 
-    # Define pins for shift register communication (74HC595)
-    sdi = machine.Pin(18, machine.Pin.OUT)   # Serial Data Input
-    rclk = machine.Pin(19, machine.Pin.OUT)  # Register Clock (Latch)
-    srclk = machine.Pin(20, machine.Pin.OUT) # Shift Register Clock
+    # Wait for connect or fail
+    wait = 10
+    while wait > 0:
+        if wlan.status() < 0 or wlan.status() >= 3:
+            break
+        wait -= 1
+        print('waiting for connection...')
+        time.sleep(1)
 
-    # Initialize list to store 4 digit control pins
-    placePin = []
+    # Handle connection error
+    if wlan.status() != 3:
+        raise RuntimeError('wifi connection failed')
+    else:
+        print('connected')
+        print('IP: ', wlan.ifconfig()[0])
 
-    # Define control pins for each of the four digits (common anodes)
-    pin = [10,13,12,11]  # Pin numbers for the 4-digit display
-    for i in range(4):
-        placePin.append(None)  # Reserve space in list
-        placePin[i] = machine.Pin(pin[i], machine.Pin.OUT)  # Initialize pin as output
+.. image:: img/access3.png
 
-    # Function to select which digit (0-3) to display by controlling the common anode pins
-    def pickDigit(digit):
-        for i in range(4):
-            placePin[i].value(1)  # Turn off all digits
-        placePin[digit].value(0)  # Turn on the selected digit
-
-    # Function to clear the display by sending '0x00' to the shift register
-    def clearDisplay():
-        hc595_shift(0x00)
-
-    # Function to send data to the shift register (74HC595)
-    def hc595_shift(dat):
-        rclk.low()  # Pull latch low to prepare for data shifting
-        time.sleep_us(200)  # Small delay for timing stability
-        for bit in range(7, -1, -1):  # Loop through each bit (MSB first)
-            srclk.low()  # Prepare to send the next bit
-            time.sleep_us(200)
-            value = 1 & (dat >> bit)  # Extract the current bit from the data
-            sdi.value(value)  # Set the data line to the current bit value
-            time.sleep_us(200)
-            srclk.high()  # Pulse the shift clock to store the bit in the register
-            time.sleep_us(200)
-        time.sleep_us(200)
-        rclk.high()  # Pulse the register clock to move the data to the output
-
-    # Function to display a number on the 7-segment display
-    # This function breaks down the number into its individual digits and displays them one at a time
-    def display(num):
-        pickDigit(0)  # Select the units place
-        hc595_shift(SEGCODE[num % 10])  # Display units
-
-        pickDigit(1)  # Select the tens place
-        hc595_shift(SEGCODE[num % 100 // 10])  # Display tens
-
-        pickDigit(2)  # Select the hundreds place
-        hc595_shift(SEGCODE[num % 1000 // 100] + 0x80)  # Display hundreds (with decimal point)
-
-        pickDigit(3)  # Select the thousands place
-        hc595_shift(SEGCODE[num % 10000 // 1000])  # Display thousands
-
-    # Initialize the tilt switch sensor on pin 16
-    tilt_switch = machine.Pin(16, machine.Pin.IN)
-
-    # Boolean flag to control whether the counting should continue
-    count_flag = False
-
-    # Interrupt handler for the tilt switch, toggles the counting flag on each trigger
-    def shake(pin):
-        global timeStart, count_flag
-        count_flag = not count_flag  # Toggle the counting state
-        if count_flag == True:
-            timeStart = time.ticks_ms()  # Record the time when counting starts
-
-    # Set up an interrupt on the tilt switch to detect shaking and call the shake() function
-    tilt_switch.irq(trigger=machine.Pin.IRQ_RISING, handler=shake)
-
-    # Initialize the count variable to zero
-    count = 0
-
-    # Main loop to continuously update the display based on the elapsed time since the tilt switch was triggered
-    while True:
-        if count_flag == True:
-            count = int((time.ticks_ms() - timeStart) / 10)  # Calculate the count in tenths of a second
-        display(count)  # Update the display with the current count
+* ``wlan.status()`` function: Returns the current status of the wireless connection, the return value is shown in the table below.
 
 
-Phenomenon
-^^^^^^^^^^^
-.. video:: img/5.phenomenon/6.13.mp4
-    :width: 100%
+    .. list-table::
+        :widths: 40 10 50
+
+        * - Status
+          - Value
+          - Description
+        * - STAT_IDLE 
+          - 0 
+          - no connection and no activity,
+        * - STAT_CONNECTING 
+          - 1 
+          - connecting in progress,
+        * - STAT_WRONG_PASSWORD 
+          - -3 
+          - failed due to incorrect password,
+        * - STAT_NO_AP_FOUND 
+          - -2 
+          - failed because no access point replied,
+        * - STAT_CONNECT_FAIL 
+          - -1 
+          - failed due to other problems,
+        * - STAT_GOT_IP 
+          - 3 
+          - connection successful.
+
+* ``wlan.ifconfig()`` function: Obtains IP addresses, subnet masks, gateways, and DNS servers. This method will return a 4-tuple containing the above information when called directly. In this case, we only print the IP address.
+
+*  `class WLAN – MicroPython Docs <https://docs.micropython.org/en/latest/library/network.WLAN.html>`_
+
+.. _create_secrets:
+
+3. Save private information to ``secrets.py``
+----------------------------------------------------------
+
+When you share your Pico W project, you should not want others to see your Wi-Fi password or API key.
+For good security, we can create a ``secrets.py`` file to store your private information.
+
+#. Copy the following code into a new script file on Thonny. Note to change ``SSID`` and ``PASSWORD`` to yours.
+
+    .. code-block:: python
+
+        secrets = {
+        'ssid': 'SSID',
+        'password': 'PASSWORD',
+        }
+
+#. Choose Raspberry Pi Pico in the pop-up window that appears when you click the Save button or press ``Ctrl+S``.
+
+    .. image:: img/access4.png
+
+#. Set the name to ``secrets.py``.
+
+    .. image:: img/access5.png
+
+#. Now you can see this script in your Raspberry Pi Pico W.
+
+    .. image:: img/access6.png
+
+#. In other scripts, you can call it as follows. If you run it, you will see a successful Wi-Fi connection. The ``secrets.py`` file is imported as a library, so we need not worry about leakage of information.
+
+    .. code-block:: python
+        :emphasize-lines: 3,7
+
+        import network
+        import time
+        from secrets import secrets
+
+        wlan = network.WLAN(network.STA_IF)
+        wlan.active(True)
+        wlan.connect(secrets['ssid'], secrets['password'])
+
+        # Wait for connect or fail
+        wait = 10
+        while wait > 0:
+            if wlan.status() < 0 or wlan.status() >= 3:
+                break
+            wait -= 1
+            print('waiting for connection...')
+            time.sleep(1)
+
+        # Handle connection error
+        if wlan.status() != 3:
+            raise RuntimeError('wifi connection failed')
+        else:
+            print('connected')
+            print('IP: ', wlan.ifconfig()[0])
+
+    .. image:: img/access8.png
+
+.. _do_connect:
+
+4. Connect to the Internet via ``do_connect.py``
+--------------------------------------------------------------
+
+Considering that each of our next projects will require a network connection, why don't we create a new ``do_connect.py`` file and write the relevant functions into it for reuse, which can greatly streamline the code of complex projects.
+
+#. Copy the following code into a new script file, and save it to Raspberry Pi Pico as ``do_connect.py``.
+
+    .. code-block:: python
+
+        import network
+        import time
+        from secrets import *
+
+        def do_connect(ssid=secrets['ssid'],psk=secrets['password']):
+            wlan = network.WLAN(network.STA_IF)
+            wlan.active(True)
+            wlan.connect(ssid, psk)
+
+            # Wait for connect or fail
+            wait = 10
+            while wait > 0:
+                if wlan.status() < 0 or wlan.status() >= 3:
+                    break
+                wait -= 1
+                print('waiting for connection...')
+                time.sleep(1)
+
+            # Handle connection error
+            if wlan.status() != 3:
+                raise RuntimeError('wifi connection failed')
+            else:
+                print('connected')
+                ip=wlan.ifconfig()[0]
+                print('network config: ', ip)
+                return ip
+
+    .. image:: img/access7.png
+
+#. Calling it in other scripts by the following will allow the Raspberry Pi Pico W to connect to the network.
+
+    .. code-block:: python
+
+        from do_connect import *
+        do_connect()
+
+
+.. https://www.tomshardware.com/reviews/raspberry-pi-pico-w
+
+
+
